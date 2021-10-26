@@ -9,7 +9,7 @@ function Volunteer(){
             <s.VolunteerTable>
                 <tr>
                     <th>봉사시간</th>
-                    <td><VolunteerColumn text={""} unit={"시간"}/></td>
+                    <td><VolunteerColumn unit={"시간"}/></td>
                     <td></td>
                 </tr>
                 <tr>
