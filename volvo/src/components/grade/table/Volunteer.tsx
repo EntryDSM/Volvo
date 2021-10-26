@@ -15,11 +15,11 @@ function Volunteer(){
                 <tr>
                     <th rowSpan={2}>출석정보</th>
                     <td><VolunteerColumn text={"전체 미인정 결석 일수"} unit={"일"}></VolunteerColumn></td>
-                    <td></td>
+                    <td><VolunteerColumn text={"전체 미인정 조퇴 일수"} unit={"일"}></VolunteerColumn></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><VolunteerColumn text={"전체 미인정 지각 일수"} unit={"일"}></VolunteerColumn></td>
+                    <td><VolunteerColumn text={"전체 미인정 결과 일수"} unit={"일"}></VolunteerColumn></td>
                 </tr>
             </s.VolunteerTable>
         </s.VolunteerWrapper>
