@@ -50,6 +50,8 @@ export const VolunteerWrapper= styled.div`
 `
 export const VolunteerTable = styled.table`
     margin-bottom: 77px; 
+    width:"100%";
+    table-layout:fixed;
     tr,td,th{
         border : 1px solid rgb(203, 203, 203);
         border-collapse : collapse;
