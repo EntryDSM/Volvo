@@ -6,7 +6,7 @@ const MainRouter = () => {
   return (
     <>
       <Switch>
-        <Route path="/grade" component={Grade}></Route>
+        <Route path="/grade" component={Grade}/>
       </Switch>
     </>
   );
