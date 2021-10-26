@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+// index.tsx style
 export const GradeWrapper = styled.div`
     width: 1220px;
     margin: 0px auto;
@@ -18,6 +18,25 @@ export const GradeBigTitle = styled.p`
     font-size: 35px;
     letter-spacing: 1.05px;
 `
+export const PageMoveWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 100px 0 120px;
+    
+    >button{
+        width: 140px;
+        height: 50px;
+        border-radius: 8px;
+        background-color: white;
+        padding: 0px 20px;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 16px;
+    }
+`
+//volunteer.tsx
 export const VolunteerWrapper= styled.div`
     display: flex;
     flex-direction: column;
@@ -31,7 +50,12 @@ export const VolunteerWrapper= styled.div`
 `
 export const VolunteerTable = styled.table`
     margin-bottom: 77px; 
-    >tr{
+    tr,td,th{
+        border : 1px solid rgb(203, 203, 203);
+        border-collapse : collapse;
+        font-weight :500;
+    }
+    >tr{   
         
         >th{
         width: 151px;
@@ -40,19 +64,86 @@ export const VolunteerTable = styled.table`
         box-sizing: border-box;
         text-align: center;
         height: 70px;
-        padding: 25px 0px;
+
         }
         >td{
+        font-weight: 400;
         width: 530px;
         height: 70px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         box-sizing: border-box;
         padding: 0px 32px;
         font-size: 18px;
-        border-bottom: 1px solid rgb(203, 203, 203);
-        border-right: 1px solid rgb(203, 203, 203);
+        }
+    }
+`
+//gradetable.tsx
+export const GradeTableWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+export const GradeTableTitle = styled.p`
+    margin-bottom: 15px;
+    font-size: 20px;
+    letter-spacing: -0.4px;
+    font-weight: 400;
+`
+export const GradeTableFrame= styled.table`
+    tr,td,th{
+        border : 1px solid rgb(203, 203, 203);
+        border-collapse : collapse; 
+        font-weight: 500;
+    }
+    >tr{
+        >th{
+            font-size: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: rgb(255, 235, 236);
+            
+        }
+        >td{
+            padding: 0 32px;
+        }
+    }
+`
+
+//VolunteerColumn.tsx
+export const VolunteerColumnWrapper = styled.div`
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+`
+export const VolunteerColumnInputWrapper= styled.div`
+    display: flex;
+    align-items: center;
+    >input{
+        border-radius: 5px;
+        outline: none;
+        border:1px solid rgb(112,112,112);
+        width: 4.75rem;
+        height: 2.25rem;
+        text-align: center;
+        font-size: 18px;
+    }
+    >p{
+        margin-left: 15px;
+    }
+`
+export const VolunteerColumnTitle = styled.p`
+    font-size: 18px;
+`
+//gradeColumn
+export const GradeColumnFontWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    >p{
+        font-size: 18px;
+        margin: 0 3px;
+        :hover{
+            color: rgb(245, 114, 120);
+            font-weight: 900;
         }
     }
 `
