@@ -16,14 +16,12 @@ import {
   GET_SELECTTYPE,
   SELECTTYPE,
 } from '../../action/selectType/interface';
-import { call, debounce, put, select, takeLatest } from 'redux-saga/effects';
+import { debounce, put, select, takeLatest } from 'redux-saga/effects';
+import * as Effects from 'redux-saga/effects';
 import { reducerType } from '../../reducer';
-import {
-  selectTypeInterface,
-  selectTypeSaveType,
-  selectTypeType,
-} from '../../../../constance/selectType';
+import { selectTypeInterface } from '../../../../constance/selectType';
 import SelectTypeState from '../../reducer/selectType/interface';
+import { responseGenerator } from '../../../../models/dto/response/responseGenerator';
 
 const actionArray = [
   TYPE,
@@ -39,6 +37,8 @@ const actionArray = [
 const getStateFunc = (state: reducerType): reducerType['selectType'] => state.selectType;
 export const getSelectTypeRequestSaga = createRequestSaga(GET_SELECTTYPE, getSelectType);
 
+const call: any = Effects.call;
+
 export const selectTypeSaveSaga = function* () {
   const SUCCESS = 'SELECTTYPE/SELECTTYPE_SUCCESS';
   const FAILURE = 'SELECTTYPE/SELECTTYPE_FAILURE';
@@ -46,12 +46,12 @@ export const selectTypeSaveSaga = function* () {
   const request: selectTypeInterface = selectTypeStateToRequest(state);
   const accessToken = localStorage.getItem('access_token');
   try {
-    const response: any = yield call(selectType, accessToken, request);
+    const response: responseGenerator = yield call(selectType, accessToken, request);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
     });
-  } catch (error) {
+  } catch (error: any) {
     if (error.response?.data) {
       yield put({
         type: FAILURE,

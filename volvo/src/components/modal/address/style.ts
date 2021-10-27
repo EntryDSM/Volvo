@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { pxToRem } from '../../../style';
 
 export const AddressModalWrapper = styled.div`
   width: 100%;
@@ -8,7 +9,7 @@ export const AddressModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 60px;
+  top: ${pxToRem(60)}rem;
   left: 0;
   z-index: 100;
   padding: 0;

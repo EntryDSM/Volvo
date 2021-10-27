@@ -1,27 +1,27 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import createRequestSaga from '../../../../util/saga/createRequestSaga';
 import { SIGNIN } from '../../action/signin';
 import { refreshToken, signin } from '../../../../util/api/signin';
 import { MODAL_OFF } from '../../action/modal';
 import { IS_LOGIN } from '../../action/auth';
 import { REFRESH_TOKEN } from '../../action/signin/interface';
+import { responseGenerator } from '../../../../models/dto/response/responseGenerator';
 
 export const refreshTokenSaga = function* (action: any) {
   const FAILURE = `${REFRESH_TOKEN}_FAILURE`;
   const SUCCESS = `${REFRESH_TOKEN}_SUCCESS`;
   const callback = action.payload.callback;
   try {
-    const response = yield call(refreshToken);
+    const response: { access_token: string } = yield call(refreshToken);
     yield put({
       type: SUCCESS,
     });
     localStorage.setItem('access_token', response.access_token);
     yield call(callback);
-  } catch (e) {
-    if (e.response?.data) {
+  } catch (error: any) {
+    if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...e.response.data, type: REFRESH_TOKEN },
+        payload: { ...error.response.data, type: REFRESH_TOKEN },
       });
     } else {
       yield put({
@@ -39,7 +39,7 @@ export const siginRequestSaga = function* (action: any) {
   const SUCCESS = `${SIGNIN}_SUCCESS`;
   const FAILURE = `${SIGNIN}_FAILURE`;
   try {
-    const response = yield call(signin, action.payload);
+    const response: responseGenerator = yield call(signin, action.payload);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
@@ -51,11 +51,11 @@ export const siginRequestSaga = function* (action: any) {
       type: IS_LOGIN,
       payload: true,
     });
-  } catch (e) {
-    if (e.response?.data) {
+  } catch (error: any) {
+    if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...e.response.data, type: SIGNIN },
+        payload: { ...error.response.data, type: SIGNIN },
       });
     } else {
       yield put({

@@ -12,7 +12,11 @@ import PreviewState from './interface';
 
 const initState: PreviewState = {
   preview: '',
-  error: null,
+  error: {
+    status: 0,
+    type: '',
+    message: '',
+  },
   isSuccessSaveFinal: undefined,
   finalPdf: null,
 };

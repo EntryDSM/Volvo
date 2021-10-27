@@ -1,5 +1,5 @@
+import { color, pxToRem } from '../../../style';
 import styled, { css } from 'styled-components';
-import { color } from '../../../style';
 
 export const Button = styled.button<{
   width?: number;
@@ -9,8 +9,8 @@ export const Button = styled.button<{
 }>`
   cursor: pointer;
   ${({ width, height, disable, margin }) => css`
-    width: ${width ? width : 78}px;
-    height: ${height ? height : 40}px;
+    width: ${width ? pxToRem(width) : pxToRem(78)}rem;
+    height: ${height ? pxToRem(height) : pxToRem(40)}rem;
     border: 1px solid ${color.fail};
     background-color: ${disable ? '#f1f1f1' : color.backgorund};
     margin: ${margin ? margin : ''};

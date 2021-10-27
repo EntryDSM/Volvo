@@ -7,3 +7,9 @@ export const color = {
   light: '#ffebec',
   disable: '#afafaf',
 };
+
+const HTML_FONT_SIZE = 16;
+
+export const pxToRem = (px: number): number => {
+  return px / HTML_FONT_SIZE;
+};

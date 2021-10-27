@@ -9,7 +9,7 @@ interface Props {
   setSocialType: (payload: string) => void;
   setRemark: (payload: string) => void;
   applicationRemark: string | null;
-  applicationType: string;
+  applicationType: string | null;
 }
 
 const ChooseType: FC<Props> = ({

@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
-import { color } from '../../style';
+import { color, pxToRem } from '../../style';
 import { background } from '../../assets/main';
 
 export const Main = styled.div`
   width: 100%;
   min-height: 100vh;
-  min-width: 1320px;
+  min-width: ${pxToRem(1320)}rem;
   box-sizing: border-box;
 `;
 
@@ -13,7 +13,7 @@ export const MainBackground = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  min-height: 900px;
+  min-height: ${pxToRem(900)}rem;
   overflow: hidden;
   background-image: url(${background});
   background-repeat: no-repeat;
@@ -21,13 +21,13 @@ export const MainBackground = styled.div`
   background-size: 110%;
   z-index: -100;
   @media (max-width: 1320px) {
-    width: 1320px;
+    width: ${pxToRem(1320)}rem;
   }
 `;
 
 export const MainWrapper = styled.div`
-  padding: 0px 250px;
-  padding-top: 120px;
+  padding: 0px ${pxToRem(250)}rem;
+  padding-top: ${pxToRem(120)}rem;
   box-sizing: border-box;
   justify-content: center;
   display: flex;
@@ -38,40 +38,40 @@ export const MainWrapper = styled.div`
 
 export const MainContentWrapper = styled.div`
   > .mainDescription {
-    margin-bottom: 63px;
+    margin-bottom: ${pxToRem(63)}rem;
   }
   > .subDescription {
-    margin-bottom: 160px;
+    margin-bottom: ${pxToRem(160)}rem;
     margin-top: 20px;
   }
 `;
 
 export const MainSubTitle = styled.h3`
-  font-size: 20px;
+  font-size: ${pxToRem(20)}rem;
   font-weight: 300;
 `;
 
 export const MainTitle = styled.h1`
-  font-size: 35px;
-  margin-bottom: 100px;
+  font-size: ${pxToRem(35)}rem;
+  margin-bottom: ${pxToRem(100)}rem;
   font-weight: 400;
 `;
 
 export const MainDescription = styled.p`
   > p {
-    font-size: 30px;
+    font-size: ${pxToRem(30)}rem;
     > span {
       color: ${color.main};
       font-weight: 500;
-      font-size: 34px;
+      font-size: ${pxToRem(34)}rem;
     }
   }
 `;
 
 export const MainButton = styled.button<{ isAble: boolean }>`
-  width: calc(360 * (4 / 5)) px;
-  height: calc(100 * (4 / 5)) px;
-  border-radius: 18px;
+  width: ${pxToRem(360) * (4 / 5)}rem;
+  height: ${pxToRem(100) * (4 / 5)}rem;
+  border-radius: ${pxToRem(18)}rem;
   background-color: ${props => (props.isAble ? color.main : color.fail)};
   display: flex;
   align-items: center;
@@ -84,17 +84,17 @@ export const MainButton = styled.button<{ isAble: boolean }>`
   outline: none;
   cursor: ${props => (props.isAble ? 'pointer' : 'not-allowed')};
   > div {
-    width: 17px;
-    height: 3px;
-    border-radius: 15px;
+    width: ${pxToRem(17)}rem;
+    height: ${pxToRem(3)}rem;
+    border-radius: ${pxToRem(15)}rem;
     background-color: white;
     margin-left: 30px;
     transform: rotate(45deg) translate(-2px, -7px);
     ::after {
       display: block;
-      width: 17px;
-      height: 3px;
-      border-radius: 15px;
+      width: ${pxToRem(17)}rem;
+      height: ${pxToRem(3)}rem;
+      border-radius: ${pxToRem(15)}rem;
       background-color: white;
       content: '';
       transform: rotate(90deg) translate(7px, -7px);
@@ -102,7 +102,7 @@ export const MainButton = styled.button<{ isAble: boolean }>`
   }
   > p {
     color: white;
-    font-size: 30px;
+    font-size: ${pxToRem(30)}rem;
   }
 `;
 
@@ -123,12 +123,12 @@ export const Progress = styled.div`
 
 export const ProgressText = styled.p<{ isNow: boolean; isPassed: boolean }>`
   color: ${({ isNow, isPassed }) => (isNow ? color.main : isPassed ? 'black' : color.fail)};
-  font-size: 25px;
+  font-size: ${pxToRem(25)}rem;
   font-weight: 500;
 `;
 
 export const ProgressSubText = styled.p`
-  font-size: 23px;
+  font-size: ${pxToRem(23)}rem;
   > span {
     color: ${color.main};
   }
@@ -136,15 +136,15 @@ export const ProgressSubText = styled.p`
 
 export const ProgressContent = styled.div`
   display: flex;
-  margin: 20px 0px 20px 0px;
+  margin: ${pxToRem(20)}rem 0px ${pxToRem(20)}rem 0px;
 `;
 
 export const ProgressIcon = styled.div<{ isPassed: boolean }>`
-  width: 95px;
-  height: 95px;
+  width: ${pxToRem(95)}rem;
+  height: ${pxToRem(95)}rem;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.16);
-  margin: 0px 65px;
-  border-radius: 95px;
+  margin: 0px ${pxToRem(65)}rem;
+  border-radius: ${pxToRem(95)}rem;
   background-color: white;
   overflow: hidden;
   position: relative;
@@ -175,12 +175,12 @@ export const ProgressIcon = styled.div<{ isPassed: boolean }>`
                 height: 4px;
               }
               > div:first-child {
-                width: 21px;
+                width: ${pxToRem(21)}rem;
                 border-radius: 21px;
                 transform: rotate(45deg);
               }
               > div:last-child {
-                width: 44px;
+                width: ${pxToRem(44)}rem;
                 border-radius: 21px;
                 transform: translate(10px, -11px) rotate(140deg);
               }
@@ -193,7 +193,7 @@ export const ProgressIcon = styled.div<{ isPassed: boolean }>`
                 height: 4px;
               }
               > div:first-child {
-                width: 56px;
+                width: ${pxToRem(56)}rem;
                 border-radius: 21px;
                 transform: rotate(45deg);
               }
@@ -207,15 +207,15 @@ export const ProgressIcon = styled.div<{ isPassed: boolean }>`
 `;
 
 export const ProgressBlankBar = styled.div`
-  width: 4px;
-  height: 59px;
+  width: ${pxToRem(4)}rem;
+  height: ${pxToRem(59)}rem;
   border-radius: 1000px;
   background-color: ${color.middleBar};
-  margin-left: 290px;
+  margin-left: ${pxToRem(290)}rem;
 `;
 
 export const ProgressTextWrapper = styled.div`
-  width: 180px;
+  width: ${pxToRem(180)}rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;

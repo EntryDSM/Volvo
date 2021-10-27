@@ -1,14 +1,14 @@
-import { color } from '../../style';
+import { color, pxToRem } from '../../style';
 import styled from 'styled-components';
 
 export const FooterDiv = styled.div`
   > div {
     width: 100%;
-    height: 204px;
-    min-width: 1320px;
+    height: ${pxToRem(204)}rem;
+    min-width: ${pxToRem(1320)}rem;
     background-color: ${color.sub};
     color: ${color.backgorund};
-    padding: 20px 0px;
+    padding: ${pxToRem(20)}rem 0px;
     display: flex;
     justify-content: space-between;
     padding: 0 15%;
@@ -26,20 +26,20 @@ export const FooterDiv = styled.div`
   }
 `;
 export const FooterTitle = styled.p`
-  font-size: 33px;
-  margin-bottom: 8px;
+  font-size: ${pxToRem(33)}rem;
+  margin-bottom: ${pxToRem(8)}rem;
   font-weight: 500;
 `;
 
 export const FooterText = styled.div<{ margin?: string }>`
-  font-size: 10px;
+  font-size: ${pxToRem(10)}rem;
   margin-bottom: ${props => (props.margin ? `${props.margin}px` : '10px')};
 `;
 
 export const FooterButton = styled.p`
-  width: 80px;
-  font-size: 16px;
-  margin: 16px;
+  width: ${pxToRem(80)}rem;
+  font-size: ${pxToRem(16)}rem;
+  margin: ${pxToRem(16)}rem;
   text-align: right;
   cursor: pointer;
 `;
@@ -52,8 +52,8 @@ export const FooterImgButtonDiv = styled.div`
 `;
 
 export const FooterImgButton = styled.div`
-  width: 20px;
-  height: 20px;
+  width: ${pxToRem(20)}rem;
+  height: ${pxToRem(20)}rem;
   padding: 8px 8px 8px 0px;
   cursor: pointer;
 `;

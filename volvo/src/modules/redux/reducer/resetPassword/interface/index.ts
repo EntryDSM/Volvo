@@ -1,4 +1,4 @@
-import { error } from 'src/models/error';
+import { error } from '../../../../../models/error';
 
 export interface IResetPasswordState {
   vertifyCode: string;

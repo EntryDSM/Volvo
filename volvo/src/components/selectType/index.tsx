@@ -6,11 +6,11 @@ import SelectLine from './SelectLine';
 import ToastPopUp from '../default/toastPopUp';
 
 interface Props {
-  applicationType: string;
+  applicationType: string | null;
   socialType: string;
   isDaejeon: boolean | null;
-  educationalStatus: string;
-  graduatedAt: string;
+  educationalStatus: string | null;
+  graduatedAt: string | null;
   graduationMonth: number;
   graduationYear: number;
   applicationRemark: string | null;
