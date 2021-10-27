@@ -1,4 +1,4 @@
-import { PasswordInput } from '../../default/input';
+import PasswordInput from '../../default/input';
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
 import MoveButton from './moveButton';
@@ -59,7 +59,7 @@ const SetNewPasswordModal: FC<Props> = ({ goNext, goPrev }) => {
       />
       <S.ModalSubTitle>영문(대소문자 구분), 숫자 포함 8자리 이상 특수문자 필수</S.ModalSubTitle>
       <S.ModalMoveButtonWrapper>
-        <MoveButton text='이전' type='prev' buttonClickHandler={goPrev} />
+        <MoveButton text='이전' type='prev' buttonClickHandler={goPrev} disable={false} />
         <MoveButton text='다음' type='next' buttonClickHandler={goNext} disable={!isNextAble} />
       </S.ModalMoveButtonWrapper>
     </S.ModalMain>

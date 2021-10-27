@@ -39,9 +39,9 @@ const SearchSchoolModal: FC<Props> = ({
     setPage(0);
   };
 
-  const schoolNameClickHandler = e => {
-    setSchoolName(e.target.innerText);
-    setSchoolCode(e.target.dataset.id);
+  const schoolNameClickHandler = (event: React.MouseEvent<HTMLParagraphElement, MouseEvent>) => {
+    setSchoolName(event.currentTarget.innerText);
+    setSchoolCode(event.currentTarget.dataset.id as string);
     setIsClickSearchBtn(false);
   };
 

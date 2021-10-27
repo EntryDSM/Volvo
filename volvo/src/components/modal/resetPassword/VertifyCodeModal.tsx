@@ -49,12 +49,12 @@ const VertifyCodeModal: FC<Props> = ({ goNext, goPrev }) => {
   }, []);
   useEffect(() => {
     if (time <= 0) {
-      stopTimer(timer);
+      stopTimer(timer as TimeOut);
     }
   }, [time]);
   useEffect(() => {
     if (state.vertifyCodeChecked) setTime(0);
-    stopTimer(timer);
+    stopTimer(timer as TimeOut);
   }, [state.vertifyCodeChecked]);
   return (
     <S.ModalMain>
@@ -79,7 +79,7 @@ const VertifyCodeModal: FC<Props> = ({ goNext, goPrev }) => {
       </S.ModalDefaultButtonWrapper>
       <S.ModalSubTitle>문자가 오지 않았다면, 전화번호를 확인해 주세요.</S.ModalSubTitle>
       <S.ModalMoveButtonWrapper>
-        <MoveButton text='이전' type='prev' buttonClickHandler={goPrev} />
+        <MoveButton text='이전' type='prev' buttonClickHandler={goPrev} disable={false} />
         <MoveButton
           text='다음'
           type='next'
