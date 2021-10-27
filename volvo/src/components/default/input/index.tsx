@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import * as S from './style';
 
 interface Props {
-  width?: number;
+  width: number;
   height?: number;
   disable?: boolean;
   placeholder?: string;

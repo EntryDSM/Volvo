@@ -1,15 +1,15 @@
+import { color, pxToRem } from '../../../style';
 import styled from 'styled-components';
-import { color } from '../../../style';
 
 export const Checkbox = styled.label`
   display: flex;
   align-items: center;
   > p {
-    margin-right: 18px;
+    margin-right: ${pxToRem(18)}rem;
   }
   > div {
-    width: 18px;
-    height: 18px;
+    width: ${pxToRem(18)}rem;
+    height: ${pxToRem(18)}rem;
     border-radius: 3px;
     box-sizing: border-box;
     display: flex;
@@ -20,8 +20,8 @@ export const Checkbox = styled.label`
       display: none;
     }
     > div {
-      width: 10px;
-      height: 10px;
+      width: ${pxToRem(10)}rem;
+      height: ${pxToRem(10)}rem;
       border-radius: 3px;
       background-color: ${color.main};
       display: none;

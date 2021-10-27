@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { color } from '../../style';
+import { pxToRem, color } from '../../style';
 import {
   access_error,
   file_error,
@@ -24,15 +24,15 @@ export const ModalWrapper = styled.div`
 `;
 
 export const Modal = styled.div`
-  width: 420px;
-  height: 580px;
+  width: ${pxToRem(420)}rem;
+  height: ${pxToRem(580)}rem;
   background-color: ${color.backgorund};
   padding: 12px;
   box-sizing: border-box;
 `;
 
 export const ModalMain = styled.div`
-  padding: 0px 58px;
+  padding: 0px ${pxToRem(58)}rem;
 `;
 
 export const ModalDeleteButton = styled.div`
@@ -42,8 +42,8 @@ export const ModalDeleteButton = styled.div`
   cursor: pointer;
   > div {
     position: absolute;
-    width: Math.sqrt(144 + 144) px;
-    height: 2px;
+    width: ${pxToRem(Math.sqrt(144 + 144))}rem;
+    height: ${pxToRem(2)}rem;
     border-radius: 10px;
     background-color: #3d3d3d;
   }
@@ -63,7 +63,7 @@ export const ModalDeleteButtonWrapper = styled.div`
 
 export const ModalDefaultButton = styled.div`
   width: 100%;
-  height: 50px;
+  height: ${pxToRem(50)}rem;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@ export const ModalDefaultButton = styled.div`
 
 export const ModalDefaultButtonWrapper = styled.div`
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: ${pxToRem(18)}rem;
   display: flex;
   > div.multiple:first-child {
     margin-right: 8px;
@@ -96,31 +96,31 @@ export const ModalSubButton = styled.div`
 
 export const ModalErrorText = styled.div`
   font-size: 14px;
-  height: 20px;
+  height: ${pxToRem(20)}rem;
   color: ${color.main};
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: ${pxToRem(18)}rem;
 `;
 
 export const ModalTitle = styled.h3<{ top?: number; bottom?: number }>`
-  font-size: 32px;
+  font-size: ${pxToRem(32)}rem;
   text-align: center;
   font-weight: 500;
-  margin-top: ${props => (props.top ? props.top : 48)}px;
-  margin-bottom: ${props => (props.bottom ? props.bottom : 100)}px;
+  margin-top: ${props => (props.top ? pxToRem(props.top) : pxToRem(48))}rem;
+  margin-bottom: ${props => (props.bottom ? pxToRem(props.bottom) : pxToRem(100))}rem;
 `;
 
 export const ModalSubTitle = styled.p`
   font-size: 14px;
-  height: 20px;
+  height: ${pxToRem(20)}rem;
   color: #5a5a5a;
-  margin: 18px 0px;
+  margin: ${pxToRem(18)}rem 0px;
   text-align: center;
 `;
 
 export const ModalNextButton = styled.div<{ disable: boolean }>`
-  width: 100px;
-  height: 45px;
+  width: ${pxToRem(100)}rem;
+  height: ${pxToRem(45)}rem;
   border-radius: 5px;
   display: flex;
   padding: 0px 13px;
@@ -162,15 +162,15 @@ export const ModalNextButton = styled.div<{ disable: boolean }>`
 `;
 
 export const ModalMoveButtonWrapper = styled.div`
-  margin-top: 66px;
+  margin-top: ${pxToRem(66)}rem;
   display: flex;
   justify-content: space-between;
 `;
 
 export const ModalTimer = styled.div<{ top?: number; bottom?: number; left?: number }>`
   ${({ top, bottom, left }) => css`
-    margin-top: ${typeof top === 'number' ? top : 0}px;
-    margin-bottom: ${typeof bottom === 'number' ? bottom : 45}px;
+    margin-top: ${typeof top === 'number' ? pxToRem(top) : '0'}rem;
+    margin-bottom: ${typeof bottom === 'number' ? pxToRem(bottom) : pxToRem(45)}rem;
     margin-left: ${typeof left === 'number' ? left : 0}px;
   `}
   display: flex;
@@ -178,18 +178,18 @@ export const ModalTimer = styled.div<{ top?: number; bottom?: number; left?: num
   > p {
     color: ${color.main};
     font-weight: 600;
-    font-size: 19px;
+    font-size: ${pxToRem(19)}rem;
   }
 `;
 
 export const ModalResetPasswordSuccessImage = styled.div`
-  width: 90px;
-  height: 105px;
+  width: ${pxToRem(90)}rem;
+  height: ${pxToRem(105)}rem;
   background-image: url(${password_reset_success});
   background-repeat: no-repeat;
   margin: 0 auto;
-  margin-top: 80px;
-  margin-bottom: 90px;
+  margin-top: ${pxToRem(80)}rem;
+  margin-bottom: ${pxToRem(90)}rem;
 `;
 
 export const ModalFileErrorImage = styled(ModalResetPasswordSuccessImage)`
@@ -205,43 +205,43 @@ export const ModalSubmitImage = styled(ModalResetPasswordSuccessImage)`
 `;
 
 export const ModalNotice = styled.div`
-  width: 1200 * ${windowWidthRatio}px;
-  height: 835 * ${windowHeightRatio}px;
+  width: ${pxToRem(1200 * windowWidthRatio)}rem;
+  height: ${pxToRem(835 * windowHeightRatio)}rem;
   padding: 40px;
   background-color: white;
   overflow: scroll;
 `;
 
 export const ModalNoticeTitle = styled.div`
-  font-size: 30px;
+  font-size: ${pxToRem(30)}rem;
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: ${pxToRem(12)}rem;
 `;
 
 export const ModalNoticeSubTitle = styled.div`
-  font-size: 20px;
-  margin-top: 28px;
+  font-size: ${pxToRem(20)}rem;
+  margin-top: ${pxToRem(28)}rem;
 `;
 
 export const ModalNoticeText = styled.div`
-  font-size: 18px;
-  margin: 8px;
+  font-size: ${pxToRem(18)}rem;
+  margin: ${pxToRem(8)}rem;
 `;
 export const ModalNoticeCheckboxWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top: 68px;
+  margin-top: ${pxToRem(68)}rem;
 `;
 
 export const ModalNoticeCheckboxText = styled.div`
-  margin-right: 15px;
+  margin-right: ${pxToRem(15)}rem;
 `;
 
 export const ModalNoticeButtonWrapper = styled.div`
-  margin-top: 18px;
+  margin-top: ${pxToRem(18)}rem;
   display: flex;
   justify-content: flex-end;
   > div {
-    width: 240px;
+    width: ${pxToRem(240)}rem;
   }
 `;

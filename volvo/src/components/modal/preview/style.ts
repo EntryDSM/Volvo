@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from '../../../style';
+import { pxToRem, color } from '../../../style';
 
 export const ModalWrapper = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 60px;
+  top: ${pxToRem(60)}rem;
   left: 0;
   z-index: 100;
   padding: 0;

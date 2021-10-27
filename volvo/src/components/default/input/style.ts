@@ -1,9 +1,9 @@
+import { color, pxToRem } from '../../../style';
 import styled, { css } from 'styled-components';
 import { eye, eye_active } from '../../../assets/default';
-import { color } from '../../../style';
 
 export const Input = styled.input<{
-  width?: number;
+  width: number;
   height?: number;
   disable?: boolean;
   margin?: string;
@@ -13,10 +13,10 @@ export const Input = styled.input<{
   box-sizing: border-box;
   border: 1px solid ${color.fail};
   padding: 0px 10px;
-  font-size: 14px;
+  font-size: ${pxToRem(14)}rem;
   ${({ width, height, margin }) => css`
-    width: ${width}px;
-    height: ${height ? height : 40}px;
+    width: ${pxToRem(width)}rem;
+    height: ${height ? pxToRem(height) : pxToRem(40)}rem;
     margin: ${margin ? margin : ''};
   `}
 `;
@@ -30,8 +30,8 @@ export const PasswordInput = styled.div<{
   outline: none;
   box-sizing: border-box;
   ${({ width, height, margin }) => css`
-    width: ${width}px;
-    height: ${height ? height : 40}px;
+    width: ${pxToRem(width)}rem;
+    height: ${height ? pxToRem(height) : pxToRem(40)}rem;
     margin: ${margin ? margin : ''};
   `}
   border: 1px solid ${color.fail};
@@ -39,9 +39,9 @@ export const PasswordInput = styled.div<{
   display: flex;
   align-items: center;
   > input {
-    width: ${({ width }) => width - 37}px;
+    width: ${({ width }) => pxToRem(width - 37)}rem;
     height: 100%;
-    font-size: 14px;
+    font-size: ${pxToRem(14)}rem;
     border: none;
     outline: none;
     padding: 0px;
@@ -55,8 +55,8 @@ export const PasswordInput = styled.div<{
       background-position: 0px 1px;
     }
     > div {
-      width: 20px;
-      height: 16px;
+      width: ${pxToRem(20)}rem;
+      height: ${pxToRem(16)}rem;
       background-image: url(${eye});
       background-size: contain;
       background-repeat: no-repeat;
