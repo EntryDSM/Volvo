@@ -34,11 +34,11 @@ const InitState: IStatusState = {
       type: 'SECOND_ANNOUNCEMENT',
       date: '2021-10-25T00:00',
     },
-    {
-      year: '2021',
-      type: 'START_DATE',
-      date: '2021-10-18T08:00',
-    },
+    // {
+    //   year: '2021',
+    //   type: 'START_DATE',
+    //   date: '2021-10-18T08:00',
+    // },
     {
       year: '2021',
       type: 'NOT_APPLICATION_PERIOD',

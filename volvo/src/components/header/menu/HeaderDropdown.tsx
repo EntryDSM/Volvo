@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { usePreview } from '../../../util/hooks/preview';
 import * as S from '../style';
 import HeaderDropdownContent from './HeaderDropdownContent';

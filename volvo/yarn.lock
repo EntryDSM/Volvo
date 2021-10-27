@@ -1848,6 +1848,14 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-pdf@^5.0.8":
+  "integrity" "sha512-SClOJ0+9by7bxGaDILu5svo1yCI6aTJdSntOT+h9qWMc6SZlILMrMjyA7A6pMRNkLD0TAZwfk72awlDsZtCPSQ=="
+  "resolved" "https://registry.npmjs.org/@types/react-pdf/-/react-pdf-5.0.8.tgz"
+  "version" "5.0.8"
+  dependencies:
+    "@types/react" "*"
+    "pdfjs-dist" "^2.9.359"
+
 "@types/react-redux@^7.1.16":
   "integrity" "sha512-q42es4c8iIeTgcnB+yJgRTTzftv3eYYvCZOh1Ckn2eX/3o5TdsQYKUWpLoLuGlcY/p+VAhV9IOEZJcWk/vfkXw=="
   "resolved" "https://registry.npmjs.org/@types/react-redux/-/react-redux-7.1.20.tgz"
@@ -8260,7 +8268,7 @@
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
 
-"pdfjs-dist@2.9.359":
+"pdfjs-dist@^2.9.359", "pdfjs-dist@2.9.359":
   "integrity" "sha512-P2nYtkacdlZaNNwrBLw1ZyMm0oE2yY/5S/GDCAmMJ7U4+ciL/D0mrlEC/o4HZZc/LNE3w8lEVzBEyVgEQlPVKQ=="
   "resolved" "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-2.9.359.tgz"
   "version" "2.9.359"
