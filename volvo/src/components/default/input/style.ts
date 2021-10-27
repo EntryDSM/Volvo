@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { eye, eye_active } from '../../../../assets/default';
+import { eye, eye_active } from '../../../assets/default';
 import { color } from '../../../style';
 
 export const Input = styled.input<{
