@@ -10,8 +10,8 @@ interface Props {
 const HeadCount: FC<Props> = ({ headcount, setHeadCount }) => {
   const [isCheck, setIsCheck] = useState({ inOfHeadCount: false, outOfHeadCount: false });
 
-  const onCheckBtnClick = e => {
-    let dataId = e.target.dataset.id;
+  const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let dataId = event.currentTarget.dataset.id;
     switch (dataId) {
       case 'inOfHeadCount':
         setIsCheck({ inOfHeadCount: true, outOfHeadCount: false });

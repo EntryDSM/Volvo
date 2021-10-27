@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { useSelectState } from '../default';
+import useSelectState from '../default/useSelectState';
 import {
   setProcess,
   setIsEnd,
@@ -8,8 +8,8 @@ import {
   getStatus,
   getStatusSuccess,
 } from '../../../modules/redux/action/status';
-import { processTimeType, processType } from 'src/modules/redux/reducer/status/interface';
-import { statusType } from '../../../modules/redux/reducer/status/mainConstance';
+import { processTimeType, processType } from '../../../modules/redux/reducer/status/interface';
+import { statusType } from '../../../constance/main';
 
 const useProcess = () => {
   const dispatch = useDispatch();

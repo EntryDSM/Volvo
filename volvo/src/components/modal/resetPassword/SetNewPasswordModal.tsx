@@ -1,5 +1,5 @@
-import PasswordInput from '../../default/input';
 import React, { FC, useEffect, useState } from 'react';
+import PasswordInput from '../../default/input/PasswordInput';
 import * as S from '../style';
 import MoveButton from './moveButton';
 import useResetPassword from '../../../util/hooks/resetPassword/useResetPassword';

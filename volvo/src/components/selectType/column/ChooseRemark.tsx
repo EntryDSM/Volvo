@@ -17,7 +17,7 @@ const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType
       setIsCheck({ nationalMerit: true, specialAdmission: true });
       setIsBlock(true);
       if (applicationRemark === 'PRIVILEGED_ADMISSION' || applicationRemark === 'NATIONAL_MERIT')
-        setRemark(null);
+        setRemark('');
     } else {
       setIsCheck({ nationalMerit: false, specialAdmission: false });
       setIsBlock(false);
@@ -39,21 +39,21 @@ const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType
     }
   }, [applicationRemark, applicationType]);
 
-  const onCheckBtnClick = e => {
-    let dataId = e.target.dataset.id;
+  const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let dataId = event.currentTarget.dataset.id;
     if (applicationType !== 'SOCIAL') {
       switch (dataId) {
         case 'nationalMerit':
           setIsCheck({ nationalMerit: !isCheck.nationalMerit, specialAdmission: false });
           if (!isCheck.nationalMerit) {
             setRemark('NATIONAL_MERIT');
-          } else setRemark(null);
+          } else setRemark('');
           break;
         case 'specialAdmission':
           setIsCheck({ nationalMerit: false, specialAdmission: !isCheck.specialAdmission });
           if (!isCheck.specialAdmission) {
             setRemark('PRIVILEGED_ADMISSION');
-          } else setRemark(null);
+          } else setRemark('');
           break;
       }
     }

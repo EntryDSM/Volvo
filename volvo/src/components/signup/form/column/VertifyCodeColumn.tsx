@@ -65,7 +65,7 @@ const VertifyCodeColumn: FC<Props> = ({
   useEffect(() => {
     if (!isSendVertifyCode) return;
     if (time <= 0) {
-      stopTimer(timer);
+      stopTimer(timer as TimeOut);
     }
   }, [time, isSendVertifyCode]);
 

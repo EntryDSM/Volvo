@@ -1,5 +1,5 @@
-import { signinRequest } from 'src/models/dto/request/signinRequest';
-import { error } from 'src/models/error';
+import { signinRequest } from '../../../../models/dto/request/signinRequest';
+import { error } from '../../../../models/error';
 import {
   ERROR,
   ID,

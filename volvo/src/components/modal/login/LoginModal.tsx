@@ -4,7 +4,7 @@ import * as S from '../style';
 import DefaultButton from '../default/defaultButton';
 import Title from '../default/title/Title';
 import Input from '../../default/input';
-import PasswordInput from '../../default/input';
+import PasswordInput from '../../default/input/PasswordInput';
 import { useSignIn } from '../../../util/hooks/signin';
 import { useModal } from '../../../util/hooks/modal';
 import { SIGNIN } from '../../../modules/redux/action/signin';
@@ -36,8 +36,8 @@ const LoginModal: FC = () => {
     });
   };
 
-  const keyPressHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+  const keyPressHandler = (event: React.KeyboardEvent<Element>) => {
+    if (event.key === 'Enter') {
       loginButtonClickHandler();
     }
   };

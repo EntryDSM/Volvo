@@ -30,8 +30,8 @@ const YearSelect: FC<Props> = ({ disabled, graduationYear, setGraduationYear }) 
     }
   };
 
-  const onGraduationYearClick = e => {
-    const year = e.target.innerText;
+  const onGraduationYearClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const year = Number(event.currentTarget.innerText);
     setGraduationYear(year);
   };
 

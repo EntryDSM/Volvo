@@ -67,20 +67,20 @@ const ChooseType: FC<Props> = ({
     }
   }, [applicationType]);
 
-  const onCheckBtnClick = e => {
-    let dataId = e.target.dataset.id;
+  const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let dataId = event.currentTarget.dataset.id;
     switch (dataId) {
       case 'regular':
         setIsCheck({ regular: true, meister: false, social: false });
         setDisabled('disabled');
         setType('COMMON');
-        setRemark(null);
+        setRemark('');
         break;
       case 'meister':
         setIsCheck({ regular: false, meister: true, social: false });
         setDisabled('disabled');
         setType('MEISTER');
-        setRemark(null);
+        setRemark('');
         break;
       case 'social':
         setIsCheck({ regular: false, meister: false, social: true });

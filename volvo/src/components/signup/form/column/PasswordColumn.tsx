@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import SignUpColumn from './SignUpColumn';
-import { PasswordInput } from '../../../default/input';
+import PasswordInput from '../../../default/input/PasswordInput';
 import Timer from '../../../modal/default/timer';
 import { error } from '../../../../models/error';
 
@@ -39,7 +39,7 @@ const PasswordColumn: FC<Props> = ({ disable, setPassword, isCheckVertifyCode, e
   useEffect(() => {
     if (!isCheckVertifyCode) return;
     if (time <= 0) {
-      stopTimer(timer);
+      stopTimer(timer as TimeOut);
     }
   }, [time, isCheckVertifyCode]);
 

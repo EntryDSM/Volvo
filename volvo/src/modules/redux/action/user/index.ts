@@ -1,5 +1,5 @@
-import { userResponse } from 'src/models/dto/response/userResponse';
-import { error } from 'src/models/error';
+import { userResponse } from '../../../../models/dto/response/userResponse';
+import { error } from '../../../../models/error';
 import {
   NAME,
   PHONE_NUMBER,

@@ -22,8 +22,8 @@ const MonthSelect: FC<Props> = ({ graduationMonth, setGraduationMonth }) => {
     }
   };
 
-  const onGraduationMonthClick = e => {
-    const month = e.target.innerText;
+  const onGraduationMonthClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const month = Number(event.currentTarget.innerText);
     setGraduationMonth(month);
   };
 

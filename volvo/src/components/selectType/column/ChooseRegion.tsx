@@ -9,10 +9,10 @@ interface Props {
 
 const ChooseRegion: FC<Props> = ({ setArea, isDaejeon }) => {
   const [isCheck, setIsCheck] = useState({ daejeon: false, country: false });
-  const [region, setRegion] = useState(null);
+  const [region, setRegion] = useState('');
   useEffect(() => {
     if (isDaejeon) setRegion('daejeon');
-    else if (isDaejeon === null) setRegion(null);
+    else if (isDaejeon === null) setRegion('');
     else setRegion('country');
   }, [isDaejeon]);
 
@@ -22,8 +22,8 @@ const ChooseRegion: FC<Props> = ({ setArea, isDaejeon }) => {
     else setIsCheck({ daejeon: false, country: false });
   }, [region]);
 
-  const onCheckBtnClick = e => {
-    let dataId = e.target.dataset.id;
+  const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let dataId = event.currentTarget.dataset.id;
     switch (dataId) {
       case 'daejeon':
         setIsCheck({ daejeon: true, country: false });

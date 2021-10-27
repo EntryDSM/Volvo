@@ -24,8 +24,8 @@ const MainContainer: FC = () => {
   const authState = useAuth();
   const modalState = useModal();
   const getNowProcess = (status: string) => {
-    if (!processState.state.processes[status]) return MainDummyData;
-    return processState.state.processes[status];
+    // if (!processState.state.processes[status]) return MainDummyData;
+    // return processState.state.processes[status];
   };
 
   const defaultMainButtonClickHandler = () => {
@@ -35,7 +35,7 @@ const MainContainer: FC = () => {
   const status = processState.state.status;
   const dates = processState.state.date;
 
-  const getNowProcessDate = (status: statusType): string => {
+  const getNowProcessDate = (status: statusType): string | undefined => {
     if (status === APPLICATION_PERIOD) {
       return dates.filter(date => date.type === END_DATE)[0].date;
     }
@@ -44,20 +44,20 @@ const MainContainer: FC = () => {
     if (status === BEFORE_FIRST_ANNOUNCE) {
       return dates.filter(date => date.type === FIRST_ANNOUNCEMENT)[0].date;
     }
-    if (status === BEFORE_SECOND_ANNOUNCE)
-      return dates.filter(date => date.type === SECOND_ANNOUNCEMENT)[0].date;
-    if (status === BEFORE_INTERVIEW) return dates.filter(date => date.type === INTERVIEW)[0].date;
-    const result = dates.filter(date => {
-      return status === date.type;
-    })[0];
-    return result ? result.date : '';
+    // if (status === BEFORE_SECOND_ANNOUNCE)
+    //   return dates.filter(date => date.type === SECOND_ANNOUNCEMENT)[0].date;
+    // if (status === BEFORE_INTERVIEW) return dates.filter(date => date.type === INTERVIEW)[0].date;
+    // const result = dates.filter(date => {
+    //   return status === date.type;
+    // })[0];
+    // return result ? result.date : '';
   };
 
-  const getNextProcessDate = (status: statusType): string => {
-    if (status === START_DATE) {
-      return dates.find(date => date.type === END_DATE).date;
-    }
-    return null;
+  const getNextProcessDate = (status: statusType) => {
+    // if (status === START_DATE) {
+    //   return dates.find(date => date.type === END_DATE).date;
+    // }
+    // return null;
   };
 
   useEffect(() => {

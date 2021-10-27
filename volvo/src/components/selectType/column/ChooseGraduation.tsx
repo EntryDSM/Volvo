@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, useEffect, useState } from 'react';
 import * as S from '../style';
-import { GRADUATION } from '../../../constance/SelectType';
+import { GRADUATION, graduationIdType, graduationType } from '../../../constance/SelectType';
 
 interface Props {
   setIsProspective: Dispatch<React.SetStateAction<boolean>>;
@@ -16,6 +16,7 @@ const isCheckInit = {
 
 const ChooseGraduation: FC<Props> = ({ setIsProspective, setGraduation, educationalStatus }) => {
   const [isCheck, setIsCheck] = useState(isCheckInit);
+
   useEffect(() => {
     switch (educationalStatus) {
       case 'PROSPECTIVE_GRADUATE':
@@ -36,8 +37,8 @@ const ChooseGraduation: FC<Props> = ({ setIsProspective, setGraduation, educatio
     }
   }, [educationalStatus]);
 
-  const onCheckBtnClick = e => {
-    let dataId = e.target.dataset.id;
+  const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    let dataId = event.currentTarget.dataset.id as graduationIdType;
     switch (dataId) {
       case 'prospective':
         setIsCheck({ ...isCheckInit, prospective: true });
@@ -62,7 +63,7 @@ const ChooseGraduation: FC<Props> = ({ setIsProspective, setGraduation, educatio
       <S.LineTitle>
         <span>*</span>졸업 구분
       </S.LineTitle>
-      {GRADUATION.map(data => {
+      {GRADUATION.map((data: graduationType) => {
         return (
           <S.SelectBox margin={65} key={data.id}>
             <S.CheckCircle onClick={onCheckBtnClick} data-id={data.id}>

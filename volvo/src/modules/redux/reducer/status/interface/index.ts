@@ -17,7 +17,7 @@ export interface processTimeType {
 
 export interface processType {
   title: React.ReactNode;
-  getDescription: (value?: string) => React.ReactNode;
+  getDescription: (value: string) => React.ReactNode;
   isHaveTerm: boolean;
   buttonText: string;
   isButtonAble: boolean;

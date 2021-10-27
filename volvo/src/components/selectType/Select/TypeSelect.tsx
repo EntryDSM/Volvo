@@ -20,8 +20,8 @@ const TypeSelect: FC<Props> = ({ socialType, setSocialType, disabled, setDisable
     }
   };
 
-  const onSocialTypeClick = e => {
-    switch (e.target.innerText) {
+  const onSocialTypeClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    switch (event.currentTarget.innerText) {
       case '기초생활수급자':
         setSocialType('기초생활수급자');
         setRemark('BASIC_LIVING');

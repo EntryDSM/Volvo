@@ -5,7 +5,7 @@ import Pagination from '../default/pagination';
 import PrecautionModal from '../modal/preview/PrecautionModal';
 import ConfirmSubmissionModal from '../modal/preview/ConfirmSubmissionModal';
 import AllPages from './AllPages';
-import { useSelectState } from '../../util/hooks/default';
+import useSelectState from '../../util/hooks/default/useSelectState';
 
 interface Props {
   preview: string;
