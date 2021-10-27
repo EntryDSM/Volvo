@@ -10,7 +10,7 @@ import {
 import { getRequest } from '../default';
 
 export const signup = async (
-  _,
+  _: any,
   signupRequest: signupRequest,
 ): Promise<{ access_token: string }> => {
   try {
@@ -24,7 +24,7 @@ export const signup = async (
 };
 
 export const sendSignUpVertifyCode = async (
-  _,
+  _: any,
   signupVertifyCodeRequest: signupVertifyCodeRequest,
 ) => {
   try {
@@ -36,7 +36,7 @@ export const sendSignUpVertifyCode = async (
 };
 
 export const sendResetPasswordVertifyCode = async (
-  _,
+  _: any,
   resetPasswordVertifyCodeRequest: resetPasswordVertifyCodeRequest,
 ) => {
   try {
@@ -47,7 +47,7 @@ export const sendResetPasswordVertifyCode = async (
   }
 };
 
-export const chekckVertifyCode = async (_, checkVertifyRequest: checkVertifyCodeRequest) => {
+export const chekckVertifyCode = async (_: any, checkVertifyRequest: checkVertifyCodeRequest) => {
   try {
     const request = getRequest();
     await request.put(uri.sendVertify, checkVertifyRequest);
@@ -56,7 +56,7 @@ export const chekckVertifyCode = async (_, checkVertifyRequest: checkVertifyCode
   }
 };
 
-export const resetPassword = async (_, resetPasswordRequest: resetPasswordRequest) => {
+export const resetPassword = async (_: any, resetPasswordRequest: resetPasswordRequest) => {
   try {
     const request = getRequest();
     await request.put(uri.resetPassword, resetPasswordRequest);

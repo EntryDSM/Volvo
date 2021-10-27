@@ -4,7 +4,7 @@ interface PreviewState {
   preview: string;
   error: error;
   isSuccessSaveFinal: boolean | undefined;
-  finalPdf: Blob;
+  finalPdf: Blob | null;
 }
 
 export default PreviewState;

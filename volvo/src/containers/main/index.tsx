@@ -34,10 +34,11 @@ const MainContainer: FC = () => {
   };
 
   const status = processState.state.status;
-  const dates = processState.state.date;
+  const dates = processState.state.date && processState.state.date;
 
   const filterDate = (proccess: string) => {
-    return dates.filter(date => date.type === proccess)[0].date;
+    if (dates.length !== 0) return dates.filter(date => date.type === proccess)[0]?.date;
+    else return '';
   };
 
   const getNowProcessDate = (status: statusType): string => {

@@ -20,7 +20,7 @@ export const selectTypeStateToRequest = (state: reducerType['selectType']): sele
 export const selectType = async (access_token: string, selectTypeRequest: selectTypeInterface) => {
   try {
     const request = getRequestWithAccessToken(access_token);
-    await request.patch(uri.selectType, selectTypeRequest);
+    return await request.patch(uri.selectType, selectTypeRequest);
   } catch (error) {
     throw error;
   }

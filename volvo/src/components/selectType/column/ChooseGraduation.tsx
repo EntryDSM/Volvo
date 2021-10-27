@@ -5,7 +5,7 @@ import { GRADUATION, graduationIdType, graduationType } from '../../../constance
 interface Props {
   setIsProspective: Dispatch<React.SetStateAction<boolean>>;
   setGraduation: (payload: string) => void;
-  educationalStatus: string;
+  educationalStatus: string | null;
 }
 
 const isCheckInit = {

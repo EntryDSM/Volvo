@@ -5,7 +5,7 @@ import { REMARKS, REMARK_EXPLAIN } from '../../../constance/selectType';
 interface Props {
   setRemark: (payload: string) => void;
   applicationRemark: string | null;
-  applicationType: string;
+  applicationType: string | null;
 }
 
 const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType }) => {

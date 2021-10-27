@@ -4,9 +4,9 @@ import { YearSelect, MonthSelect } from '../Select';
 import { GRADUATION_DATE_EXPLAIN } from '../../../constance/selectType';
 
 interface Props {
-  graduatedAt: string;
+  graduatedAt: string | null;
   isProspective: boolean;
-  educationalStatus: string;
+  educationalStatus: string | null;
   graduationMonth: number;
   graduationYear: number;
   setGraduationYear: (payload: number) => void;

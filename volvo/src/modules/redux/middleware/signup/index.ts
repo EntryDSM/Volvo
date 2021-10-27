@@ -1,13 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import createRequestSaga from '../../../../util/saga/createRequestSaga';
-import {
-  signup,
-  sendSignUpVertifyCode,
-  sendResetPasswordVertifyCode,
-  chekckVertifyCode,
-} from '../../../../util/api/signup';
+import { signup, sendSignUpVertifyCode, chekckVertifyCode } from '../../../../util/api/signup';
 import { CHECK_VERTIFY_CODE, SEND_VERTIFY_CODE, SIGNUP } from '../../action/signup';
-import { SEND_RESET_PASSWORD_VERTIFY_CODE } from '../../action/resetPassword/interface';
+import { responseGenerator } from '../../../../models/dto/response/responseGenerator';
 
 export const sigupRequestSaga = function* (action: any) {
   const callback = () => (window.location.href = '/');
@@ -15,17 +10,17 @@ export const sigupRequestSaga = function* (action: any) {
   const SUCCESS = `${SIGNUP}_SUCCESS`;
   const accessToken = localStorage.getItem('access_token');
   try {
-    const response = yield call(signup, accessToken, action.payload);
+    const response: responseGenerator = yield call(signup, accessToken, action.payload);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
     });
     yield call(callback);
-  } catch (e) {
-    if (e.response?.data) {
+  } catch (error: any) {
+    if (error.response?.data) {
       yield put({
         type: FAILURE,
-        payload: { ...e.response.data, type: SIGNUP },
+        payload: { ...error.response.data, type: SIGNUP },
       });
     } else {
       yield put({

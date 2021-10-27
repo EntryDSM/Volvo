@@ -1,4 +1,5 @@
 import { call, put } from 'redux-saga/effects';
+import { responseGenerator } from '../../models/dto/response/responseGenerator';
 
 export default function createRequestSaga(type: any, request: any) {
   const SUCCESS = `${type}_SUCCESS`;
@@ -6,16 +7,16 @@ export default function createRequestSaga(type: any, request: any) {
   return function* (action: any) {
     const accessToken = localStorage.getItem('access_token');
     try {
-      const response = yield call(request, accessToken, action.payload);
+      const response: responseGenerator = yield call(request, accessToken, action.payload);
       yield put({
         type: SUCCESS,
         payload: response ? response.data : null,
       });
-    } catch (e) {
-      if (e.response?.data) {
+    } catch (error: any) {
+      if (error.response?.data) {
         yield put({
           type: FAILURE,
-          payload: { ...e.response.data, type },
+          payload: { ...error.response.data, type },
         });
       } else {
         yield put({

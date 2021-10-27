@@ -18,17 +18,17 @@ export const signin = async (body: signinRequest) => {
 export const refreshToken = async () => {
   try {
     const request = getRequest();
-    const { data } = await request.put<refreshResponse>(
+    const response: any = await request.put<refreshResponse>(
       uri.signin,
       {},
       {
         headers: {
-          'x-refresh-token': localStorage.getItem('refresh_token'),
+          'x-refresh-token': localStorage.getItem('refresh_token') as string,
         },
       },
     );
-    localStorage.setItem('access_token', data.access_token);
-    return data;
+    localStorage.setItem('access_token', response.access_token);
+    return response;
   } catch (error) {
     throw error;
   }

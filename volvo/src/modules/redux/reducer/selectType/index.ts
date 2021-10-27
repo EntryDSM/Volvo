@@ -26,7 +26,7 @@ const initState: SelectTypeState = {
   graduatedAt: '',
   applicationRemark: null,
   headcount: null,
-  error: null,
+  error: { status: 0, message: '', type: '' },
   isSuccessSaveSelectType: undefined,
   isSuccessGetSelectType: undefined,
 };
