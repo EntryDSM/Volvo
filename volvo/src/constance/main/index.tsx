@@ -14,16 +14,16 @@ export const APPLICATION_PERIOD = 'APPLICATION_PERIOD' as const;
 export const END = 'END' as const;
 
 export type statusType =
-  | typeof START_DATE
-  | typeof END_DATE
+  // | typeof START_DATE
+  // | typeof END_DATE
   | typeof FIRST_ANNOUNCEMENT
   | typeof SECOND_ANNOUNCEMENT
   | typeof INTERVIEW
   | typeof NOT_APPLICATION_PERIOD
   | typeof BEFORE_FIRST_ANNOUNCE
-  | typeof BEFORE_SECOND_ANNOUNCE
-  | typeof BEFORE_INTERVIEW
-  | typeof END
+  // | typeof BEFORE_SECOND_ANNOUNCE
+  // | typeof BEFORE_INTERVIEW
+  // | typeof END
   | typeof APPLICATION_PERIOD;
 
 const mainConstance: Record<statusType, processType> = {

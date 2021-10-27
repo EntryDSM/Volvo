@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import * as S from './style';
 import DaumPostcode, { Address } from 'react-daum-postcode';
 import { addressType } from '../../../constance/information';

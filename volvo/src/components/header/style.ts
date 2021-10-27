@@ -1,11 +1,11 @@
-import { color, pxToRem } from '../../../style';
+import { color } from '../../style';
 import styled from 'styled-components';
-import { logo } from '../../../assets/main';
+import { logo } from '../../assets/main';
 
 export const Header = styled.div`
   width: 100%;
-  height: ${pxToRem(60)}rem;
-  box-shadow: 0 ${pxToRem(3)}rem ${pxToRem(6)}rem 0 rgba(0, 0, 0, 0.16);
+  height: 60px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   padding: 0px 15%;
   box-sizing: border-box;
   display: flex;
@@ -18,8 +18,8 @@ export const Header = styled.div`
 `;
 
 export const HeaderIcon = styled.div`
-  width: ${pxToRem(96)}rem;
-  height: ${pxToRem(30)}rem;
+  width: 96px;
+  height: 30px;
   background-image: url(${logo});
   cursor: pointer;
 `;
@@ -39,12 +39,12 @@ export const HeaderDropDown = styled.label`
     display: none;
   }
   > div {
-    width: ${pxToRem(337)}rem;
+    width: 337px;
     transform: translate(-133px, 0px);
     cursor: default;
   }
   > input:checked ~ div {
-    height: ${pxToRem(403)}rem;
+    height: 403px;
   }
   > input:checked ~ i {
     transform: rotate(0deg);
@@ -52,7 +52,7 @@ export const HeaderDropDown = styled.label`
 `;
 
 export const HeaderButton = styled.span`
-  font-size: ${pxToRem(16)}rem;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   transition: all 0.3s;
@@ -66,11 +66,11 @@ export const HeaderMenuUser = styled.p`
   > span {
     font-weight: bold;
   }
-  margin-right: ${pxToRem(10)}rem;
+  margin-right: 10px;
 `;
 
 export const HeaderPartition = styled.div`
-  margin: 0px ${pxToRem(15)}rem;
+  margin: 0px 15px;
 `;
 
 export const HeaderDropdownArrowButton = styled.i`
@@ -90,8 +90,8 @@ export const HeaderDropdownContent = styled.div`
   height: 0;
   transition: height 0.3s;
   background-color: ${color.backgorund};
-  box-shadow: 0 ${pxToRem(2)}rem ${pxToRem(3)}rem 0 rgba(0, 0, 0, 0.16);
-  top: ${pxToRem(30)}rem;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+  top: 30px;
   border-radius: 6px;
   padding: 0px 35px;
   box-sizing: border-box;
@@ -99,7 +99,7 @@ export const HeaderDropdownContent = styled.div`
 `;
 
 export const HeaderDropdownColumn = styled.div`
-  height: ${pxToRem(54)}rem;
+  height: 54px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #cbcbcb;
@@ -136,15 +136,15 @@ export const HeaderDropdownContentProcessSubText = styled.p`
 `;
 
 export const HeaderDropdownContentProcessButton = styled.button`
-  width: ${pxToRem(60)}rem;
-  height: ${pxToRem(25)}rem;
+  width: 60px;
+  height: 25px;
   border-radius: 2px;
   background-color: ${color.main};
   font-size: 11px;
   font-weight: 500;
   color: #ffffff;
   border: none;
-  margin-left: ${pxToRem(72)}rem;
+  margin-left: 72px;
   cursor: pointer;
 `;
 

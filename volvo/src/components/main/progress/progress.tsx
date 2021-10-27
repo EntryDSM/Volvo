@@ -7,9 +7,8 @@ import {
   INTERVIEW,
   mainProcessNumber,
   SECOND_ANNOUNCEMENT,
-  START_DATE,
   statusType,
-} from '../../../modules/redux/reducer/status/mainConstance';
+} from '../../../constance/main';
 interface Props {
   status: statusType;
   date: string;
