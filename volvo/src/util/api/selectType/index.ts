@@ -1,5 +1,5 @@
-import { selectTypeInterface } from 'src/constance/SelectType';
-import { reducerType } from 'src/modules/redux/reducer';
+import { selectTypeInterface } from '../../../constance/selectType';
+import { reducerType } from '../../../modules/redux/reducer';
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
 

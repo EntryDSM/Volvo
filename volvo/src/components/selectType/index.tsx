@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import * as S from './style';
-import { SCHOOL, SELECTTYPE } from '../../constance/SelectType';
+import { SCHOOL, SELECTTYPE } from '../../constance/selectType';
 import Pagination from '../default/pagination';
 import SelectLine from './SelectLine';
 import ToastPopUp from '../default/toastPopUp';
@@ -8,14 +8,14 @@ import ToastPopUp from '../default/toastPopUp';
 interface Props {
   applicationType: string;
   socialType: string;
-  isDaejeon: boolean;
+  isDaejeon: boolean | null;
   educationalStatus: string;
   graduatedAt: string;
   graduationMonth: number;
   graduationYear: number;
-  applicationRemark: string;
-  isSuccessSaveSelectType: boolean;
-  headcount: string;
+  applicationRemark: string | null;
+  isSuccessSaveSelectType: boolean | undefined;
+  headcount: string | null;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
   setArea: (payload: boolean) => void;

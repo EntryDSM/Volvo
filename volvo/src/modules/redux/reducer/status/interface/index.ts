@@ -4,14 +4,13 @@ interface IStatusState {
   status: statusType;
   isEnd: boolean;
   isStart: boolean;
-  processes: Object;
+  processes: Record<statusType, processType>;
   date: Array<processTimeType>;
   error: number;
 }
 
 export interface processTimeType {
   type: string;
-  year: string;
   date: string;
 }
 

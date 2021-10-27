@@ -3,7 +3,7 @@ import * as S from './style';
 import { whiteX, checkImg } from '../../../assets/default';
 
 interface Props {
-  isSuccessSave: boolean;
+  isSuccessSave: boolean | undefined;
 }
 
 const ToastPopUp: FC<Props> = ({ isSuccessSave }) => {

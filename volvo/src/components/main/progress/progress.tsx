@@ -42,14 +42,14 @@ const Progress: FC<Props> = ({ status, date }) => {
       <ProgressContent
         progressName='면접'
         isNow={status === INTERVIEW}
-        isPassed={mainProcessNumber[status] >= 5}
+        isPassed={mainProcessNumber[status] >= 6}
         leftDate={getLeftDate(date)}
       />
       <S.ProgressBlankBar />
       <ProgressContent
-        progressName='발표 및 접수'
+        progressName='발표 및 등록'
         isNow={status === SECOND_ANNOUNCEMENT}
-        isPassed={mainProcessNumber[status] >= 6}
+        isPassed={mainProcessNumber[status] >= 8}
         leftDate={getLeftDate(date)}
       />
       <div />

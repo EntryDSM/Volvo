@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, useEffect, useMemo } from 'react';
 import * as S from '../style';
 import { dropdown, dropdown_active, dropdown_disabled } from '../../../assets/selectType';
-import { SOCIAL } from '../../../constance/SelectType';
+import { SOCIAL } from '../../../constance/selectType';
 
 interface Props {
   socialType: string;

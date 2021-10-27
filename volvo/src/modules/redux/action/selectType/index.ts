@@ -1,5 +1,5 @@
 import { error } from '../../../../models/error';
-import { selectTypeSaveType, selectTypeType } from '../../../../constance/SelectType';
+import { selectTypeSaveType, selectTypeType } from '../../../../constance/selectType';
 import {
   TYPE,
   SOCIALTYPE,

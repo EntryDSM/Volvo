@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
-import { AREA } from '../../../constance/SelectType';
+import { AREA } from '../../../constance/selectType';
 
 interface Props {
   setArea: (payload: boolean) => void;
-  isDaejeon: boolean;
+  isDaejeon: boolean | null;
 }
 
 const ChooseRegion: FC<Props> = ({ setArea, isDaejeon }) => {

@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
 import { TypeSelect } from '../Select';
-import { CHOOSETYPEINFO } from '../../../constance/SelectType';
+import { CHOOSETYPEINFO } from '../../../constance/selectType';
 
 interface Props {
   socialType: string;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
   setRemark: (payload: string) => void;
-  applicationRemark: string;
+  applicationRemark: string | null;
   applicationType: string;
 }
 

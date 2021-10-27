@@ -1,11 +1,6 @@
-import IStatusState from './interface';
+import IStatusState, { processType } from './interface';
 import { IS_END, IS_START, PROCESS, STATUS, statusActionType } from '../../action/status';
-import mainConstance, {
-  INTERVIEW,
-  NOT_APPLICATION_PERIOD,
-  START_DATE,
-  statusType,
-} from '../../../../constance/main';
+import mainConstance, { NOT_APPLICATION_PERIOD, statusType } from '../../../../constance/main';
 import { STATUS_FAILURE, STATUS_SUCCESS } from '../../action/status/interface';
 
 const InitState: IStatusState = {
@@ -15,34 +10,24 @@ const InitState: IStatusState = {
   processes: mainConstance,
   date: [
     {
-      year: '2021',
       type: 'END_DATE',
       date: '2021-10-21T17:00',
     },
     {
-      year: '2021',
       type: 'FIRST_ANNOUNCEMENT',
       date: '2021-10-22T00:00',
     },
     {
-      year: '2021',
       type: 'INTERVIEW',
       date: '2021-10-23T00:00',
     },
     {
-      year: '2021',
       type: 'SECOND_ANNOUNCEMENT',
       date: '2021-10-25T00:00',
     },
-    // {
-    //   year: '2021',
-    //   type: 'START_DATE',
-    //   date: '2021-10-18T08:00',
-    // },
     {
-      year: '2021',
-      type: 'NOT_APPLICATION_PERIOD',
-      date: '2021-10-20',
+      type: 'START_DATE',
+      date: '2021-10-18T08:00',
     },
   ],
   error: 0,
@@ -60,7 +45,7 @@ const statusReducer = (state: IStatusState = InitState, action: statusActionType
       return { ...state, isEnd: action.payload };
     }
     case PROCESS: {
-      return { ...state, processes: action.payload };
+      return { ...state, processes: action.payload as Record<statusType, processType> };
     }
     case STATUS_SUCCESS: {
       return {

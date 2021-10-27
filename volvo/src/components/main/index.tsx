@@ -12,19 +12,11 @@ interface Props {
   process: processType;
   isLogin: boolean;
   date: string;
-  nextDate: string;
   error: error;
   defaultMainButtonClickHandler: () => void;
 }
 
-const Main: FC<Props> = ({
-  status,
-  process,
-  isLogin,
-  date,
-  nextDate,
-  defaultMainButtonClickHandler,
-}) => {
+const Main: FC<Props> = ({ status, process, isLogin, date, defaultMainButtonClickHandler }) => {
   const history = useHistory();
   const mainButtonClickHandler = () => {
     if (isLogin) {
@@ -46,7 +38,6 @@ const Main: FC<Props> = ({
           isLogin={isLogin}
           buttonClickHandler={mainButtonClickHandler}
           date={date}
-          nextDate={nextDate}
         />
         <Progress status={status} date={date} />
       </S.MainWrapper>

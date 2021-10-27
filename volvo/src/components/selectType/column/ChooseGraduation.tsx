@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, useEffect, useState } from 'react';
 import * as S from '../style';
-import { GRADUATION, graduationIdType, graduationType } from '../../../constance/SelectType';
+import { GRADUATION, graduationIdType, graduationType } from '../../../constance/selectType';
 
 interface Props {
   setIsProspective: Dispatch<React.SetStateAction<boolean>>;

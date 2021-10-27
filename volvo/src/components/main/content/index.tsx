@@ -9,7 +9,6 @@ interface Props {
   isHaveTerm: boolean;
   isLogin: boolean;
   date: string;
-  nextDate: string;
   buttonClickHandler: () => void;
 }
 
@@ -20,7 +19,6 @@ const MainContent: FC<Props> = ({
   isButtonAble,
   isLogin,
   date,
-  nextDate,
   buttonClickHandler,
 }) => {
   const getStringDate = (date: string) => {
@@ -39,16 +37,9 @@ const MainContent: FC<Props> = ({
       <S.MainSubTitle>대덕소프트웨어마이스터고등학교</S.MainSubTitle>
       <S.MainTitle>2022년 신입생 모집</S.MainTitle>
       <S.MainDescription className='mainDescription'>{title}</S.MainDescription>
-      <S.MainDescription className={nextDate ? '' : 'subDescription'}>
+      <S.MainDescription className={'subDescription'}>
         {getDescription(getStringDate(date))}
       </S.MainDescription>
-      {nextDate && (
-        <S.MainDescription className='subDescription'>
-          <p>
-            마감일은 <span>{getStringDate(nextDate)}</span> 입니다.
-          </p>
-        </S.MainDescription>
-      )}
       {isLogin ? (
         <MainButton onClick={buttonClickHandler} isAble={isButtonAble}>
           {buttonText}

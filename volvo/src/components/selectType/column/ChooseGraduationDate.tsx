@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import * as S from '../style';
 import { YearSelect, MonthSelect } from '../Select';
-import { GRADUATION_DATE_EXPLAIN } from '../../../constance/SelectType';
+import { GRADUATION_DATE_EXPLAIN } from '../../../constance/selectType';
 
 interface Props {
   graduatedAt: string;

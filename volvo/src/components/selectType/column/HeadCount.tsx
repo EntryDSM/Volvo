@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
-import { HEADCOUNT } from '../../../constance/SelectType';
+import { HEADCOUNT } from '../../../constance/selectType';
 
 interface Props {
-  headcount: string;
+  headcount: string | null;
   setHeadCount: (payload: string) => void;
 }
 

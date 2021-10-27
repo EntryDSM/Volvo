@@ -12,13 +12,13 @@ import {
 interface Props {
   applicationType: string;
   socialType: string;
-  isDaejeon: boolean;
+  isDaejeon: boolean | null;
   educationalStatus: string;
   graduatedAt: string;
   graduationMonth: number;
   graduationYear: number;
-  headcount: string;
-  applicationRemark: string;
+  headcount: string | null;
+  applicationRemark: string | null;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
   setArea: (payload: boolean) => void;

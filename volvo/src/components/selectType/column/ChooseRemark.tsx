@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
-import { REMARKS, REMARK_EXPLAIN } from '../../../constance/SelectType';
+import { REMARKS, REMARK_EXPLAIN } from '../../../constance/selectType';
 
 interface Props {
   setRemark: (payload: string) => void;
-  applicationRemark: string;
+  applicationRemark: string | null;
   applicationType: string;
 }
 

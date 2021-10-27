@@ -2,7 +2,7 @@ import React, { FC, Suspense, useEffect } from 'react';
 import MainDummyData from '../../util/util/loadingDummyData/MainDummyData';
 import { useProcess } from '../../util/hooks/main';
 import { useAuth } from '../../util/hooks/auth';
-import { useModal } from './../../util/hooks/modal';
+import { useModal } from '../../util/hooks/modal';
 import {
   APPLICATION_PERIOD,
   BEFORE_FIRST_ANNOUNCE,
@@ -14,6 +14,7 @@ import {
   NOT_APPLICATION_PERIOD,
   SECOND_ANNOUNCEMENT,
   START_DATE,
+  END,
   statusType,
 } from '../../constance/main';
 
@@ -23,9 +24,9 @@ const MainContainer: FC = () => {
   const processState = useProcess();
   const authState = useAuth();
   const modalState = useModal();
-  const getNowProcess = (status: string) => {
-    // if (!processState.state.processes[status]) return MainDummyData;
-    // return processState.state.processes[status];
+  const getNowProcess = (status: statusType) => {
+    if (!processState.state.processes[status]) return MainDummyData;
+    return processState.state.processes[status];
   };
 
   const defaultMainButtonClickHandler = () => {
@@ -35,29 +36,33 @@ const MainContainer: FC = () => {
   const status = processState.state.status;
   const dates = processState.state.date;
 
-  const getNowProcessDate = (status: statusType): string | undefined => {
-    if (status === APPLICATION_PERIOD) {
-      return dates.filter(date => date.type === END_DATE)[0].date;
-    }
-    if (status === NOT_APPLICATION_PERIOD)
-      return dates.filter(date => date.type === START_DATE)[0].date;
-    if (status === BEFORE_FIRST_ANNOUNCE) {
-      return dates.filter(date => date.type === FIRST_ANNOUNCEMENT)[0].date;
-    }
-    // if (status === BEFORE_SECOND_ANNOUNCE)
-    //   return dates.filter(date => date.type === SECOND_ANNOUNCEMENT)[0].date;
-    // if (status === BEFORE_INTERVIEW) return dates.filter(date => date.type === INTERVIEW)[0].date;
-    // const result = dates.filter(date => {
-    //   return status === date.type;
-    // })[0];
-    // return result ? result.date : '';
+  const filterDate = (proccess: string) => {
+    return dates.filter(date => date.type === proccess)[0].date;
   };
 
-  const getNextProcessDate = (status: statusType) => {
-    // if (status === START_DATE) {
-    //   return dates.find(date => date.type === END_DATE).date;
-    // }
-    // return null;
+  const getNowProcessDate = (status: statusType): string => {
+    switch (status) {
+      case NOT_APPLICATION_PERIOD:
+        return filterDate(START_DATE);
+      case APPLICATION_PERIOD:
+        return filterDate(END_DATE);
+      case BEFORE_FIRST_ANNOUNCE:
+        return filterDate(FIRST_ANNOUNCEMENT);
+      case FIRST_ANNOUNCEMENT:
+        return filterDate(FIRST_ANNOUNCEMENT);
+      case BEFORE_INTERVIEW:
+        return filterDate(INTERVIEW);
+      case INTERVIEW:
+        return filterDate(INTERVIEW);
+      case BEFORE_SECOND_ANNOUNCE:
+        return filterDate(SECOND_ANNOUNCEMENT);
+      case SECOND_ANNOUNCEMENT:
+        return filterDate(SECOND_ANNOUNCEMENT);
+      case END:
+        return filterDate(END);
+      default:
+        return '';
+    }
   };
 
   useEffect(() => {
@@ -69,7 +74,6 @@ const MainContainer: FC = () => {
       <Main
         status={status}
         date={getNowProcessDate(status)}
-        nextDate={getNextProcessDate(status)}
         process={getNowProcess(processState.state.status)}
         defaultMainButtonClickHandler={defaultMainButtonClickHandler}
         {...authState.state}
