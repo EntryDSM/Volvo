@@ -1,66 +1,67 @@
-
 import React from 'react';
 import GradeColumn from '../column/GradeColumn';
+import { gradeSubjects, GradeType } from '../../../constance/grade';
 import * as s from '../style';
-type subjects ={
-    subject:string,
-    subjectId:number
+import SettingGrade from '../SettingGrade';
+interface subjects {
+  subject: string;
+  subjectEn: string;
 }
-function GradeTable() {
-    const gradeSubjects:subjects[]=[{
-        subject:"국어",
-        subjectId:1
-    },{
-        subject:"사회",
-        subjectId:2
-    },{
-        subject:"역사",
-        subjectId:3
-    },{
-        subject:"수학",
-        subjectId:4
-    },{
-        subject:"과학",
-        subjectId:5
-    },{
-        subject:"기술가정",
-        subjectId:6
-    },{
-        subject:"영어",
-        subjectId:7
-    }]
-    const GradeTableWrap:React.FC<subjects>= ({subject,subjectId})=>{
-        return(
-            <tr key={subjectId} style={{height:75}}>
-                <th>{subject}</th>
-                <td><GradeColumn></GradeColumn></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        )
-    }
+interface Props {
+  korean: string;
+  social: string;
+  history: string;
+  math: string;
+  science: string;
+  technical: string;
+  english: string;
+}
+interface Indexable{
+  [key:string]:string
+}
+const GradeTable: React.FC<Indexable>= (props) => {
+  const GradeTableWrap: React.FC<subjects> = ({ subject, subjectEn },i) => {
+    const listArray = [...Array(4)];
+    const gradeArray = props[subjectEn].split("");
+        return (
+      <tr key={i} style={{ height: 75 }}>
+        <th>{subject}</th>
+        {listArray.map((_,index:number)=>(
+            <td key={index}>
+                <GradeColumn gradeState={gradeArray[index]} stateSequence={index}></GradeColumn>
+            </td>
+        ))}
+      </tr>
+    );
+  };
   return (
     <s.GradeTableWrapper>
-      <s.GradeTableTitle>성적입력</s.GradeTableTitle>
+        <s.GradeSettingWrapper>
+            <s.GradeTableTitle>성적입력</s.GradeTableTitle>
+            <SettingGrade></SettingGrade>
+        </s.GradeSettingWrapper>
+      
       <s.GradeTableFrame style={{ width: '100%', tableLayout: 'fixed' }}>
-        <tr>
-          <th rowSpan={2} style={{ width: 150}}></th>
-          <th colSpan={2} style={{height:80}}>3학년</th>
+          <tbody>
+          <tr>
+          <th rowSpan={2} style={{ width: 150 }}></th>
+          <th colSpan={2} style={{ height: 80 }}>
+            3학년
+          </th>
           <th colSpan={2}>성적이 있는 최근 학기</th>
         </tr>
         <tr>
-          <th style={{height:65}}>2학기</th>
+          <th style={{ height: 65 }}>2학기</th>
           <th>1학기</th>
           <th>직전 학기</th>
           <th>직전전 학기</th>
         </tr>
-        {
-            gradeSubjects.map(GradeTableWrap)
-        }
+        {gradeSubjects.map(GradeTableWrap)}
+          </tbody>
+        
       </s.GradeTableFrame>
     </s.GradeTableWrapper>
   );
-}
+};
 
 export default GradeTable;
