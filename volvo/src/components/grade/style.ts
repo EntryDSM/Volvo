@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // index.tsx style
 export const GradeWrapper = styled.div`
     width: 1220px;
@@ -22,7 +22,6 @@ export const PageMoveWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 100px 0 120px;
-    
     >button{
         width: 140px;
         height: 50px;
@@ -36,6 +35,34 @@ export const PageMoveWrapper = styled.div`
         font-size: 16px;
     }
 `
+//SettingGrade
+export const SettingGradeWrapper = styled.div`
+    display: flex;
+    
+    >p{
+        font-size: 16px;
+        margin-right: 11px;
+    }
+    
+`
+export const SettingGradeTitle = styled.div<{
+    isClick:boolean
+}>`
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        font-size: 15px;
+        margin-left: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: ${props => props.isClick? "1px solid rgb(245, 114, 120)":"1px solid rgb(175, 175, 175)"};
+        color:${props => props.isClick ?"rgb(245, 114, 120)":"black"};
+        
+`
+
+
 //volunteer.tsx
 export const VolunteerWrapper= styled.div`
     display: flex;
@@ -57,7 +84,9 @@ export const VolunteerTable = styled.table`
         border-collapse : collapse;
         font-weight :500;
     }
-    >tr{   
+    >tbody{
+
+        >tr{   
         
         >th{
         width: 151px;
@@ -77,25 +106,34 @@ export const VolunteerTable = styled.table`
         font-size: 18px;
         }
     }
+    }
 `
 //gradetable.tsx
 export const GradeTableWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `
-export const GradeTableTitle = styled.p`
+export const GradeSettingWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+export const GradeTableTitle = styled.p`    
+    width: fit-content;
     margin-bottom: 15px;
     font-size: 20px;
     letter-spacing: -0.4px;
     font-weight: 400;
 `
+
 export const GradeTableFrame= styled.table`
+    
     tr,td,th{
         border : 1px solid rgb(203, 203, 203);
         border-collapse : collapse; 
         font-weight: 500;
     }
-    >tr{
+    >tbody{
+        >tr{
         >th{
             font-size: 20px;
             box-sizing: border-box;
@@ -107,6 +145,8 @@ export const GradeTableFrame= styled.table`
             padding: 0 32px;
         }
     }
+    }
+    
 `
 
 //VolunteerColumn.tsx
@@ -139,13 +179,14 @@ export const GradeColumnFontWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    
     >p{
         font-size: 18px;
         margin: 0 3px;
         :hover{
             color: rgb(245, 114, 120);
             font-weight: 900;
+            cursor: pointer;
         }
     }
 `
