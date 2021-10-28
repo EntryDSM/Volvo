@@ -6,7 +6,8 @@ interface Props{
     stateSequence:number;
 }
 
-const GradeColumn:React.FC<Props>=({gradeState,stateSequence})=>{
+const GradeColumn:React.FC<Props>=(props)=>{
+    const {gradeState,stateSequence}= props
     const [isOpen, setIsOpen]=useState<boolean>(false);
     const GColumnOnclickEvent =(props:string)=>{
         
