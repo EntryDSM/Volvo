@@ -1,17 +1,24 @@
 import * as s from "../style";
 import React,{useState} from "react";
+import {GColumnFactor} from "../../../constance/grade";
+interface Props{
+    gradeState:string;
+    stateSequence:number;
+}
 
-function GradeColumn (){
-    const [GColumn, setGColumn]=useState({
-        isOpen:false,
-        GCNum:"X"
-    })
-    const GColumnFactor=["A","B","C","D","E","X"]
+const GradeColumn:React.FC<Props>=({gradeState,stateSequence})=>{
+    const [isOpen, setIsOpen]=useState<boolean>(false);
+    const GColumnOnclickEvent =(props:string)=>{
+        
+    } 
     return (
         <s.GradeColumnFontWrapper>
-            {GColumn.isOpen?
-                GColumnFactor.map(props=>(<p onClick={()=>{setGColumn({isOpen:false,GCNum:props})}}>{props}</p>)):
-                <p onClick={()=>setGColumn({...GColumn,isOpen:true})}>{GColumn.GCNum}</p>
+            {isOpen?
+                GColumnFactor.map(props=>(<p onClick={(e)=>{
+                    setIsOpen(!isOpen);
+                    GColumnOnclickEvent(props);
+                }}>{props}</p>)):
+                <p onClick={()=>setIsOpen(!isOpen)}>{gradeState}</p>
             }
         </s.GradeColumnFontWrapper>
     );
