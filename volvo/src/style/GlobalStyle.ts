@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const global = createGlobalStyle`
 * {
     outline: none;
+    box-sizing: border-box;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

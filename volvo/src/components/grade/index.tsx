@@ -3,6 +3,7 @@ import GradeTable from "./table/GradeTable";
 import Volunteer from "./table/Volunteer";
 import { currentYear } from '../../constance/default';
 import { GradeType } from "../../constance/grade";
+import { Subject, SubjectScore } from "../../types";
  interface Props {
     volunteerTime: number,
     absence: number,//결석
@@ -12,7 +13,8 @@ import { GradeType } from "../../constance/grade";
     grade: GradeType,
     isSuccessSaveGrade?: boolean,
     setInput:(paylode:{name:string,value:number})=>void
-    setGrade:(paylode:{subject:string,value:string,stateSequence:number})=>void
+    setGrade:(paylode:{subject:Subject,value:SubjectScore,stateSequence:number})=>void,
+    setAllGrade:(paylode:{value:SubjectScore})=>void
 }
 
 const Grade:React.FC<Props> =({
@@ -24,7 +26,8 @@ const Grade:React.FC<Props> =({
     grade,
     isSuccessSaveGrade,
     setInput,
-    setGrade
+    setGrade,
+    setAllGrade
 })=>{
     
     return (
@@ -40,7 +43,11 @@ const Grade:React.FC<Props> =({
                 lateness={lateness}
                 truancy={truancy}
                 setInput={setInput} />
-            <GradeTable {...grade} />
+            <GradeTable 
+            grade={grade}
+             setGrade={setGrade}
+             setAllGrade={setAllGrade}
+             />
             <s.PageMoveWrapper>
                 <button>이전</button>
                 <button>다음</button>
