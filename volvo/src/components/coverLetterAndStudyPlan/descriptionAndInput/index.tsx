@@ -8,7 +8,7 @@ const DescriptionAndInput = ({type}:PorpsType) => {
     let description = ''
     if(type === 'coverLetter') {
         inputType = '자기소개서';
-        description = '자기소개서 내용은 특별한 형식이 없습니다. 개인의 특성 및 성장과정, 취미・특기와 학교생활, 가족 안에서의 역할, 남들보다 뛰어나다고 생각하는 자신의 장점(특성 혹은 능력)과 보완・발전시켜야 할 단점에 대하여 기술해 주세요.'
+        description = '  자기소개서 내용은 특별한 형식이 없습니다. 개인의 특성 및 성장과정, 취미・특기와 학교생활, 가족 안에서의 역할, 남들보다 뛰어나다고 생각하는 자신의 장점(특성 혹은 능력)과 보완・발전시켜야 할 단점에 대하여 기술해 주세요.'
     }
     else {
         inputType = '학업계획서'
@@ -29,6 +29,9 @@ const DescriptionAndInput = ({type}:PorpsType) => {
             <S.InputDescription>&nbsp;{description}</S.InputDescription>
             <S.InputWrapper>
                 <S.Input onChange={onChageText} />
+                <S.TextCount>
+                    <p>1200/1600</p>
+                </S.TextCount>
             </S.InputWrapper>
         </S.DescriptionAndInputWrapper>
     )

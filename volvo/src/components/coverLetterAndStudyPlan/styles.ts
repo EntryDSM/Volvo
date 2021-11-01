@@ -6,13 +6,15 @@ export const CoverLetterPageWrapper = styled.section`
     padding-bottom: 100px;
 `
 export const SchoolName = styled.p`
-    font-family: 'NotoSansKR-Light';
+    font-family: 'NotoSansKR';
+    font-weight: lighter;
     font-size: 20px;
     line-height: 29px;
     margin-top: 90px;
 `
 export const Title = styled.p`
-    font-family: 'NotoSansKR-Regular';
+    font-family: 'NotoSansKR';
+    font-weight: normal;
     font-size: 35px;
     line-height: 51px;
     letter-spacing: 1.05px;
@@ -38,14 +40,17 @@ export const InputType = styled.p`
 
 export const InputDescription = styled.p`
     width: 1068px;
+  height: 50px;
   font-family: 'NotoSansKR';
   font-size: 18px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.33;
-  margin-top: 2px;
   letter-spacing: normal;
+  text-align: left;
+  color: #000;
+  margin-bottom: 20px;
 `
 
 export const InputWrapper = styled.label`
@@ -66,7 +71,31 @@ export const Input = styled.textarea`
     box-sizing: border-box;
     padding-right: 6px;
     border: none;
-    font-family: 'NotoSansKR-Light';
+    font-family: 'NotoSansKR';
+    font-weight: lighter;
     font-size: 16px;
     line-height: 24px;
+`
+
+export const TextCount = styled.section`
+    height: 45px;
+    margin: 11px 0 0;
+    opacity: 0.7;
+    border-radius: 0 0 4px 4px;
+    background-color: #ff9b9f;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    > p {
+        margin-right: 18px;
+        font-family: 'NotoSansKR';
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        text-align: left;
+        color: #606060;
+    }
 `
