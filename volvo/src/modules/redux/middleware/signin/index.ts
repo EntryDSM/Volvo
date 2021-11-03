@@ -4,7 +4,7 @@ import { refreshToken, signin } from '../../../../util/api/signin';
 import { MODAL_OFF } from '../../action/modal';
 import { IS_LOGIN } from '../../action/auth';
 import { REFRESH_TOKEN } from '../../action/signin/interface';
-import { responseGenerator } from '../../../../models/dto/response/responseGenerator';
+import { responseGenerator } from '../../../../types';
 
 export const refreshTokenSaga = function* (action: any) {
   const FAILURE = `${REFRESH_TOKEN}_FAILURE`;

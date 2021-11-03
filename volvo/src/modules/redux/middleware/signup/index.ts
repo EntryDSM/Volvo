@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import createRequestSaga from '../../../../util/saga/createRequestSaga';
 import { signup, sendSignUpVertifyCode, chekckVertifyCode } from '../../../../util/api/signup';
 import { CHECK_VERTIFY_CODE, SEND_VERTIFY_CODE, SIGNUP } from '../../action/signup';
-import { responseGenerator } from '../../../../models/dto/response/responseGenerator';
+import { responseGenerator } from '../../../../types';
 
 export const sigupRequestSaga = function* (action: any) {
   const callback = () => (window.location.href = '/');

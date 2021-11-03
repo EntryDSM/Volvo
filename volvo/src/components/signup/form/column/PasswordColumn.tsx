@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import SignUpColumn from './SignUpColumn';
 import PasswordInput from '../../../default/input/PasswordInput';
 import Timer from '../../../modal/default/timer';
-import { error } from '../../../../models/error';
+import { error } from '../../../../types';
 
 interface Props {
   disable: boolean;

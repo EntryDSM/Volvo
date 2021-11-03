@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { error } from '../../../models/error';
+import { error } from '../../../types';
 import { isOneOfTextEmpty } from '../../../util/util';
 import * as S from '../style';
 import { NameColumn, PhoneNumberColumn, VertifyColumn, PasswordColumn } from './column';

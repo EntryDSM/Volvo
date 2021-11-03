@@ -19,9 +19,8 @@ import {
 import { debounce, put, select, takeLatest } from 'redux-saga/effects';
 import * as Effects from 'redux-saga/effects';
 import { reducerType } from '../../reducer';
-import { selectTypeInterface } from '../../../../constance/selectType';
 import SelectTypeState from '../../reducer/selectType/interface';
-import { responseGenerator } from '../../../../models/dto/response/responseGenerator';
+import { responseGenerator, selectTypeInterface } from '../../../../types';
 
 const actionArray = [
   TYPE,

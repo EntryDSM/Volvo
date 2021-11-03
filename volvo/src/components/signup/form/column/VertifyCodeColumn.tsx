@@ -3,8 +3,8 @@ import SignUpColumn from './SignUpColumn';
 import Input from '../../../default/input';
 import Button from '../../../default/button';
 import Timer from '../../../modal/default/timer';
-import { error } from '../../../../models/error';
 import { CHECK_VERTIFY_CODE } from '../../../../modules/redux/action/signup';
+import { error } from '../../../../types';
 
 interface Props {
   disable: boolean;

@@ -10,12 +10,12 @@ import {
   checkVertifyCode,
   resetState,
 } from '../../../modules/redux/action/resetPassword';
-import { error } from '../../../models/error';
 import {
   checkVertifyCodeRequest,
+  error,
   resetPasswordRequest,
   resetPasswordVertifyCodeRequest,
-} from '../../../models/dto/request/signupRequest';
+} from '../../../types';
 
 const useResetPassword = () => {
   const dispatch = useDispatch();

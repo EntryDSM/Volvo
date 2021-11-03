@@ -1,7 +1,7 @@
-import { selectTypeInterface } from '../../../constance/selectType';
 import { reducerType } from '../../../modules/redux/reducer';
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
+import { selectTypeInterface } from '../../../types';
 
 export const selectTypeStateToRequest = (state: reducerType['selectType']): selectTypeInterface => {
   return {

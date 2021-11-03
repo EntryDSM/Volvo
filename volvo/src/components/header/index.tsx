@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import * as S from './style';
 import HeaderMenu from './menu';
-import { error } from '../../models/error';
 import { useHistory } from 'react-router-dom';
+import { error } from '../../types';
 
 interface Props {
   isLogin: boolean;

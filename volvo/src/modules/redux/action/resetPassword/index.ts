@@ -1,10 +1,4 @@
 import {
-  checkVertifyCodeRequest,
-  resetPasswordRequest,
-  resetPasswordVertifyCodeRequest,
-} from '../../../../models/dto/request/signupRequest';
-import { error } from '../../../../models/error';
-import {
   NEW_PASSWORD,
   RESET_PASSWORD_ERROR,
   SEND_RESET_PASSWORD_VERTIFY_CODE_FAILURE,
@@ -21,6 +15,12 @@ import {
   RESET_STATE,
 } from './interface';
 import { createAction } from 'typesafe-actions';
+import {
+  checkVertifyCodeRequest,
+  error,
+  resetPasswordRequest,
+  resetPasswordVertifyCodeRequest,
+} from '../../../../types';
 
 export const setNewPassword = createAction(NEW_PASSWORD)<string>();
 export const setVertifyCode = createAction(VERTIFY_CODE)<string>();
