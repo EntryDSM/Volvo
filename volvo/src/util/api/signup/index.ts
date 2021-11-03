@@ -1,13 +1,13 @@
-import { signupResponse } from '../../../models/dto/response/signupResponse';
 import uri from '../../../constance/uri';
+import { signupResponse } from '../../../types';
+import { getRequest } from '../default';
 import {
   signupRequest,
   signupVertifyCodeRequest,
   resetPasswordVertifyCodeRequest,
   checkVertifyCodeRequest,
   resetPasswordRequest,
-} from '../../../models/dto/request/signupRequest';
-import { getRequest } from '../default';
+} from '../../../types';
 
 export const signup = async (
   _: any,

@@ -211,6 +211,6 @@ export const SignUpFormDescription = styled.div`
   font-size: ${pxToRem(12)}rem;
   color: #606060;
   > span {
-    color: #f57278;
+    color: ${color.main};
   }
 `;

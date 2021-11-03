@@ -1,4 +1,4 @@
-import { error } from '../../../../../models/error';
+import { error } from '../../../../../types';
 
 interface SelectTypeState {
   applicationType: string | null;

@@ -1,5 +1,3 @@
-import { userResponse } from '../../../../models/dto/response/userResponse';
-import { error } from '../../../../models/error';
 import {
   NAME,
   PHONE_NUMBER,
@@ -15,6 +13,7 @@ import {
   GET_USER_SUCCESS,
 } from './interface';
 import { createAction } from 'typesafe-actions';
+import { error } from '../../../../types';
 
 export const setPhoneNumber = createAction(PHONE_NUMBER)<string>();
 export const setName = createAction(NAME)<string>();

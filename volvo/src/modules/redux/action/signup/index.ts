@@ -1,10 +1,4 @@
 import {
-  checkVertifyRequest,
-  signupRequest,
-  signupVertifyCodeRequest,
-} from '../../../../models/dto/request/signupRequest';
-import { error } from '../../../../models/error';
-import {
   NAME,
   PASSWORD,
   PHONE_CODE,
@@ -23,6 +17,12 @@ import {
   PASSWORD_CHECK,
 } from './interface';
 import { createAction } from 'typesafe-actions';
+import {
+  checkVertifyRequest,
+  error,
+  signupRequest,
+  signupVertifyCodeRequest,
+} from '../../../../types';
 
 export const setName = createAction(NAME)<string>();
 export const setPassword = createAction(PASSWORD)<string>();

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { REMARKS } from '../../../constance';
 import * as S from '../style';
-import { REMARKS, REMARK_EXPLAIN } from '../../../constance/selectType';
 
 interface Props {
   setRemark: (payload: string) => void;
@@ -8,9 +8,10 @@ interface Props {
   applicationType: string | null;
 }
 
-const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType }) => {
+const ChooseRemark: FC<Props> = props => {
+  const { setRemark, applicationRemark, applicationType } = props;
   const [isCheck, setIsCheck] = useState({ nationalMerit: false, specialAdmission: false });
-  const [isBlock, setIsBlock] = useState(false);
+  const [isBlock, setIsBlock] = useState<boolean>(false);
 
   useEffect(() => {
     if (applicationType === 'SOCIAL') {
@@ -22,7 +23,7 @@ const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType
       setIsCheck({ nationalMerit: false, specialAdmission: false });
       setIsBlock(false);
     }
-  }, [applicationType]);
+  }, [applicationType, applicationRemark]);
 
   useEffect(() => {
     switch (applicationRemark) {
@@ -80,7 +81,7 @@ const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType
       })}
       <S.Explain>
         <span>*</span>
-        {REMARK_EXPLAIN}
+        해당하는 특기사항에 체크해주세요
       </S.Explain>
     </S.Line>
   );

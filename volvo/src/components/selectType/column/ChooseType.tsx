@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
 import { TypeSelect } from '../Select';
-import { CHOOSETYPEINFO } from '../../../constance/selectType';
+import { CHOOSETYPEINFO } from '../../../constance';
 
 interface Props {
   socialType: string;
@@ -12,14 +12,15 @@ interface Props {
   applicationType: string | null;
 }
 
-const ChooseType: FC<Props> = ({
-  socialType,
-  setType,
-  setSocialType,
-  setRemark,
-  applicationRemark,
-  applicationType,
-}) => {
+const ChooseType: FC<Props> = props => {
+  const {
+    socialType,
+    setType,
+    setSocialType,
+    setRemark,
+    applicationRemark,
+    applicationType,
+  } = props;
   const [isCheck, setIsCheck] = useState({ regular: false, meister: false, social: false });
   const [disabled, setDisabled] = useState('disabled');
 
@@ -40,8 +41,8 @@ const ChooseType: FC<Props> = ({
         break;
     }
     if (applicationType === 'SOCIAL') {
-      if (applicationRemark === null) setSocialType('사회통합전형');
-      if (applicationRemark !== null) {
+      if (applicationRemark === '') setSocialType('사회통합전형');
+      if (applicationRemark !== '') {
         setDisabled('normal');
         switch (applicationRemark) {
           case 'BASIC_LIVING':
@@ -65,7 +66,7 @@ const ChooseType: FC<Props> = ({
         }
       }
     }
-  }, [applicationType]);
+  }, [applicationType, applicationRemark]);
 
   const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     let dataId = event.currentTarget.dataset.id;
@@ -111,13 +112,7 @@ const ChooseType: FC<Props> = ({
         <S.CheckCircle onClick={onCheckBtnClick} data-id={'social'}>
           {isCheck['social'] && <S.CheckedCircle />}
         </S.CheckCircle>
-        <TypeSelect
-          setRemark={setRemark}
-          socialType={socialType}
-          setSocialType={setSocialType}
-          disabled={disabled}
-          setDisabled={setDisabled}
-        />
+        <TypeSelect {...props} disabled={disabled} setDisabled={setDisabled} />
       </S.SelectBox>
     </S.Line>
   );

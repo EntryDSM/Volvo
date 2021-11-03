@@ -1,15 +1,17 @@
 import React, { FC, useEffect, useState } from 'react';
+import { AREA } from '../../../constance';
 import * as S from '../style';
-import { AREA } from '../../../constance/selectType';
 
 interface Props {
   setArea: (payload: boolean) => void;
   isDaejeon: boolean | null;
 }
 
-const ChooseRegion: FC<Props> = ({ setArea, isDaejeon }) => {
+const ChooseRegion: FC<Props> = props => {
+  const { setArea, isDaejeon } = props;
   const [isCheck, setIsCheck] = useState({ daejeon: false, country: false });
-  const [region, setRegion] = useState('');
+  const [region, setRegion] = useState<string>('');
+
   useEffect(() => {
     if (isDaejeon) setRegion('daejeon');
     else if (isDaejeon === null) setRegion('');

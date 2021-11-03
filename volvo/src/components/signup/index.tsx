@@ -1,10 +1,10 @@
 import React, { FC, useMemo } from 'react';
 import { isEmail } from '../../util/util/format';
-import { error } from '../../models/error';
 import { isOneOfTextEmpty } from '../../util/util';
 import SignUpForm from './form';
 import SignUpRule from './rule';
 import * as S from './style';
+import { error } from '../../types';
 
 interface Props {
   name: string;

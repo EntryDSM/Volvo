@@ -2,9 +2,9 @@ import React, { FC, useMemo } from 'react';
 import SignUpColumn from './SignUpColumn';
 import Input from '../../../default/input';
 import Button from '../../../default/button';
-import { error } from '../../../../models/error';
 import { SEND_VERTIFY_CODE } from '../../../../modules/redux/action/signup';
 import { isEmail } from '../../../../util/util/format';
+import { error } from '../../../../types';
 
 interface Props {
   disable: boolean;

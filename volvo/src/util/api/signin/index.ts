@@ -1,6 +1,5 @@
 import uri from '../../../constance/uri';
-import { signinRequest } from '../../../models/dto/request/signinRequest';
-import { refreshResponse, signinResponse } from '../../../models/dto/response/signinResponse';
+import { refreshResponse, signinRequest, signinResponse } from '../../../types';
 import { getRequest } from '../default';
 
 export const signin = async (body: signinRequest) => {

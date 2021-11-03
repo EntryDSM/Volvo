@@ -1,9 +1,9 @@
 import React, { FC, useMemo } from 'react';
 import * as S from './style';
-import { SCHOOL, SELECTTYPE } from '../../constance/selectType';
 import Pagination from '../default/pagination';
 import SelectLine from './SelectLine';
 import ToastPopUp from '../default/toastPopUp';
+import { currentYear, school } from '../../constance/default';
 
 interface Props {
   applicationType: string | null;
@@ -26,85 +26,17 @@ interface Props {
   setHeadCount: (payload: string) => void;
 }
 
-const SelectType: FC<Props> = ({
-  applicationType,
-  socialType,
-  isDaejeon,
-  educationalStatus,
-  graduatedAt,
-  graduationMonth,
-  graduationYear,
-  applicationRemark,
-  isSuccessSaveSelectType,
-  headcount,
-  setType,
-  setSocialType,
-  setArea,
-  setGraduation,
-  setGraduationMonth,
-  setGraduationYear,
-  setRemark,
-  setHeadCount,
-}) => {
-  const pagination = useMemo(() => {
-    if (
-      applicationType &&
-      isDaejeon !== undefined &&
-      educationalStatus &&
-      graduationYear &&
-      graduationMonth
-    ) {
-      if (
-        applicationType !== 'SOCIAL' ||
-        (applicationType === 'SOCIAL' &&
-          applicationRemark !== null &&
-          applicationRemark !== 'NATIONAL_MERIT' &&
-          applicationRemark !== 'PRIVILEGED_ADMISSION')
-      ) {
-        if (educationalStatus === 'QUALIFICATION_EXAM') return <Pagination />;
-        else return <Pagination />;
-      } else {
-        if (educationalStatus === 'QUALIFICATION_EXAM') return <Pagination />;
-        else return <Pagination />;
-      }
-    } else {
-      if (educationalStatus === 'QUALIFICATION_EXAM') return <Pagination />;
-      else return <Pagination />;
-    }
-  }, [
-    applicationType,
-    isDaejeon,
-    educationalStatus,
-    graduationYear,
-    graduationMonth,
-    applicationRemark,
-  ]);
+const SelectType: FC<Props> = props => {
+  const { isSuccessSaveSelectType } = props;
+  const pagination = useMemo(() => {}, []);
 
   return (
     <S.SelectType>
       <div>
-        <S.School>{SCHOOL}</S.School>
-        <S.Title>{SELECTTYPE}</S.Title>
+        <S.School>{school}</S.School>
+        <S.Title>{currentYear}년 지원자 전형 구분</S.Title>
       </div>
-      <SelectLine
-        applicationType={applicationType}
-        isDaejeon={isDaejeon}
-        educationalStatus={educationalStatus}
-        graduationMonth={graduationMonth}
-        graduationYear={graduationYear}
-        applicationRemark={applicationRemark}
-        socialType={socialType}
-        headcount={headcount}
-        graduatedAt={graduatedAt}
-        setType={setType}
-        setSocialType={setSocialType}
-        setArea={setArea}
-        setGraduation={setGraduation}
-        setGraduationMonth={setGraduationMonth}
-        setGraduationYear={setGraduationYear}
-        setRemark={setRemark}
-        setHeadCount={setHeadCount}
-      />
+      <SelectLine {...props} />
       {pagination}
       <ToastPopUp isSuccessSave={isSuccessSaveSelectType} />
     </S.SelectType>

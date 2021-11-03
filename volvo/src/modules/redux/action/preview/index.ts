@@ -1,4 +1,3 @@
-import { error } from '../../../../models/error';
 import {
   GET_PREVIEW,
   GET_PREVIEW_SUCCESS,
@@ -11,6 +10,7 @@ import {
   FINAL_PDF_FAILURE,
 } from './interface';
 import { createAction } from 'typesafe-actions';
+import { error } from '../../../../types';
 
 export const getPreview = createAction(GET_PREVIEW)();
 export const getPreviewSuccess = createAction(GET_PREVIEW_SUCCESS)<string>();

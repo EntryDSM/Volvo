@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import * as S from '../style';
 import { YearSelect, MonthSelect } from '../Select';
-import { GRADUATION_DATE_EXPLAIN } from '../../../constance/selectType';
 
 interface Props {
   graduatedAt: string | null;
@@ -13,15 +12,17 @@ interface Props {
   setGraduationMonth: (payload: number) => void;
 }
 
-const ChooseGraduationDate: FC<Props> = ({
-  isProspective,
-  educationalStatus,
-  setGraduationMonth,
-  setGraduationYear,
-  graduationMonth,
-  graduationYear,
-  graduatedAt,
-}) => {
+const ChooseGraduationDate: FC<Props> = props => {
+  const {
+    isProspective,
+    educationalStatus,
+    setGraduationMonth,
+    setGraduationYear,
+    graduationMonth,
+    graduationYear,
+    graduatedAt,
+  } = props;
+
   useEffect(() => {
     if (graduatedAt) {
       const graduatedYear = graduatedAt ? graduatedAt.slice(0, 4) : 2022;
@@ -52,7 +53,7 @@ const ChooseGraduationDate: FC<Props> = ({
       return (
         <S.Explain>
           <span>*</span>
-          {GRADUATION_DATE_EXPLAIN}
+          졸업 예정자의 경우 졸업 예정월만 선택해주세요
         </S.Explain>
       );
   }, [educationalStatus]);
