@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { AREA } from '../../../constance';
 import * as S from '../style';
-import { AREA } from '../../../constance/selectType';
 
 interface Props {
   setArea: (payload: boolean) => void;

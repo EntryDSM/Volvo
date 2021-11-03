@@ -32,6 +32,31 @@ export interface selectTypeInterface {
   headcount: string | null;
 }
 
+export interface typeInfoType {
+  id: 'regular' | 'meister';
+  content: string;
+}
+
+export interface areaType {
+  id: 'daejeon' | 'country';
+  content: string;
+}
+
+export interface graduationType {
+  id: 'prospective' | 'graduate' | 'qualification';
+  content: string;
+}
+
+export interface remarkType {
+  id: 'nationalMerit' | 'specialAdmission';
+  content: string;
+}
+
+export interface headCountType {
+  id: 'inOfHeadCount' | 'outOfHeadCount';
+  content: string;
+}
+
 // error
 export type error = {
   status: number;

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { HEADCOUNT } from '../../../constance';
 import * as S from '../style';
-import { HEADCOUNT } from '../../../constance/selectType';
 
 interface Props {
   headcount: string | null;

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from '../style';
 import { TypeSelect } from '../Select';
-import { CHOOSETYPEINFO } from '../../../constance/selectType';
+import { CHOOSETYPEINFO } from '../../../constance';
 
 interface Props {
   socialType: string;

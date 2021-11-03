@@ -1,6 +1,7 @@
 import React, { Dispatch, FC, useEffect, useState } from 'react';
+import { GRADUATION } from '../../../constance';
+import { graduationType } from '../../../types';
 import * as S from '../style';
-import { GRADUATION, graduationIdType, graduationType } from '../../../constance/selectType';
 
 interface Props {
   setIsProspective: Dispatch<React.SetStateAction<boolean>>;
@@ -14,8 +15,13 @@ const isCheckInit = {
   qualification: false,
 };
 
-const ChooseGraduation: FC<Props> = ({ setIsProspective, setGraduation, educationalStatus }) => {
-  const [isCheck, setIsCheck] = useState(isCheckInit);
+const ChooseGraduation: FC<Props> = props => {
+  const { setIsProspective, setGraduation, educationalStatus } = props;
+  const [isCheck, setIsCheck] = useState<{
+    prospective: boolean;
+    graduate: boolean;
+    qualification: boolean;
+  }>(isCheckInit);
 
   useEffect(() => {
     switch (educationalStatus) {
@@ -38,20 +44,18 @@ const ChooseGraduation: FC<Props> = ({ setIsProspective, setGraduation, educatio
   }, [educationalStatus]);
 
   const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    let dataId = event.currentTarget.dataset.id as graduationIdType;
+    let dataId = event.currentTarget.dataset.id as 'prospective' | 'graduate' | 'qualification';
+    setIsCheck({ ...isCheckInit, [dataId]: true });
     switch (dataId) {
       case 'prospective':
-        setIsCheck({ ...isCheckInit, prospective: true });
         setIsProspective(true);
         setGraduation('PROSPECTIVE_GRADUATE');
         break;
       case 'graduate':
-        setIsCheck({ ...isCheckInit, graduate: true });
         setIsProspective(false);
         setGraduation('GRADUATE');
         break;
       case 'qualification':
-        setIsCheck({ ...isCheckInit, qualification: true });
         setIsProspective(false);
         setGraduation('QUALIFICATION_EXAM');
         break;

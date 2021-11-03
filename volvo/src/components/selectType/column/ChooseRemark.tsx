@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
+import { REMARKS } from '../../../constance';
 import * as S from '../style';
-import { REMARKS, REMARK_EXPLAIN } from '../../../constance/selectType';
 
 interface Props {
   setRemark: (payload: string) => void;
@@ -80,7 +80,7 @@ const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType
       })}
       <S.Explain>
         <span>*</span>
-        {REMARK_EXPLAIN}
+        해당하는 특기사항에 체크해주세요
       </S.Explain>
     </S.Line>
   );
