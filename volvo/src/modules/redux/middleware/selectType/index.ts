@@ -34,9 +34,9 @@ const actionArray = [
 ];
 
 const getStateFunc = (state: reducerType): reducerType['selectType'] => state.selectType;
-export const getSelectTypeRequestSaga = createRequestSaga(GET_SELECTTYPE, getSelectType);
-
 const call: any = Effects.call;
+
+export const getSelectTypeRequestSaga = createRequestSaga(GET_SELECTTYPE, getSelectType);
 
 export const selectTypeSaveSaga = function* () {
   const SUCCESS = 'SELECTTYPE/SELECTTYPE_SUCCESS';
