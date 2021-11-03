@@ -7,7 +7,8 @@ interface Props {
   setGraduationMonth: (payload: number) => void;
 }
 
-const MonthSelect: FC<Props> = ({ graduationMonth, setGraduationMonth }) => {
+const MonthSelect: FC<Props> = props => {
+  const { graduationMonth, setGraduationMonth } = props;
   const [active, setActive] = useState(false);
   const [disabled, setDisabled] = useState('normal');
   const JanuaryToDecember = [...Array(12)].map((_, i) => i + 1);
@@ -28,8 +29,8 @@ const MonthSelect: FC<Props> = ({ graduationMonth, setGraduationMonth }) => {
   };
 
   const activeImg = useMemo(() => {
-    if (active) return <img src={dropdown_active} />;
-    else return <img src={dropdown} />;
+    if (active) return <img src={dropdown_active} alt='dropdown_active' />;
+    else return <img src={dropdown} alt='dropdown' />;
   }, [active]);
 
   return (

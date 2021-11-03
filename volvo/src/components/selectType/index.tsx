@@ -27,26 +27,7 @@ interface Props {
 }
 
 const SelectType: FC<Props> = props => {
-  const {
-    applicationType,
-    socialType,
-    isDaejeon,
-    educationalStatus,
-    graduatedAt,
-    graduationMonth,
-    graduationYear,
-    applicationRemark,
-    isSuccessSaveSelectType,
-    headcount,
-    setType,
-    setSocialType,
-    setArea,
-    setGraduation,
-    setGraduationMonth,
-    setGraduationYear,
-    setRemark,
-    setHeadCount,
-  } = props;
+  const { isSuccessSaveSelectType } = props;
   const pagination = useMemo(() => {}, []);
 
   return (

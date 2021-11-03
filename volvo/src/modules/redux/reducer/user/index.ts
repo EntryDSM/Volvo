@@ -3,7 +3,6 @@ import { NAME, PHONE_NUMBER, userActionType } from '../../action/user';
 import {
   GET_USER_FAILURE,
   GET_USER_SUCCESS,
-  IS_ADMISSION_FEE_PAYED,
   IS_FINAL_SUBMIT_DONE,
   IS_RECEIVE_MAIL,
   SELF_INTRODUCE_LENGTH,

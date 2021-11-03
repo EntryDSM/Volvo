@@ -7,7 +7,8 @@ interface Props {
   setHeadCount: (payload: string) => void;
 }
 
-const HeadCount: FC<Props> = ({ headcount, setHeadCount }) => {
+const HeadCount: FC<Props> = props => {
+  const { headcount, setHeadCount } = props;
   const [isCheck, setIsCheck] = useState({ inOfHeadCount: false, outOfHeadCount: false });
 
   const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {

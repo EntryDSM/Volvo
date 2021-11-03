@@ -8,9 +8,10 @@ interface Props {
   applicationType: string | null;
 }
 
-const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType }) => {
+const ChooseRemark: FC<Props> = props => {
+  const { setRemark, applicationRemark, applicationType } = props;
   const [isCheck, setIsCheck] = useState({ nationalMerit: false, specialAdmission: false });
-  const [isBlock, setIsBlock] = useState(false);
+  const [isBlock, setIsBlock] = useState<boolean>(false);
 
   useEffect(() => {
     if (applicationType === 'SOCIAL') {
@@ -22,7 +23,7 @@ const ChooseRemark: FC<Props> = ({ setRemark, applicationRemark, applicationType
       setIsCheck({ nationalMerit: false, specialAdmission: false });
       setIsBlock(false);
     }
-  }, [applicationType]);
+  }, [applicationType, applicationRemark]);
 
   useEffect(() => {
     switch (applicationRemark) {

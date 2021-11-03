@@ -8,16 +8,15 @@ interface Props {
   setGraduationYear: (payload: number) => void;
 }
 
-const YearSelect: FC<Props> = ({ disabled, graduationYear, setGraduationYear }) => {
+const YearSelect: FC<Props> = props => {
+  const { disabled, graduationYear, setGraduationYear } = props;
   const [active, setActive] = useState(false);
   const date = new Date();
   const year = date.getFullYear() - 8;
   const YearArray = [...Array(10)].map((_, i) => i + year);
 
   useEffect(() => {
-    if (disabled === 'block') {
-      setGraduationYear(2022);
-    }
+    if (disabled === 'block') setGraduationYear(2022);
   }, [disabled]);
 
   const onSelectClick = () => {
@@ -36,8 +35,8 @@ const YearSelect: FC<Props> = ({ disabled, graduationYear, setGraduationYear }) 
   };
 
   const activeImg = useMemo(() => {
-    if (active) return <img src={dropdown_active} />;
-    else return <img src={dropdown} />;
+    if (active) return <img src={dropdown_active} alt='dropdown_active' />;
+    else return <img src={dropdown} alt='dropdown' />;
   }, [active]);
 
   return (
