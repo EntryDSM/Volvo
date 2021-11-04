@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { color } from './index';
 
 const global = createGlobalStyle`
 * {
@@ -94,7 +95,7 @@ input[type=number] {
     }
     ::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    background-color: #ff8888;
+    background-color: ${color.light};
     }
     * {
       font-family: 'Noto Sans KR', sans-serif;

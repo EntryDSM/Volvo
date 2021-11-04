@@ -1,5 +1,4 @@
-import { error } from '../../../../models/error';
-import { selectTypeSaveType, selectTypeType } from '../../../../constance/selectType';
+import { error, selectTypeInterface, selectTypeStateInterface } from '../../../../types';
 import {
   TYPE,
   SOCIALTYPE,
@@ -26,11 +25,11 @@ export const setGraduationYear = createAction(GRADUATION_YEAR)<number>();
 export const setGraduationMonth = createAction(GRADUATION_MONTH)<number>();
 export const setRemark = createAction(REMARK)<string>();
 export const setHeadCount = createAction(HEADCOUNT)<string>();
-export const selectType = createAction(SELECTTYPE)<selectTypeSaveType>();
+export const selectType = createAction(SELECTTYPE)();
 export const selectTypeSuccess = createAction(SELECTTYPE_SUCCESS)<boolean>();
 export const selectTypeFailure = createAction(SELECTTYPE_FAILURE)<error>();
 export const getSelectType = createAction(GET_SELECTTYPE)();
-export const getSelectTypeSuccess = createAction(GET_SELECTTYPE_SUCCESS)<selectTypeType>();
+export const getSelectTypeSuccess = createAction(GET_SELECTTYPE_SUCCESS)<selectTypeInterface>();
 export const getSelectTypeFailure = createAction(GET_SELECTTYPE_FAILURE)<error>();
 
 export type selectTypeActionType =

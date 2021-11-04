@@ -8,8 +8,8 @@ import {
   setPassword,
   signin,
 } from '../../../modules/redux/action/signin';
-import { signinRequest } from '../../../models/dto/request/signinRequest';
 import { IS_LOGIN } from '../../../modules/redux/action/auth';
+import { signinRequest } from '../../../types';
 
 const useSignin = () => {
   const dispatch = useDispatch();

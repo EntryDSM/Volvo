@@ -1,7 +1,12 @@
-import { selectTypeInterface } from '../../../constance/selectType';
 import { reducerType } from '../../../modules/redux/reducer';
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
+import { selectTypeInterface } from '../../../types';
+
+const graduatedAt = (year: number, month: number) => {
+  if (month < 10) return `${year}0${month}`;
+  else return `${year}${month}`;
+};
 
 export const selectTypeStateToRequest = (state: reducerType['selectType']): selectTypeInterface => {
   return {
@@ -9,10 +14,7 @@ export const selectTypeStateToRequest = (state: reducerType['selectType']): sele
     application_type: state.applicationType,
     is_daejeon: state.isDaejeon,
     application_remark: state.applicationRemark,
-    graduated_at:
-      state.graduationMonth < 10
-        ? `${state.graduationYear}0${state.graduationMonth}`
-        : `${state.graduationYear}${state.graduationMonth}`,
+    graduated_at: graduatedAt(state.graduationYear, state.graduationMonth),
     headcount: state.headcount,
   };
 };

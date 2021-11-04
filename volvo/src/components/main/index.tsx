@@ -5,7 +5,7 @@ import Progress from './progress';
 import { processType } from '../../modules/redux/reducer/status/interface';
 import { statusType } from '../../constance/main';
 import { useHistory } from 'react-router-dom';
-import { error } from '../../models/error';
+import { error } from '../../types';
 
 interface Props {
   status: statusType;

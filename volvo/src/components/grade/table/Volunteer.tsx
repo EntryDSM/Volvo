@@ -1,3 +1,4 @@
+import React from 'react';
 import VolunteerColumn from '../column/VolunteerColumn';
 import * as s from '../style';
 

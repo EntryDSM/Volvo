@@ -1,7 +1,7 @@
-import React, { Dispatch, FC, useEffect, useMemo } from 'react';
+import React, { Dispatch, FC, useMemo } from 'react';
 import * as S from '../style';
 import { dropdown, dropdown_active, dropdown_disabled } from '../../../assets/selectType';
-import { SOCIAL } from '../../../constance/selectType';
+import { SOCIAL } from '../../../constance';
 
 interface Props {
   socialType: string;
@@ -11,7 +11,8 @@ interface Props {
   setRemark: (payload: string) => void;
 }
 
-const TypeSelect: FC<Props> = ({ socialType, setSocialType, disabled, setDisabled, setRemark }) => {
+const TypeSelect: FC<Props> = props => {
+  const { socialType, setSocialType, disabled, setDisabled, setRemark } = props;
   const onSelectClick = () => {
     if (disabled === 'normal') {
       setDisabled('enabled');
@@ -51,11 +52,11 @@ const TypeSelect: FC<Props> = ({ socialType, setSocialType, disabled, setDisable
 
   const dropDown = useMemo(() => {
     if (disabled === 'disabled') {
-      return <img src={dropdown_disabled} />;
+      return <img src={dropdown_disabled} alt='dropdown_disabled' />;
     } else if (disabled === 'normal') {
-      return <img src={dropdown} />;
+      return <img src={dropdown} alt='dropdown' />;
     } else {
-      return <img src={dropdown_active} />;
+      return <img src={dropdown_active} alt='dropdown_active' />;
     }
   }, [disabled]);
 

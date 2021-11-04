@@ -1,5 +1,3 @@
-import { signinRequest } from '../../../../models/dto/request/signinRequest';
-import { error } from '../../../../models/error';
 import {
   ERROR,
   ID,
@@ -13,6 +11,7 @@ import {
   RESET,
 } from './interface';
 import { createAction } from 'typesafe-actions';
+import { error, signinRequest } from '../../../../types';
 
 export const setId = createAction(ID)<string>();
 export const setPassword = createAction(PASSWORD)<string>();

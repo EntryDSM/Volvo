@@ -29,32 +29,15 @@ interface Props {
   setHeadCount: (payload: string) => void;
 }
 
-const SelectLine: FC<Props> = ({
-  applicationType,
-  socialType,
-  isDaejeon,
-  educationalStatus,
-  graduatedAt,
-  graduationMonth,
-  graduationYear,
-  applicationRemark,
-  headcount,
-  setType,
-  setSocialType,
-  setArea,
-  setGraduation,
-  setGraduationMonth,
-  setGraduationYear,
-  setRemark,
-  setHeadCount,
-}) => {
+const SelectLine: FC<Props> = props => {
+  const { applicationRemark, setHeadCount } = props;
   const [isProspective, setIsProspective] = useState(false);
   const [isHeadCount, setIsHeadCount] = useState<boolean>(false);
 
   const showHeadCount = useMemo(() => {
     if (applicationRemark === 'PRIVILEGED_ADMISSION') {
       setIsHeadCount(true);
-      return <HeadCount headcount={headcount} setHeadCount={setHeadCount} />;
+      return <HeadCount {...props} />;
     } else {
       setIsHeadCount(false);
       setHeadCount('');
@@ -63,34 +46,11 @@ const SelectLine: FC<Props> = ({
 
   return (
     <S.SelectLine isHeadCount={isHeadCount}>
-      <ChooseType
-        socialType={socialType}
-        setType={setType}
-        setSocialType={setSocialType}
-        applicationType={applicationType}
-        applicationRemark={applicationRemark}
-        setRemark={setRemark}
-      />
-      <ChooseRegion setArea={setArea} isDaejeon={isDaejeon} />
-      <ChooseGraduation
-        setGraduation={setGraduation}
-        setIsProspective={setIsProspective}
-        educationalStatus={educationalStatus}
-      />
-      <ChooseGraduationDate
-        graduatedAt={graduatedAt}
-        educationalStatus={educationalStatus}
-        graduationMonth={graduationMonth}
-        graduationYear={graduationYear}
-        setGraduationMonth={setGraduationMonth}
-        setGraduationYear={setGraduationYear}
-        isProspective={isProspective}
-      />
-      <ChooseRemark
-        setRemark={setRemark}
-        applicationRemark={applicationRemark}
-        applicationType={applicationType}
-      />
+      <ChooseType {...props} />
+      <ChooseRegion {...props} />
+      <ChooseGraduation {...props} setIsProspective={setIsProspective} />
+      <ChooseGraduationDate {...props} isProspective={isProspective} />
+      <ChooseRemark {...props} />
       {showHeadCount}
     </S.SelectLine>
   );

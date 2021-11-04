@@ -1,5 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { responseGenerator } from '../../models/dto/response/responseGenerator';
+import { responseGenerator } from '../../types';
 
 export default function createRequestSaga(type: any, request: any) {
   const SUCCESS = `${type}_SUCCESS`;
