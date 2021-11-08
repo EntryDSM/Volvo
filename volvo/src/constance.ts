@@ -1,5 +1,7 @@
 import { areaType, graduationType, headCountType, remarkType, typeInfoType } from './types';
 
+// select-type
+
 export const CHOOSETYPEINFO: Array<typeInfoType> = [
   { id: 'regular', content: '일반전형' },
   { id: 'meister', content: '마이스터 인재전형' },
@@ -33,4 +35,16 @@ export const REMARKS: Array<remarkType> = [
 export const HEADCOUNT: Array<headCountType> = [
   { id: 'inOfHeadCount', content: '정원 내' },
   { id: 'outOfHeadCount', content: '정원 외' },
+];
+
+// information
+export const GENDER: Array<{ id: 'male' | 'female'; content: string }> = [
+  { id: 'male', content: '남자' },
+  { id: 'female', content: '여자' },
+];
+
+export const GRADE = [
+  { name: 'stdGrade', content: '학년' },
+  { name: 'stdClass', content: '반' },
+  { name: 'stdNumber', content: '번' },
 ];

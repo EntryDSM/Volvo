@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from './style';
 import { XBtn, search } from '../../../assets/modal';
-import { schoolArrayType, searchSchoolQueryType } from '../../../constance/information';
 import { useInView } from 'react-intersection-observer';
+import { schoolArrayType, searchSchoolQueryType } from '../../../types';
 
 interface Props {
   content: Array<schoolArrayType>;
