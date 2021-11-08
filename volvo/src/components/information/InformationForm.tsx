@@ -48,39 +48,8 @@ interface Props {
   setIsClickAddressBtn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const InformationForm: FC<Props> = ({
-  userName,
-  sex,
-  birthYear,
-  birthMonth,
-  birthDate,
-  schoolName,
-  schoolTel,
-  parentName,
-  parentTel,
-  telephoneNumber,
-  homeTel,
-  postCode,
-  address,
-  detailAddress,
-  stdGrade,
-  stdClass,
-  stdNumber,
-  pictureUrl,
-  totalScore,
-  photoFileName,
-  isSuccessSaveUserPicture,
-  setInput,
-  setSex,
-  setBirthYear,
-  setBirthMonth,
-  setBirthDate,
-  setUserPicture,
-  setImageUrl,
-  setIsClickSearchBtn,
-  setIsClickAddressBtn,
-  setGedScore,
-}) => {
+const InformationForm: FC<Props> = props => {
+  const { schoolName, schoolTel, totalScore, setInput } = props;
   const graduation = useSelectType().state.educationalStatus;
 
   const styleInfo = useMemo(() => {
@@ -88,7 +57,7 @@ const InformationForm: FC<Props> = ({
       return {
         widthHeight: {
           width: 904,
-          height: 774,
+          height: 694,
         },
         picture: {
           width: 270,
@@ -102,7 +71,7 @@ const InformationForm: FC<Props> = ({
       return {
         widthHeight: {
           width: 860,
-          height: 935,
+          height: 855,
         },
         picture: {
           width: 317,
@@ -115,90 +84,38 @@ const InformationForm: FC<Props> = ({
   }, [graduation]);
 
   const showGrade = useMemo(() => {
-    if (graduation === 'QUALIFICATION_EXAM')
-      return <TotalScoreColumn setGedScore={setGedScore} totalScore={totalScore} />;
+    if (graduation === 'QUALIFICATION_EXAM') return <TotalScoreColumn {...props} />;
     else
       return (
         <>
-          <GradeColumn setInput={setInput} stdClass={stdClass} stdNumber={stdNumber} />
-          <SchoolNameColumn schoolName={schoolName} setIsClickSearchBtn={setIsClickSearchBtn} />
+          <GradeColumn {...props} />
+          <SchoolNameColumn {...props} />
         </>
       );
   }, [setInput, graduation, schoolName, totalScore]);
 
   const phoneNumberColumn = useMemo(() => {
     if (graduation !== 'QUALIFICATION_EXAM')
-      return (
-        <PhoneNumberColumn
-          schoolTel={schoolTel}
-          title={'학교 연락처'}
-          inputName={'schoolTel'}
-          setInput={setInput}
-        />
-      );
+      return <PhoneNumberColumn {...props} inputName={'schoolTel'} title={'학교 연락처'} />;
   }, [graduation, schoolTel]);
 
   return (
     <S.InformationForm height={styleInfo.widthHeight.height}>
       <NameColumn
-        userName={userName}
+        {...props}
+        width={styleInfo.widthHeight.width}
         title={'이름'}
-        width={styleInfo.widthHeight.width}
         inputName={'userName'}
-        setInput={setInput}
       />
-      <PictureBtn
-        {...styleInfo.picture}
-        pictureUrl={pictureUrl}
-        isSuccessSaveUserPicture={isSuccessSaveUserPicture}
-        photoFileName={photoFileName}
-        setImageUrl={setImageUrl}
-        setUserPicture={setUserPicture}
-      />
-      <GenderColumn width={styleInfo.widthHeight.width} setSex={setSex} sex={sex} />
-      <BirthDateColumn
-        width={styleInfo.widthHeight.width}
-        birthYear={birthYear}
-        birthMonth={birthMonth}
-        birthDate={birthDate}
-        setBirthYear={setBirthYear}
-        setBirthMonth={setBirthMonth}
-        setBirthDate={setBirthDate}
-      />
+      <PictureBtn {...styleInfo.picture} {...props} />
+      <GenderColumn width={styleInfo.widthHeight.width} {...props} />
+      <BirthDateColumn width={styleInfo.widthHeight.width} {...props} />
       {showGrade}
-      <NameColumn
-        parentName={parentName}
-        title={'보호자명'}
-        width={1220}
-        inputName={'parentName'}
-        setInput={setInput}
-      />
+      <NameColumn {...props} title={'보호자명'} inputName={'parentName'} width={1220} />
       {phoneNumberColumn}
-      <PhoneNumberColumn
-        parentTel={parentTel}
-        title={'보호자 연락처'}
-        inputName={'parentTel'}
-        setInput={setInput}
-      />
-      <PhoneNumberColumn
-        telephoneNumber={telephoneNumber}
-        title={'본인 연락처'}
-        inputName={'telephoneNumber'}
-        setInput={setInput}
-      />
-      <PhoneNumberColumn
-        homeTel={homeTel}
-        title={'자택 연락처'}
-        inputName={'homeTel'}
-        setInput={setInput}
-      />
-      <AddressColumn
-        setInput={setInput}
-        setIsClickAddressBtn={setIsClickAddressBtn}
-        postCode={postCode}
-        address={address}
-        detailAddress={detailAddress}
-      />
+      <PhoneNumberColumn {...props} title={'보호자 연락처'} inputName={'parentTel'} />
+      <PhoneNumberColumn {...props} title={'본인 연락처'} inputName={'telephoneNumber'} />
+      <AddressColumn {...props} />
     </S.InformationForm>
   );
 };
