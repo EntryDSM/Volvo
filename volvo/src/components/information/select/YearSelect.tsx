@@ -7,7 +7,8 @@ interface Props {
   setBirthYear: (payload: number) => void;
 }
 
-const YearSelect: FC<Props> = ({ birthYear, setBirthYear }) => {
+const YearSelect: FC<Props> = props => {
+  const { birthYear, setBirthYear } = props;
   const [active, setActive] = useState(false);
   const yearArray = [...Array(20)].map((_, i) => 2022 - i);
 

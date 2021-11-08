@@ -16,18 +16,19 @@ interface Props {
   setUserPicture: (payload: File) => void;
 }
 
-const PictureBtn: FC<Props> = ({
-  setImageUrl,
-  setUserPicture,
-  pictureUrl,
-  width,
-  height,
-  paddingTop,
-  paddingSide,
-  top,
-  photoFileName,
-  isSuccessSaveUserPicture,
-}) => {
+const PictureBtn: FC<Props> = props => {
+  const {
+    setImageUrl,
+    setUserPicture,
+    pictureUrl,
+    width,
+    height,
+    paddingTop,
+    paddingSide,
+    top,
+    photoFileName,
+    isSuccessSaveUserPicture,
+  } = props;
   const fileChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let filedes = URL.createObjectURL(event.currentTarget.files && event.currentTarget.files[0]);
     if (event.currentTarget.files) setUserPicture(event.currentTarget.files[0]);

@@ -9,19 +9,11 @@ interface Props {
   schoolTel?: string;
   parentTel?: string;
   telephoneNumber?: string;
-  homeTel?: string;
   setInput: (payload: { name: string; value: string }) => void;
 }
 
-const PhoneNumberColumn: FC<Props> = ({
-  title,
-  inputName,
-  setInput,
-  schoolTel,
-  parentTel,
-  telephoneNumber,
-  homeTel,
-}) => {
+const PhoneNumberColumn: FC<Props> = props => {
+  const { title, inputName, setInput, schoolTel, parentTel, telephoneNumber } = props;
   const phoneNumberChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput({ name: e.target.name, value: e.target.value });
   };

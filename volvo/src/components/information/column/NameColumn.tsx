@@ -11,7 +11,8 @@ interface Props {
   setInput: (payload: { name: string; value: string }) => void;
 }
 
-const NameColumn: FC<Props> = ({ title, width, inputName, setInput, userName, parentName }) => {
+const NameColumn: FC<Props> = props => {
+  const { title, width, inputName, setInput, userName, parentName } = props;
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput({ name: e.target.name, value: e.target.value });
   };

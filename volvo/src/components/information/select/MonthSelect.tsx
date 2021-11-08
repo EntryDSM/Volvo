@@ -7,7 +7,8 @@ interface Props {
   setBirthMonth: (payload: number) => void;
 }
 
-const MonthSelect: FC<Props> = ({ birthMonth, setBirthMonth }) => {
+const MonthSelect: FC<Props> = props => {
+  const { birthMonth, setBirthMonth } = props;
   const [active, setActive] = useState(false);
   const monthArray = [...Array(12)].map((_, i) => i + 1);
 

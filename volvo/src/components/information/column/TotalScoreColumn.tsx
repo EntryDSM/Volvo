@@ -8,11 +8,12 @@ interface Props {
   setGedScore: (payload: string) => void;
 }
 
-const TotalScoreColumn: FC<Props> = ({ setGedScore, totalScore }) => {
+const TotalScoreColumn: FC<Props> = props => {
+  const { setGedScore, totalScore } = props;
   const { state } = useInformation();
 
-  const totalScoreChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setGedScore(e.target.value);
+  const totalScoreChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setGedScore(event.target.value);
   };
 
   useEffect(() => {

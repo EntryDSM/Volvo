@@ -9,7 +9,8 @@ interface Props {
   setBirthDate: (payload: number) => void;
 }
 
-const DateSelect: FC<Props> = ({ birthDate, birthMonth, birthYear, setBirthDate }) => {
+const DateSelect: FC<Props> = props => {
+  const { birthDate, birthMonth, birthYear, setBirthDate } = props;
   const [active, setActive] = useState(false);
   const getDate = useMemo(() => {
     switch (Number(birthMonth)) {

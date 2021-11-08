@@ -7,7 +7,8 @@ interface Props {
   setIsClickSearchBtn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SchoolNameColumn: FC<Props> = ({ setIsClickSearchBtn, schoolName }) => {
+const SchoolNameColumn: FC<Props> = props => {
+  const { setIsClickSearchBtn, schoolName } = props;
   const searchBtnClickHandler = () => {
     setIsClickSearchBtn(true);
   };

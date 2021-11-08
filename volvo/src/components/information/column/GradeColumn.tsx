@@ -9,7 +9,8 @@ interface Props {
   setInput: (payload: { name: string; value: string }) => void;
 }
 
-const GradeColumn: FC<Props> = ({ setInput, stdClass, stdNumber }) => {
+const GradeColumn: FC<Props> = props => {
+  const { setInput, stdClass, stdNumber } = props;
   const gradeChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput({ name: e.target.name, value: e.target.value });
   };
