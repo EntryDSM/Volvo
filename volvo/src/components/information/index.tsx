@@ -56,45 +56,16 @@ interface Props {
 
 const Information: FC<Props> = props => {
   const {
-    userName,
-    sex,
-    birthYear,
-    birthMonth,
-    birthDate,
-    parentName,
-    parentTel,
-    telephoneNumber,
-    homeTel,
-    address,
-    detailAddress,
-    postCode,
-    schoolCode,
-    schoolTel,
-    stdGrade,
-    stdClass,
-    stdNumber,
-    schoolName,
-    totalScore,
-    photoFileName,
-    pictureUrl,
     totalPages,
     content,
     isSuccessSaveInformation,
     isSuccessSaveUserPicture,
     isSuccessSaveGraduateInformation,
     isSuccessSaveGedScore,
-    setInput,
-    setSex,
-    setBirthYear,
-    setBirthMonth,
-    setBirthDate,
-    setUserPicture,
-    setImageUrl,
     setSchoolCode,
     setAddress,
     searchSchool,
     setSchoolName,
-    setGedScore,
   } = props;
   const [isClickSearchBtn, setIsClickSearchBtn] = useState(false);
   const [isClickAddressBtn, setIsClickAddressBtn] = useState(false);
@@ -102,22 +73,13 @@ const Information: FC<Props> = props => {
 
   const searchSchoolModal = useMemo(() => {
     if (isClickSearchBtn)
-      return (
-        <SearchSchoolModal
-          setSchoolCode={setSchoolCode}
-          content={content}
-          setIsClickSearchBtn={setIsClickSearchBtn}
-          totalPages={totalPages}
-          setSchoolName={setSchoolName}
-          searchSchool={searchSchool}
-        />
-      );
+      return <SearchSchoolModal {...props} setIsClickSearchBtn={setIsClickSearchBtn} />;
     else return;
-  }, [isClickSearchBtn, content, totalPages]);
+  }, [isClickSearchBtn, content, totalPages, searchSchool]);
 
   const addressModal = useMemo(() => {
     if (isClickAddressBtn)
-      return <AddressModal setIsClickAddressBtn={setIsClickAddressBtn} setAddress={setAddress} />;
+      return <AddressModal setIsClickAddressBtn={setIsClickAddressBtn} {...props} />;
     else return;
   }, [isClickAddressBtn]);
 
