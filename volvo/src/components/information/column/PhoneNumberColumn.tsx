@@ -1,7 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import * as S from '../style';
 import Input from '../../default/input';
-import { EXPLAIN } from '../../../constance/information';
 
 interface Props {
   title: string;
@@ -53,7 +52,7 @@ const PhoneNumberColumn: FC<Props> = props => {
       {phoneNumberInput}
       <S.Explain>
         <span>*</span>
-        {EXPLAIN}
+        '-'문자를 제외한 숫자만 입력해주세요.
       </S.Explain>
     </S.InformationLine>
   );
