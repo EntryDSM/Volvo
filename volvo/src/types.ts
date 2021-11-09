@@ -10,7 +10,17 @@ export type Subject =
 
 export type SubjectScore = 'A' | 'B' | 'C' | 'D' | 'E' | 'X';
 
-export type GradeSubjectState = Record<Subject, string>;
+export type GradeSubjectState = Record<Subject, string>
+
+export interface GradeState {
+  volunteerTime: number,
+  absence: number,//결석
+  leave: number,//조퇴
+  lateness: number,//지각
+  truancy: number,//무단 결석
+  grade: GradeSubjectState,
+  isSuccessSaveGrade?: boolean,
+}
 
 // select type
 export interface selectTypeStateInterface {
