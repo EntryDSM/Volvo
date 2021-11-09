@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import * as S from '../style';
-import { IMG_EXPLAIN, IMG_FORMATS, IMG_SIZE } from '../../../constance/information';
 import { imgIcon } from '../../../assets/Information';
 
 interface Props {
@@ -50,11 +49,11 @@ const PictureBtn: FC<Props> = props => {
       return (
         <>
           <img src={imgIcon} alt='img' />
-          <p>{IMG_EXPLAIN}</p>
-          <p>{IMG_FORMATS}</p>
+          <p>증명사진을 첨부해주세요</p>
+          <p>(JPG,JPEG,JPEG2000,PNG)</p>
           <p>
             <span>*</span>
-            {IMG_SIZE}
+            용량 10MB이하
           </p>
         </>
       );
