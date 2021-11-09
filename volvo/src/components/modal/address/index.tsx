@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import * as S from './style';
 import DaumPostcode, { Address } from 'react-daum-postcode';
-import { addressType } from '../../../constance/information';
+import { addressType } from '../../../types';
 
 interface Props {
   setAddress: (payload: addressType) => void;

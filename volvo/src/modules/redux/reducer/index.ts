@@ -5,13 +5,14 @@ import statusReducer from './status';
 import signupReducer from './signup';
 import signinReducer from './signin';
 import resetPasswordReducer from './resetPassword';
+import informationReducer from './information';
 import authReducer from './auth';
 import selectTypeReducer from './selectType';
 import previewReducer from './preview';
 import gradeReducer from './grade';
 
 const rootReducer = combineReducers({
-  grade:gradeReducer,
+  grade: gradeReducer,
   user: userReducer,
   modal: modalReducer,
   status: statusReducer,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   selectType: selectTypeReducer,
   preview: previewReducer,
+  information: informationReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
