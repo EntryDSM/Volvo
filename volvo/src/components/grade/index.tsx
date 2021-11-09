@@ -45,11 +45,7 @@ const Grade: React.FC<Props> = ({
         setInput={setInput}
       />
       <GradeTable grade={grade} setGrade={setGrade} setAllGrade={setAllGrade} />
-      <s.PageMoveWrapper>
-        <button>이전</button>
-        <button>다음</button>
-      </s.PageMoveWrapper>
-      <div>footer</div>
+      
     </s.GradeWrapper>
   );
 };
