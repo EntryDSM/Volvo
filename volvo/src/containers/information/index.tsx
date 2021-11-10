@@ -10,14 +10,14 @@ import {
   GET_INFORMATION,
 } from '../../modules/redux/action/information/interface';
 import { useUser } from '../../util/hooks/user';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const InformationContainer = () => {
   const { state, setState } = useInformation();
   const educationalStatus = useSelectType().state.educationalStatus;
   const isFinalSubmitDone = useUser().state.isfinalSubmitDone;
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const mounted = useRef(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const InformationContainer = () => {
       alert(
         '최종제출되었습니다. 접근하시려면 최종제출을 취소하고 접근해주세요. 최종제출은 학교에 연락하여 취소하셔야 합니다.',
       );
-      history.push('/');
+      navigate('/');
     }
   }, [isFinalSubmitDone]);
 
