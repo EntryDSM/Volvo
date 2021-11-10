@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import * as S from './style';
 import HeaderMenu from './menu';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { error } from '../../types';
 
 interface Props {
@@ -19,15 +19,15 @@ interface Props {
 }
 
 const Header: FC<Props> = props => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const logout = () => {
     props.setIsLogin(false);
     props.setAccessToken('');
     localStorage.removeItem('access_token');
-    history.push('/');
+    navigate('/');
   };
   const logoClickHandler = () => {
-    history.push('/');
+    navigate('/');
   };
 
   return (

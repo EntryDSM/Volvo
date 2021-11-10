@@ -4,7 +4,7 @@ import { submit, XBtn } from '../../../assets/modal';
 import { useDispatch } from 'react-redux';
 import { FINAL } from '../../../modules/redux/action/preview/interface';
 import { usePreview } from '../../../util/hooks/preview';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   setIsOpenSubmitModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,7 +12,7 @@ interface Props {
 
 const ConfirmSubmissionModal: FC<Props> = ({ setIsOpenSubmitModal }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const isSuccessSaveFinal = usePreview().state.isSuccessSaveFinal;
   const closeBtnClickHandler = () => {
     setIsOpenSubmitModal(false);
@@ -24,7 +24,7 @@ const ConfirmSubmissionModal: FC<Props> = ({ setIsOpenSubmitModal }) => {
 
   useEffect(() => {
     if (isSuccessSaveFinal) {
-      history.push('/');
+      navigate('/');
     } else if (isSuccessSaveFinal === false) {
       alert('실패');
     }
