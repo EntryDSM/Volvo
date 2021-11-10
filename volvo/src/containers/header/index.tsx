@@ -3,14 +3,15 @@ import { useAuth } from '../../util/hooks/auth';
 import { useSignIn } from '../../util/hooks/signin';
 import Header from '../../components/header';
 import { useUser } from '../../util/hooks/user';
-import { useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { REFRESH_TOKEN } from '../../modules/redux/action/signin';
 
 const HeaderContainer = () => {
   const authState = useAuth();
   const userState = useUser();
   const signinState = useSignIn();
-  const history = useHistory();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const refreshToken = () => {
     signinState.setState.refreshToken(userState.setState.getUser);
@@ -33,7 +34,7 @@ const HeaderContainer = () => {
 
   useEffect(() => {
     if (authState.state.isLogin) userState.setState.getUser();
-  }, [authState.state.isLogin, history.location.pathname]);
+  }, [authState.state.isLogin, location.pathname]);
   return (
     <Header
       {...authState.state}
