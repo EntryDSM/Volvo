@@ -1,4 +1,4 @@
-import { color } from '../../../style';
+import { color } from '../../style';
 import styled, { css } from 'styled-components';
 
 export const Information = styled.div`
