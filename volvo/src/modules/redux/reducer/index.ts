@@ -10,6 +10,7 @@ import authReducer from './auth';
 import selectTypeReducer from './selectType';
 import previewReducer from './preview';
 import gradeReducer from './grade';
+import introductionReducer from './introduction';
 
 const rootReducer = combineReducers({
   grade: gradeReducer,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   selectType: selectTypeReducer,
   preview: previewReducer,
   information: informationReducer,
+  introduction: introductionReducer,
 });
 
 export type reducerType = ReturnType<typeof rootReducer>;
