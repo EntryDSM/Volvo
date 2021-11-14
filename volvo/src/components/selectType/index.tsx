@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from './style';
 import Pagination from '../default/pagination';
 import SelectLine from './SelectLine';
@@ -27,8 +27,51 @@ interface Props {
 }
 
 const SelectType: FC<Props> = props => {
-  const { isSuccessSaveSelectType } = props;
-  const pagination = useMemo(() => {}, []);
+  const {
+    applicationType,
+    socialType,
+    isDaejeon,
+    educationalStatus,
+    graduationYear,
+    graduationMonth,
+    applicationRemark,
+    isSuccessSaveSelectType,
+  } = props;
+  const content = [
+    applicationType,
+    socialType,
+    isDaejeon,
+    educationalStatus,
+    graduationYear,
+    graduationMonth,
+    applicationRemark,
+  ];
+  const [disabled, setDisabled] = useState(false);
+
+  useEffect(() => {
+    if (
+      applicationType !== '' &&
+      isDaejeon !== null &&
+      educationalStatus !== '' &&
+      graduationYear !== 0 &&
+      graduationMonth !== 0
+    )
+      setDisabled(false);
+    else setDisabled(true);
+  }, [...content]);
+
+  const pagination = useMemo(() => {
+    return (
+      <Pagination
+        isDisabled={disabled}
+        nextPagePath={'/information'}
+        isQualification={educationalStatus === 'QUALIFICATION_EXAM' ? true : false}
+        prevPagePath={'/'}
+        currentPage={1}
+        isSuccess={isSuccessSaveSelectType}
+      />
+    );
+  }, [disabled, educationalStatus]);
 
   return (
     <S.SelectType>
