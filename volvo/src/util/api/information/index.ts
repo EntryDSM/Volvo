@@ -36,7 +36,6 @@ export const informationStateToRequest = (
     parent_name: state.parentName,
     parent_tel: state.parentTel ? state.parentTel.replace(/\-/g, '') : null,
     telephone_number: state.telephoneNumber ? state.telephoneNumber.replace(/\-/g, '') : null,
-    home_tel: state.homeTel ? state.homeTel.replace(/\-/g, '') : null,
     address: state.address,
     detail_address: state.detailAddress,
     post_code: state.postCode,

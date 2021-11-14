@@ -25,7 +25,6 @@ interface Props {
   parentName: string;
   parentTel: string;
   telephoneNumber: string;
-  homeTel: string;
   postCode: string;
   address: string;
   detailAddress: string;
