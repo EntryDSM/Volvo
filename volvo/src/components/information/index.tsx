@@ -143,14 +143,18 @@ const Information: FC<Props> = props => {
         currentPage={2}
         isSuccess={
           educationalStatus === 'QUALIFICATION_EXAM'
-            ? isSuccessSaveInformation && isSuccessSaveUserPicture && isSuccessSaveGedScore
-            : isSuccessSaveInformation &&
-              isSuccessSaveUserPicture &&
-              isSuccessSaveGraduateInformation
+            ? isSuccessSaveInformation && isSuccessSaveGedScore
+            : isSuccessSaveInformation && isSuccessSaveGraduateInformation
         }
       />
     );
-  }, [disabled, educationalStatus]);
+  }, [
+    disabled,
+    educationalStatus,
+    isSuccessSaveGraduateInformation,
+    isSuccessSaveInformation,
+    isSuccessSaveGedScore,
+  ]);
 
   return (
     <S.Information>

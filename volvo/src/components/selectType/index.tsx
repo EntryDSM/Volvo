@@ -71,7 +71,7 @@ const SelectType: FC<Props> = props => {
         isSuccess={isSuccessSaveSelectType}
       />
     );
-  }, [disabled, educationalStatus]);
+  }, [disabled, educationalStatus, isSuccessSaveSelectType]);
 
   return (
     <S.SelectType>
