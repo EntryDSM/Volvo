@@ -94,6 +94,9 @@ export const CheckCircle = styled.div`
   height: 21px;
   border: 1px solid black;
   border-radius: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 10px;
   cursor: pointer;
 `;
@@ -103,7 +106,6 @@ export const CheckedCircle = styled.div`
   height: 13px;
   border-radius: 7px;
   background-color: ${color.main};
-  margin: 4px;
 `;
 
 export const Select = styled.div<{
@@ -116,7 +118,9 @@ export const Select = styled.div<{
   border: 1px solid #606060;
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 6px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   cursor: pointer;
 `;
