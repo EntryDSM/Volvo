@@ -9,10 +9,11 @@ interface Props {
   isLeft: boolean;
   disabled: boolean;
   isSuccess: boolean | undefined;
+  setModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const PageBtn: FC<Props> = props => {
-  const { isLeft, disabled, nextPagePath, prevPagePath, isSuccess } = props;
+  const { isLeft, disabled, nextPagePath, prevPagePath, isSuccess, setModal } = props;
   const navigate = useNavigate();
 
   const left = useMemo(() => {
@@ -39,9 +40,13 @@ const PageBtn: FC<Props> = props => {
 
   const pageBtnClickHandler = () => {
     if (!disabled) {
-      if (isLeft) navigate(prevPagePath);
-      else {
-        if (isSuccess) navigate(nextPagePath);
+      if (nextPagePath === '/') {
+        setModal && setModal(true);
+      } else {
+        if (isLeft) navigate(prevPagePath);
+        else {
+          if (isSuccess) navigate(nextPagePath);
+        }
       }
     }
   };

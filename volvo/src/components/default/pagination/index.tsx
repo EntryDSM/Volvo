@@ -9,6 +9,7 @@ interface Props {
   currentPage: number;
   isQualification: boolean;
   isSuccess: boolean | undefined;
+  setModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Pagination: FC<Props> = props => {
