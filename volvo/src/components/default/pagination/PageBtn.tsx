@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo } from 'react';
 import * as S from './style';
 import { left_arrow, right_arrow, right_arrow_disabled } from '../../../assets/default';
 import { useNavigate } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo } from 'react';
 import PageBtn from './PageBtn';
 import * as S from './style';
 
