@@ -8,7 +8,7 @@ enum uri {
   resetPassword = '/user/password',
   introduction = '/application/intro',
   studyPlan = '/application/study-plan',
-  schedule = '/admin/schedules',
+  schedule = '/schedules',
   selectType = '/application/users/type',
   information = '/application/users',
   graduateInformation = '/application/users/graduation',
