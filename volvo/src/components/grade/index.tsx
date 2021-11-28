@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import * as s from './style';
 import GradeTable from './table/GradeTable';
 import Volunteer from './table/Volunteer';
 import { currentYear } from '../../constance/default';
 import { GradeType } from '../../constance/grade';
 import { Subject, SubjectScore } from '../../types';
+import Pagination from '../default/pagination';
 interface Props {
   volunteerTime: number;
   absence: number; //결석
@@ -30,6 +31,25 @@ const Grade: React.FC<Props> = ({
   setGrade,
   setAllGrade,
 }) => {
+  const [disabled, setDisabled] = useState<boolean>(false);
+  useEffect(() => {
+    if (volunteerTime !== 0) setDisabled(false);
+    else setDisabled(true);
+  }, [volunteerTime]);
+
+  const pagination = useMemo(() => {
+    return (
+      <Pagination
+        isDisabled={disabled}
+        nextPagePath={'/introduction'}
+        isQualification={false}
+        prevPagePath={'/information'}
+        currentPage={3}
+        isSuccess={isSuccessSaveGrade}
+      />
+    );
+  }, [disabled, isSuccessSaveGrade]);
+
   return (
     <s.GradeWrapper>
       <s.GradeTitles>
@@ -45,11 +65,7 @@ const Grade: React.FC<Props> = ({
         setInput={setInput}
       />
       <GradeTable grade={grade} setGrade={setGrade} setAllGrade={setAllGrade} />
-      <s.PageMoveWrapper>
-        <button>이전</button>
-        <button>다음</button>
-      </s.PageMoveWrapper>
-      <div>footer</div>
+      {pagination}
     </s.GradeWrapper>
   );
 };

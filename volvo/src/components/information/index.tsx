@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from './style';
 import Pagination from '../default/pagination';
 import InformationForm from './InformationForm';
@@ -18,7 +18,6 @@ interface Props {
   parentName: string;
   parentTel: string;
   telephoneNumber: string;
-  homeTel: string;
   address: string;
   detailAddress: string;
   postCode: string;
@@ -56,20 +55,47 @@ interface Props {
 
 const Information: FC<Props> = props => {
   const {
+    sex,
+    birthYear,
+    birthMonth,
+    birthDate,
+    parentName,
+    parentTel,
+    telephoneNumber,
+    address,
+    detailAddress,
+    postCode,
+    schoolCode,
+    schoolTel,
+    stdGrade,
+    stdClass,
+    stdNumber,
     totalPages,
+    totalScore,
     content,
     isSuccessSaveInformation,
     isSuccessSaveUserPicture,
     isSuccessSaveGraduateInformation,
     isSuccessSaveGedScore,
-    setSchoolCode,
-    setAddress,
     searchSchool,
-    setSchoolName,
   } = props;
-  const [isClickSearchBtn, setIsClickSearchBtn] = useState(false);
-  const [isClickAddressBtn, setIsClickAddressBtn] = useState(false);
+  const [isClickSearchBtn, setIsClickSearchBtn] = useState<boolean>(false);
+  const [isClickAddressBtn, setIsClickAddressBtn] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
   const educationalStatus = useSelectType().state.educationalStatus;
+  const contentArray = [
+    sex,
+    birthYear,
+    birthMonth,
+    birthDate,
+    parentName,
+    parentTel,
+    telephoneNumber,
+    address,
+    detailAddress,
+    postCode,
+  ];
+  const schoolArray = [schoolCode, schoolTel, stdGrade, stdClass, stdNumber];
 
   const searchSchoolModal = useMemo(() => {
     if (isClickSearchBtn)
@@ -83,7 +109,52 @@ const Information: FC<Props> = props => {
     else return;
   }, [isClickAddressBtn]);
 
-  const pagination = useMemo(() => {}, []);
+  useEffect(() => {
+    if (
+      sex !== '' &&
+      birthYear !== 0 &&
+      birthMonth !== 0 &&
+      birthDate !== 0 &&
+      parentName !== '' &&
+      parentTel !== '' &&
+      telephoneNumber !== '' &&
+      address !== '' &&
+      detailAddress !== '' &&
+      postCode !== ''
+    ) {
+      if (educationalStatus === 'QUALIFICATION_EXAM') {
+        if (totalScore !== '0') setDisabled(false);
+        else setDisabled(true);
+      } else {
+        if (schoolCode !== '' && schoolTel !== '' && stdClass !== '' && stdNumber !== '')
+          setDisabled(false);
+        else setDisabled(true);
+      }
+    } else setDisabled(true);
+  }, [...contentArray, ...schoolArray, totalScore]);
+
+  const pagination = useMemo(() => {
+    return (
+      <Pagination
+        isDisabled={disabled}
+        nextPagePath={'/select-type'}
+        isQualification={educationalStatus === 'QUALIFICATION_EXAM' ? true : false}
+        prevPagePath={educationalStatus === 'QUALIFICATION_EXAM' ? '/introduction' : '/grade'}
+        currentPage={2}
+        isSuccess={
+          educationalStatus === 'QUALIFICATION_EXAM'
+            ? isSuccessSaveInformation && isSuccessSaveGedScore
+            : isSuccessSaveInformation && isSuccessSaveGraduateInformation
+        }
+      />
+    );
+  }, [
+    disabled,
+    educationalStatus,
+    isSuccessSaveGraduateInformation,
+    isSuccessSaveInformation,
+    isSuccessSaveGedScore,
+  ]);
 
   return (
     <S.Information>

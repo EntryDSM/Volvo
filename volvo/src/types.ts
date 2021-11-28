@@ -169,7 +169,6 @@ export interface informationInterface {
   parent_name: string | null;
   parent_tel: string | null;
   telephone_number: string | null;
-  home_tel: string | null;
   address: string | null;
   detail_address: string | null;
   post_code: string | null;

@@ -9,7 +9,6 @@ interface InformationState {
   parentName: string;
   parentTel: string;
   telephoneNumber: string;
-  homeTel: string;
   address: string;
   detailAddress: string;
   postCode: string;

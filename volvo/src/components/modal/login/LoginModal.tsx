@@ -1,5 +1,4 @@
 import React, { FC, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import * as S from '../style';
 import DefaultButton from '../default/defaultButton';
 import Title from '../default/title/Title';
@@ -8,14 +7,15 @@ import PasswordInput from '../../default/input/PasswordInput';
 import { useSignIn } from '../../../util/hooks/signin';
 import { useModal } from '../../../util/hooks/modal';
 import { SIGNIN } from '../../../modules/redux/action/signin';
+import { useNavigate } from 'react-router-dom';
 
 const LoginModal: FC = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { setState, state } = useSignIn();
   const modalState = useModal();
 
   const signupButtonClickHandler = () => {
-    history.push('/signup');
+    navigate('/signup');
     modalState.setState.setModalOff('loginModal');
   };
   const idChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
