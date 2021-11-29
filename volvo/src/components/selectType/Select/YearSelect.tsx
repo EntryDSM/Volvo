@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from '../style';
 import { dropdown, dropdown_active } from '../../../assets/selectType';
+import { currentYear } from '../../../constance/default';
 
 interface Props {
   disabled: string;
@@ -16,7 +17,7 @@ const YearSelect: FC<Props> = props => {
   const YearArray = [...Array(10)].map((_, i) => i + year);
 
   useEffect(() => {
-    if (disabled === 'block') setGraduationYear(2022);
+    if (disabled === 'block') setGraduationYear(currentYear);
   }, [disabled]);
 
   const onSelectClick = () => {
