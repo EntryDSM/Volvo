@@ -13,9 +13,9 @@ export const selectTypeStateToRequest = (state: reducerType['selectType']): sele
     educational_status: state.educationalStatus,
     application_type: state.applicationType,
     is_daejeon: state.isDaejeon,
-    application_remark: state.applicationRemark,
+    application_remark: state.applicationRemark ? state.applicationRemark : null,
     graduated_at: graduatedAt(state.graduationYear, state.graduationMonth),
-    headcount: state.headcount,
+    headcount: state.headcount ? state.headcount : null,
   };
 };
 
