@@ -1,3 +1,4 @@
+import { currentYear } from '../../../../constance/default';
 import { selectTypeActionType } from '../../action/selectType';
 import {
   TYPE,
@@ -22,7 +23,7 @@ const initState: SelectTypeState = {
   isDaejeon: null,
   educationalStatus: '',
   graduationMonth: 1,
-  graduationYear: 2022,
+  graduationYear: currentYear,
   graduatedAt: '',
   applicationRemark: null,
   headcount: null,
