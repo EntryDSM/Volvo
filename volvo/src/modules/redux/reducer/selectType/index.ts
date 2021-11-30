@@ -1,4 +1,5 @@
 import { currentYear } from '../../../../constance/default';
+import { applicationTypeResponseToStatus } from '../../../../util/api/selectType';
 import { selectTypeActionType } from '../../action/selectType';
 import {
   TYPE,
@@ -106,8 +107,8 @@ const SelectTypeReducer = (
         ...state,
         isSuccessGetSelectType: true,
         applicationRemark: action.payload.application_remark,
-        isDaejeon: action.payload.is_daejeon,
-        applicationType: action.payload.application_type,
+        isDaejeon: action.payload.daejeon,
+        applicationType: applicationTypeResponseToStatus(action.payload.application_type),
         educationalStatus: action.payload.educational_status,
         graduatedAt: action.payload.graduated_at,
         headcount: action.payload.headcount,
