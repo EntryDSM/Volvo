@@ -137,10 +137,11 @@ const Information: FC<Props> = props => {
     return (
       <Pagination
         isDisabled={disabled}
-        nextPagePath={'/select-type'}
+        nextPagePath={educationalStatus === 'QUALIFICATION_EXAM' ? '/introduction' : '/grade'}
         isQualification={educationalStatus === 'QUALIFICATION_EXAM' ? true : false}
-        prevPagePath={educationalStatus === 'QUALIFICATION_EXAM' ? '/introduction' : '/grade'}
+        prevPagePath={'/select-type'}
         currentPage={2}
+        page={'information'}
         isSuccess={
           educationalStatus === 'QUALIFICATION_EXAM'
             ? isSuccessSaveInformation && isSuccessSaveGedScore

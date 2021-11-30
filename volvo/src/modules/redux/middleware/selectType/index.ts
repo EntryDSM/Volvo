@@ -20,7 +20,7 @@ import { debounce, put, select, takeLatest } from 'redux-saga/effects';
 import * as Effects from 'redux-saga/effects';
 import { reducerType } from '../../reducer';
 import SelectTypeState from '../../reducer/selectType/interface';
-import { responseGenerator, selectTypeInterface } from '../../../../types';
+import { responseGenerator, selectTypeRequestInterface } from '../../../../types';
 
 const actionArray = [
   TYPE,
@@ -42,7 +42,7 @@ export const selectTypeSaveSaga = function* () {
   const SUCCESS = 'SELECTTYPE/SELECTTYPE_SUCCESS';
   const FAILURE = 'SELECTTYPE/SELECTTYPE_FAILURE';
   const state: SelectTypeState = yield select(getStateFunc);
-  const request: selectTypeInterface = selectTypeStateToRequest(state);
+  const request: selectTypeRequestInterface = selectTypeStateToRequest(state);
   const accessToken = localStorage.getItem('access_token');
   try {
     const response: responseGenerator = yield call(selectType, accessToken, request);

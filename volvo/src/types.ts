@@ -26,6 +26,15 @@ export interface selectTypeStateInterface {
 export interface selectTypeInterface {
   educational_status: string | null;
   application_type: string | null;
+  daejeon: boolean | null;
+  application_remark: string | null;
+  graduated_at: string | null;
+  headcount: string | null;
+}
+
+export interface selectTypeRequestInterface {
+  educational_status: string | null;
+  application_type: string | null;
   is_daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
