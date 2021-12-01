@@ -99,7 +99,7 @@ export const getGraduateInformation = async (access_token: string) => {
 export const userPhoto = async (access_token: string, userPhotoRequest: File) => {
   try {
     const formData = new FormData();
-    formData.append('file', userPhotoRequest);
+    formData.append('photo', userPhotoRequest);
     const request = getRequestWithAccessToken(access_token);
     return await request.post(uri.userPhoto, formData);
   } catch (error) {
