@@ -38,6 +38,7 @@ const actionArray = [INPUT, SEX, BIRTHYEAR, BIRTHMONTH, BIRTHDATE, ADDRESS_AND_C
 
 const getStateFunc = (state: reducerType): reducerType['information'] => state.information;
 const getSelectTypeStateFunc = (state: reducerType): reducerType['selectType'] => state.selectType;
+const getUserName = (state: reducerType) => state.user.name;
 
 export const informationGetSaga = createRequestSaga(GET_INFORMATION, getInformation);
 export const graduateInformationGetSaga = createRequestSaga(
@@ -52,7 +53,8 @@ const informationSaveSaga = function* () {
   const SUCCESS = 'INFORMATION/INFORMATION_SUCCESS';
   const FAILURE = 'INFORMATION/INFORMATION_FAILURE';
   const state: InformationState = yield select(getStateFunc);
-  const requestState: informationInterface = informationStateToRequest(state);
+  const userName: string = yield select(getUserName);
+  const requestState: informationInterface = informationStateToRequest(state, userName);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
     const response: responseGenerator = yield call(information, accessToken, requestState);
