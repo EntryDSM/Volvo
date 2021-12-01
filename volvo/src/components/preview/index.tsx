@@ -19,6 +19,7 @@ const Preview: FC<Props> = props => {
   const pagination = useMemo(() => {
     return (
       <Pagination
+        page={'preview'}
         isDisabled={false}
         nextPagePath={'/'}
         isQualification={educationalStatus === 'QUALIFICATION_EXAM' ? true : false}
