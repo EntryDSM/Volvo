@@ -34,7 +34,6 @@ import {
 import InformationState from './interface';
 
 const initState: InformationState = {
-  userName: '',
   sex: '',
   birthYear: 2021,
   birthMonth: 1,
@@ -164,11 +163,10 @@ const informationReducer = (
     case GET_INFORMATION_SUCCESS:
       return {
         ...state,
-        userName: action.payload.name,
         sex: action.payload.sex,
         birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2021,
-        birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(5, 7)) : 1,
-        birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(8)) : 1,
+        birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(4, 6)) : 1,
+        birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(6)) : 1,
         parentName: action.payload.parent_name,
         parentTel: action.payload.parent_tel,
         telephoneNumber: action.payload.telephone_number,
@@ -185,11 +183,10 @@ const informationReducer = (
     case GET_GRADUATE_INFORMATION_SUCCESS:
       return {
         ...state,
-        userName: action.payload.name,
         sex: action.payload.sex,
         birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2021,
-        birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(5, 7)) : 1,
-        birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(8)) : 1,
+        birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(4, 6)) : 1,
+        birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(6)) : 1,
         parentName: action.payload.parent_name,
         parentTel: action.payload.parent_tel,
         telephoneNumber: action.payload.telephone_number,
