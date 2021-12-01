@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import useInformation from '../../util/hooks/information';
 import Information from '../../components/information';
 import { useDispatch } from 'react-redux';
@@ -16,9 +16,9 @@ const InformationContainer = () => {
   const { state, setState } = useInformation();
   const educationalStatus = useSelectType().state.educationalStatus;
   const isFinalSubmitDone = useUser().state.isfinalSubmitDone;
+  const userName = useUser().state.name;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const mounted = useRef(false);
 
   useEffect(() => {
     dispatch({ type: GET_SELECTTYPE });
@@ -45,7 +45,7 @@ const InformationContainer = () => {
     }
   }, [isFinalSubmitDone]);
 
-  return <Information {...state} {...setState} />;
+  return <Information {...state} {...setState} userName={userName} />;
 };
 
 export default InformationContainer;

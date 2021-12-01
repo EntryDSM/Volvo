@@ -6,6 +6,7 @@ interface Props {
   isDisabled: boolean;
   nextPagePath: string;
   prevPagePath: string;
+  page: string;
   currentPage: number;
   isQualification: boolean;
   isSuccess: boolean | undefined;

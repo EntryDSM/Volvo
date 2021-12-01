@@ -63,6 +63,7 @@ const SelectType: FC<Props> = props => {
   const pagination = useMemo(() => {
     return (
       <Pagination
+        page={'select-type'}
         isDisabled={disabled}
         nextPagePath={'/information'}
         isQualification={educationalStatus === 'QUALIFICATION_EXAM' ? true : false}

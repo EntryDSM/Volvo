@@ -1,20 +1,32 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import * as S from './style';
 import { left_arrow, right_arrow, right_arrow_disabled } from '../../../assets/default';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { SELECTTYPE } from '../../../modules/redux/action/selectType/interface';
+import {
+  GED_SCORE,
+  GRADUATE_INFORMATION,
+  INFORMATION,
+} from '../../../modules/redux/action/information/interface';
+import useSelectType from '../../../util/hooks/selectType';
 
 interface Props {
   nextPagePath: string;
   prevPagePath: string;
   isLeft: boolean;
   disabled: boolean;
+  page: string;
   isSuccess: boolean | undefined;
   setModal?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const PageBtn: FC<Props> = props => {
-  const { isLeft, disabled, nextPagePath, prevPagePath, isSuccess, setModal } = props;
+  const { isLeft, disabled, nextPagePath, prevPagePath, isSuccess, page, setModal } = props;
+  const [isOnClick, setIsOnClick] = useState(false);
+  const educationalStatus = useSelectType().state.educationalStatus;
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const left = useMemo(() => {
     if (isLeft) {
@@ -40,6 +52,25 @@ const PageBtn: FC<Props> = props => {
 
   const pageBtnClickHandler = () => {
     if (!disabled) {
+      if (page === 'select-type') dispatch({ type: SELECTTYPE });
+      else if (page === 'information') {
+        if (educationalStatus === 'QUALIFICATION_EXAM') {
+          dispatch({ type: INFORMATION });
+          dispatch({ type: GED_SCORE });
+        } else if (
+          educationalStatus === 'GRADUATE' ||
+          educationalStatus === 'PROSPECTIVE_GRADUATE'
+        ) {
+          dispatch({ type: INFORMATION });
+          dispatch({ type: GRADUATE_INFORMATION });
+        }
+      }
+      setIsOnClick(true);
+    }
+  };
+
+  useEffect(() => {
+    if (isOnClick && !disabled) {
       if (nextPagePath === '/') {
         setModal && setModal(true);
       } else {
@@ -49,7 +80,7 @@ const PageBtn: FC<Props> = props => {
         }
       }
     }
-  };
+  }, [isOnClick, disabled, isSuccess, isLeft, nextPagePath, prevPagePath]);
 
   return (
     <S.PageBtn disabled={isLeft ? false : disabled} onClick={pageBtnClickHandler}>

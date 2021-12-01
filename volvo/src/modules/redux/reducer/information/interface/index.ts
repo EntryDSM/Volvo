@@ -1,7 +1,6 @@
 import { error, schoolArrayType } from '../../../../../types';
 
 interface InformationState {
-  userName: string;
   sex: string;
   birthYear: number;
   birthMonth: number;

@@ -45,6 +45,7 @@ const Grade: React.FC<Props> = ({
         isQualification={false}
         prevPagePath={'/information'}
         currentPage={3}
+        page={'grade'}
         isSuccess={isSuccessSaveGrade}
       />
     );

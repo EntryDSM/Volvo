@@ -70,6 +70,7 @@ const Information: FC<Props> = props => {
     stdGrade,
     stdClass,
     stdNumber,
+    photoFileName,
     totalPages,
     totalScore,
     content,
@@ -120,7 +121,8 @@ const Information: FC<Props> = props => {
       telephoneNumber !== '' &&
       address !== '' &&
       detailAddress !== '' &&
-      postCode !== ''
+      postCode !== '' &&
+      (photoFileName || isSuccessSaveUserPicture)
     ) {
       if (educationalStatus === 'QUALIFICATION_EXAM') {
         if (totalScore !== '0') setDisabled(false);
