@@ -144,7 +144,7 @@ export const SelectContent = styled.div<{
 `;
 
 export const SubSelect = styled.div`
-  width: 100%;
+  width: calc(100% + 2px);
   height: 200px;
   overflow-y: auto;
   border: 1px solid #606060;
@@ -153,6 +153,7 @@ export const SubSelect = styled.div`
   border-bottom-right-radius: 5px;
   position: absolute;
   left: -1px;
+  top: 35px;
   background-color: white;
   z-index: 10;
   > p {
