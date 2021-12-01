@@ -9,11 +9,11 @@ import {
 
 const makeBirthday = (year: number, month: number, date: number) => {
   if (month < 10) {
-    if (date < 10) return `${year}0${month}0${date}`;
-    else return `${year}0${month}${date}`;
+    if (date < 10) return `${year}-0${month}-0${date}`;
+    else return `${year}-0${month}-${date}`;
   } else {
-    if (date < 10) return `${year}${month}0${date}`;
-    else return `${year}${month}${date}`;
+    if (date < 10) return `${year}-${month}-0${date}`;
+    else return `${year}-${month}-${date}`;
   }
 };
 
@@ -29,8 +29,10 @@ const makeStudentNumber = (stdClass: string, stdNumber: string) => {
 
 export const informationStateToRequest = (
   state: reducerType['information'],
+  userName: string,
 ): informationInterface => {
   return {
+    name: userName,
     sex: state.sex,
     birthday: makeBirthday(state.birthYear, state.birthMonth, state.birthDate),
     parent_name: state.parentName,
