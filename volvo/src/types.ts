@@ -36,6 +36,15 @@ export interface selectTypeStateInterface {
 export interface selectTypeInterface {
   educational_status: string | null;
   application_type: string | null;
+  daejeon: boolean | null;
+  application_remark: string | null;
+  graduated_at: string | null;
+  headcount: string | null;
+}
+
+export interface selectTypeRequestInterface {
+  educational_status: string | null;
+  application_type: string | null;
   is_daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
@@ -174,12 +183,12 @@ export interface informationType {
 }
 
 export interface informationInterface {
+  name: string | null;
   sex: string | null;
   birthday: string | null;
   parent_name: string | null;
   parent_tel: string | null;
   telephone_number: string | null;
-  home_tel: string | null;
   address: string | null;
   detail_address: string | null;
   post_code: string | null;

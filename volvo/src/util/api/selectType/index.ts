@@ -1,25 +1,37 @@
 import { reducerType } from '../../../modules/redux/reducer';
 import uri from '../../../constance/uri';
 import { getRequestWithAccessToken } from '../default';
-import { selectTypeInterface } from '../../../types';
+import { selectTypeRequestInterface } from '../../../types';
 
 const graduatedAt = (year: number, month: number) => {
   if (month < 10) return `${year}0${month}`;
   else return `${year}${month}`;
 };
 
-export const selectTypeStateToRequest = (state: reducerType['selectType']): selectTypeInterface => {
+export const applicationTypeResponseToStatus = (response: string | null) => {
+  if (response === '일반전형') return 'COMMON';
+  else if (response === '마이스터전형') return 'MEISTER';
+  else if (response === '사회통합전형') return 'SOCIAL';
+  else return null;
+};
+
+export const selectTypeStateToRequest = (
+  state: reducerType['selectType'],
+): selectTypeRequestInterface => {
   return {
     educational_status: state.educationalStatus,
     application_type: state.applicationType,
     is_daejeon: state.isDaejeon,
-    application_remark: state.applicationRemark,
+    application_remark: state.applicationRemark ? state.applicationRemark : null,
     graduated_at: graduatedAt(state.graduationYear, state.graduationMonth),
-    headcount: state.headcount,
+    headcount: state.headcount ? state.headcount : null,
   };
 };
 
-export const selectType = async (access_token: string, selectTypeRequest: selectTypeInterface) => {
+export const selectType = async (
+  access_token: string,
+  selectTypeRequest: selectTypeRequestInterface,
+) => {
   try {
     const request = getRequestWithAccessToken(access_token);
     return await request.patch(uri.selectType, selectTypeRequest);

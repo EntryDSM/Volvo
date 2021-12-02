@@ -5,6 +5,7 @@ import SignUpForm from './form';
 import SignUpRule from './rule';
 import * as S from './style';
 import { error } from '../../types';
+import { currentYear } from '../../constance/default';
 
 interface Props {
   name: string;
@@ -44,7 +45,7 @@ const SignUp: FC<Props> = props => {
       <div>
         <S.SignUpHeaderWrapper>
           <S.SignUpSubTitle>대덕소프트웨어마이스터고등학교</S.SignUpSubTitle>
-          <S.SignUpTitle>2022년 지원자 회원가입</S.SignUpTitle>
+          <S.SignUpTitle>{currentYear}년 지원자 회원가입</S.SignUpTitle>
         </S.SignUpHeaderWrapper>
         <SignUpRule setRuleCheck={props.setRuleCheck} ruleCheck={props.ruleCheck} />
         <SignUpForm {...props} />

@@ -20,7 +20,9 @@ const AddressModal: FC<Props> = ({ setAddress, setIsClickAddressBtn }) => {
 
   return (
     <S.AddressModalWrapper>
-      <DaumPostcode width={438} height={629} onComplete={onComplete} animation />
+      <S.AddressModal>
+        <DaumPostcode onComplete={onComplete} animation />
+      </S.AddressModal>
     </S.AddressModalWrapper>
   );
 };

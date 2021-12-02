@@ -12,13 +12,23 @@ interface Props {
 
 const Preview: FC<Props> = props => {
   const { preview } = props;
-  const [isOpenPrecautionModal, setIsOpenPrecautionMoal] = useState(true);
-  const [isOpenSubmitModal, setIsOpenSubmitModal] = useState(false);
+  const [isOpenPrecautionModal, setIsOpenPrecautionMoal] = useState<boolean>(true);
+  const [isOpenSubmitModal, setIsOpenSubmitModal] = useState<boolean>(false);
   const educationalStatus = useSelectState().selectType.educationalStatus;
 
   const pagination = useMemo(() => {
-    if (educationalStatus === 'QUALIFICATION_EXAM') return <Pagination />;
-    else return <Pagination />;
+    return (
+      <Pagination
+        page={'preview'}
+        isDisabled={false}
+        nextPagePath={'/'}
+        isQualification={educationalStatus === 'QUALIFICATION_EXAM' ? true : false}
+        prevPagePath={'/introduction'}
+        currentPage={educationalStatus === 'QUALIFICATION_EXAM' ? 4 : 5}
+        isSuccess={true}
+        setModal={setIsOpenSubmitModal}
+      />
+    );
   }, [educationalStatus]);
 
   return (
