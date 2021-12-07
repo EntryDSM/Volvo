@@ -71,7 +71,7 @@ const SearchSchoolModal: FC<Props> = ({
   }, [page]);
 
   const showSchool = useMemo(() => {
-    if (content) {
+    if (content.length !== 0) {
       return content.map(data => {
         return (
           <S.ModalSearchSchoolContentLine>
@@ -82,7 +82,7 @@ const SearchSchoolModal: FC<Props> = ({
           </S.ModalSearchSchoolContentLine>
         );
       });
-    }
+    } else return <S.NoContent>검색 결과가 없습니다.</S.NoContent>;
   }, [content]);
 
   return (
