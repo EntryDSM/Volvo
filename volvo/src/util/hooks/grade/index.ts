@@ -1,13 +1,35 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGrade, setInput } from '../../../modules/redux/action/grade';
 import { reducerType } from '../../../modules/redux/reducer';
-import { GradeSubjectState, Subject, SubjectScore } from '../../../types';
-
+import { GradeState, GradeSubjectState, Subject, SubjectScore } from '../../../types';
 
 export const useGrade = () => {
   const state = useSelector((state: reducerType) => state.grade);
-  const stateG: GradeSubjectState = state.grade;
+
+  const [stateG, setStateG] = useState<GradeState>({
+    grade: {
+      english: '',
+      history: '',
+      korean: '',
+      math: '',
+      science: '',
+      social: '',
+      technical: '',
+    },
+    absence: 0,
+    lateness: 0,
+    leave: 0,
+    truancy: 0,
+    volunteerTime: 0,
+    isSuccessSaveGrade: undefined,
+  });
+  useEffect(() => {
+    if (state.grade) {
+      setStateG(state);
+    }
+  }, [state]);
+  
   const dispatch = useDispatch();
   const setState = {
     setInput: useCallback(
@@ -16,17 +38,21 @@ export const useGrade = () => {
     ),
     setGrade: useCallback(
       (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => {
-        const stateGArr = stateG[paylode.subject].split('');
-        stateGArr[paylode.stateSequence] = paylode.value;
-        const GradePaylode = {
-          grade: {
-            ...state.grade,
-            [paylode.subject]: stateGArr.join(''),
-          },
-        };
-        dispatch(setGrade(GradePaylode));
+        console.log(stateG);
+        let stateGArr;
+        if (stateG.grade[paylode.subject]) {
+          stateGArr = stateG.grade[paylode.subject].split('');
+          stateGArr[paylode.stateSequence] = paylode.value;
+          const GradePaylode = {
+            grade: {
+              ...stateG.grade,
+              [paylode.subject]: stateGArr.join(''),
+            },
+          };
+          dispatch(setGrade(GradePaylode));
+        }
       },
-      [dispatch, stateG, state.grade],
+      [dispatch, stateG],
     ),
     setAllGrade: useCallback(
       (paylode: { value: SubjectScore }) => {
