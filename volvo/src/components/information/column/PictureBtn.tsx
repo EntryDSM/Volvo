@@ -29,7 +29,10 @@ const PictureBtn: FC<Props> = props => {
     isSuccessSaveUserPicture,
   } = props;
   const fileChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let filedes = URL.createObjectURL(event.currentTarget.files && event.currentTarget.files[0]);
+    let filedes: string = '';
+    if(event.currentTarget.files) {
+      filedes = URL.createObjectURL(event.currentTarget.files[0]);
+    }
     if (event.currentTarget.files) setUserPicture(event.currentTarget.files[0]);
     setImageUrl(filedes);
   };
