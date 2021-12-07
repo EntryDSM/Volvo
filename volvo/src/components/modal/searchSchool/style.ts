@@ -93,3 +93,9 @@ export const ModalSearchSchoolAddress = styled.p`
   font-size: 13px;
   font-weight: 300;
 `;
+
+export const NoContent = styled.p`
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+`;
