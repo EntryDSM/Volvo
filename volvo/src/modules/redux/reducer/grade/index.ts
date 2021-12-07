@@ -49,10 +49,10 @@ const gradeReducer = createReducer<GradeState, GradeAction>(initState, {
     volunteerTime: action.payload.volunteerTime,
     absence: action.payload.absence,
     leave: action.payload.leave,
-    state: action.payload.lateness,
+    lateness:action.payload.lateness,
     truancy: action.payload.truancy,
     grade: action.payload.grade,
-    isSuccessSaveGrade:undefined
+    isSuccessSaveGrade:true
   }),
   [GET_GRADE_FAILURE]:(state)=>({
     ...state,
