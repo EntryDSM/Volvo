@@ -4,15 +4,7 @@ export type subjects = {
   subject: string;
   subjectEn: Subject;
 };
-export type GradeType = {
-    korean: string;
-    social: string;
-    history: string;
-    math: string;
-    science: string;
-    technical: string;
-    english: string;
-  };
+export type GradeType = Record<Subject,string>
 
 
 export const gradeSubjects: subjects[] = [
