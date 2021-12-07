@@ -14,7 +14,7 @@ enum uri {
   graduateInformation = '/application/users/graduation',
   userPhoto = '/application/users/photo',
   searchSchool = '/application/schools',
-  gedScore = '/score/qualification-exam',
+  gedScore = '/score/qualification',
   grade = '/score/graduation',
   preview = '/pdf/preview',
   final = '/pdf/final',
