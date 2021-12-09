@@ -6,6 +6,7 @@ import { currentYear } from '../../constance/default';
 import { GradeType } from '../../constance/grade';
 import { Subject, SubjectScore } from '../../types';
 import Pagination from '../default/pagination';
+import ToastPopUp from '../default/toastPopUp';
 interface Props {
   volunteerTime: number;
   absence: number; //결석
@@ -67,6 +68,7 @@ const Grade: React.FC<Props> = ({
       />
       <GradeTable grade={grade} setGrade={setGrade} setAllGrade={setAllGrade} />
       {pagination}
+      <ToastPopUp isSuccessSave={isSuccessSaveGrade} />
     </s.GradeWrapper>
   );
 };
