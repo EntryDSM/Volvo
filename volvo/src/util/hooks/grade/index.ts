@@ -38,7 +38,6 @@ export const useGrade = () => {
     ),
     setGrade: useCallback(
       (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => {
-        console.log(stateG);
         let stateGArr;
         if (stateG.grade[paylode.subject]) {
           stateGArr = stateG.grade[paylode.subject].split('');

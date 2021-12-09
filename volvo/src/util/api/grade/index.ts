@@ -6,7 +6,6 @@ export const setGrade = async (gradeRequest: GradeState) => {
   try {
     const access_token = localStorage.getItem('access_token');
     const request = getRequestWithAccessToken(access_token as string);
-    console.log(gradeRequest);
     await request.patch(uri.grade, {
       volunteer_time: gradeRequest.volunteerTime,
       day_absence_count: gradeRequest.absence,

@@ -19,7 +19,6 @@ const VolunteerColumn: React.FC<VolunteerColumnProps> = ({
     const { name, value } = e.currentTarget;
     setInput({ name: name, value: Number(value) });
   };
-
   return (
     <s.VolunteerColumnWrapper>
       {text && <s.VolunteerColumnTitle>{`전체 미인정 ${text} 일수`}</s.VolunteerColumnTitle>}

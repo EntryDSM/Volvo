@@ -17,12 +17,10 @@ const GradeTable: React.FC<Props> = props => {
   const GradeTableWrap: React.FC<subjects> = ({ subject, subjectEn }, i) => {
     const [gradeArray, setGradeArray] = useState(['']);
     useEffect(() => {
-      if(grade[subjectEn]){
-        console.log(grade);
-        setGradeArray(grade[subjectEn].split(''))
+      if (grade[subjectEn]) {
+        setGradeArray(grade[subjectEn].split(''));
       }
-      
-    }, [grade,subjectEn]);
+    }, [grade, subjectEn]);
     const listArray = [...Array(4)];
 
     return (

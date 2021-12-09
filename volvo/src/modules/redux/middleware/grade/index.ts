@@ -12,7 +12,6 @@ export function* gradeGetSaga() {
   try {
     const response: AxiosResponse<GetGradeState> = yield call(getGradeApi);
     const rData = response.data;
-    console.log(rData);
     yield put(getGrade.success({
       absence:rData.day_absence_count,
       grade:{
