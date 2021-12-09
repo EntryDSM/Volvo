@@ -10,6 +10,7 @@ import {
   INFORMATION,
 } from '../../../modules/redux/action/information/interface';
 import useSelectType from '../../../util/hooks/selectType';
+import { SAVE_GRADE } from '../../../modules/redux/action/grade/interface';
 
 interface Props {
   nextPagePath: string;
@@ -64,7 +65,7 @@ const PageBtn: FC<Props> = props => {
           dispatch({ type: INFORMATION });
           dispatch({ type: GRADUATE_INFORMATION });
         }
-      }
+      } else if (page === 'grade') dispatch({ type: SAVE_GRADE });
       setIsOnClick(true);
     }
   };
