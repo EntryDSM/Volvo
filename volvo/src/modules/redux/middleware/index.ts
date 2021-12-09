@@ -6,10 +6,12 @@ import signup from './signup';
 import resetPasswordSaga from './resetPassword';
 import selectTypeSaga from './selectType';
 import previewSaga from './preview';
+import gradeSaga from './grade';
 import information from './information';
 
 export default function* rootSaga() {
   yield all([
+    gradeSaga(),
     status(),
     user(),
     signin(),

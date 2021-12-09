@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import GradeColumn from '../column/GradeColumn';
 import { gradeSubjects, GradeType, subjects } from '../../../constance/grade';
 import * as s from '../style';
 import SettingGrade from '../SettingGrade';
 import { Subject, SubjectScore } from '../../../types';
-
 
 interface Props {
   grade: GradeType;
@@ -16,8 +15,14 @@ const GradeTable: React.FC<Props> = props => {
   const { setGrade, setAllGrade, grade } = props;
 
   const GradeTableWrap: React.FC<subjects> = ({ subject, subjectEn }, i) => {
+    const [gradeArray, setGradeArray] = useState(['']);
+    useEffect(() => {
+      if (grade[subjectEn]) {
+        setGradeArray(grade[subjectEn].split(''));
+      }
+    }, [grade, subjectEn]);
     const listArray = [...Array(4)];
-    const gradeArray = grade[subjectEn].split('');
+
     return (
       <tr key={i} style={{ height: 75 }}>
         <th>{subject}</th>
