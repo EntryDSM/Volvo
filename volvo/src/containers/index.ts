@@ -4,4 +4,4 @@ export { default as ModalContainer } from './modal';
 export { default as SelectTypeContainer } from './selectType';
 export { default as PreviewContainer } from './preview';
 export { default as GradeContainer } from './grade';
-export { default as Information } from './information';
+export { default as InformationContainer } from './information';

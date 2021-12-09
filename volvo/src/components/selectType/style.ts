@@ -28,6 +28,9 @@ export const SelectLine = styled.div<{ isHeadCount: boolean }>`
   ${({ isHeadCount }) => css`
     height: ${isHeadCount ? '528px' : '440px'};
   `}
+  > div:nth-last-child(1) {
+    border: none;
+  }
 `;
 
 export const Line = styled.div`

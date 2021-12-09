@@ -4,7 +4,7 @@ import MainContent from './content';
 import Progress from './progress';
 import { processType } from '../../modules/redux/reducer/status/interface';
 import { statusType } from '../../constance/main';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { error } from '../../types';
 
 interface Props {
@@ -17,13 +17,13 @@ interface Props {
 }
 
 const Main: FC<Props> = ({ status, process, isLogin, date, defaultMainButtonClickHandler }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const mainButtonClickHandler = () => {
     if (isLogin) {
       if (process.isOutsideUrl) {
         window.location.href = process.uri;
       } else {
-        history.push(process.uri);
+        navigate(process.uri);
       }
     } else {
       defaultMainButtonClickHandler();

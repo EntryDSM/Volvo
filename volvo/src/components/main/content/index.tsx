@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { currentYear } from '../../../constance/default';
 import * as S from '../style';
 import MainButton from './MainButton';
 interface Props {
@@ -35,7 +36,7 @@ const MainContent: FC<Props> = ({
   return (
     <S.MainContentWrapper>
       <S.MainSubTitle>대덕소프트웨어마이스터고등학교</S.MainSubTitle>
-      <S.MainTitle>2022년 신입생 모집</S.MainTitle>
+      <S.MainTitle>{currentYear}년 신입생 모집</S.MainTitle>
       <S.MainDescription className='mainDescription'>{title}</S.MainDescription>
       <S.MainDescription className={'subDescription'}>
         {getDescription(getStringDate(date))}

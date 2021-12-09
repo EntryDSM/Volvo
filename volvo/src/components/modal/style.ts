@@ -27,7 +27,7 @@ export const Modal = styled.div`
   width: ${pxToRem(420)}rem;
   height: ${pxToRem(580)}rem;
   background-color: ${color.backgorund};
-  padding: 12px;
+  padding: 18px;
   box-sizing: border-box;
 `;
 
@@ -48,9 +48,11 @@ export const ModalDeleteButton = styled.div`
     background-color: #3d3d3d;
   }
   div:first-child {
+    width: 14px;
     transform: rotate(45deg);
   }
   div:last-child {
+    width: 14px;
     transform: rotate(135deg);
   }
 `;
@@ -75,7 +77,7 @@ export const ModalDefaultButton = styled.div`
 `;
 
 export const ModalDefaultButtonWrapper = styled.div`
-  width: 100%;
+  width: ${pxToRem(280)}rem;
   margin-bottom: ${pxToRem(18)}rem;
   display: flex;
   > div.multiple:first-child {

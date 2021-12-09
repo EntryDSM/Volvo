@@ -10,8 +10,32 @@ export type Subject =
 
 export type SubjectScore = 'A' | 'B' | 'C' | 'D' | 'E' | 'X';
 
-export type GradeSubjectState = Record<Subject, string>;
+export type GradeSubjectState = Record<Subject, string>
 
+export interface GradeState {
+  volunteerTime: number,
+  absence: number,//결석
+  leave: number,//조퇴
+  lateness: number,//지각
+  truancy: number,//무단 결석
+  grade: GradeSubjectState,
+  isSuccessSaveGrade?: boolean,
+}
+
+export interface GetGradeState {
+  volunteer_time:number,
+  day_absence_count:number,
+  lecture_absence_count:number,
+  lateness_count:number,
+  early_leave_count:number,
+  korean_grade:string,
+  social_grade:string,
+  history_grade:string,
+  math_grade:string,
+  science_grade:string,
+  english_grade:string,
+  tech_and_home_grade:string
+}
 // select type
 export interface selectTypeStateInterface {
   educationalStatus: string | null;
@@ -24,6 +48,15 @@ export interface selectTypeStateInterface {
 }
 
 export interface selectTypeInterface {
+  educational_status: string | null;
+  application_type: string | null;
+  daejeon: boolean | null;
+  application_remark: string | null;
+  graduated_at: string | null;
+  headcount: string | null;
+}
+
+export interface selectTypeRequestInterface {
   educational_status: string | null;
   application_type: string | null;
   is_daejeon: boolean | null;
@@ -164,12 +197,12 @@ export interface informationType {
 }
 
 export interface informationInterface {
+  name: string | null;
   sex: string | null;
   birthday: string | null;
   parent_name: string | null;
   parent_tel: string | null;
   telephone_number: string | null;
-  home_tel: string | null;
   address: string | null;
   detail_address: string | null;
   post_code: string | null;

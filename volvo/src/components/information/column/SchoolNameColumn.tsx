@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useMemo, useState } from 'react';
+import React, { FC } from 'react';
 import * as S from '../style';
 import Input from '../../default/input';
 

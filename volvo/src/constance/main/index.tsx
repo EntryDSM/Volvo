@@ -1,5 +1,6 @@
 import React from 'react';
 import { processType } from '../../modules/redux/reducer/status/interface';
+import { currentYear } from '../default';
 
 export const START_DATE = 'START_DATE' as const;
 export const END_DATE = 'END_DATE' as const;
@@ -95,7 +96,7 @@ const mainConstance: Record<statusType, processType> = {
     isOutsideUrl: true,
   },
   [END]: {
-    title: <p>2022년 지원이 끝났습니다.</p>,
+    title: <p>{currentYear}년 지원이 끝났습니다.</p>,
     getDescription: () => <p>내년을 기약해 주세요.</p>,
     isHaveTerm: true,
     buttonText: '학교 보기',

@@ -7,7 +7,6 @@ interface Props {
 }
 const SettingGrade: React.FC<Props> = Props => {
   const [isClick, setIsClick] = useState<number | null>(null);
-  console.log(Props);
   const GradeOnClick = (value: SubjectScore, e: React.MouseEvent<HTMLDivElement>) => {
     setIsClick(Number(e.currentTarget.id));
     Props.setAllGrade({ value: value });

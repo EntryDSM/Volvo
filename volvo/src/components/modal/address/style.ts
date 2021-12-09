@@ -14,3 +14,8 @@ export const AddressModalWrapper = styled.div`
   z-index: 100;
   padding: 0;
 `;
+
+export const AddressModal = styled.div`
+  width: 438px;
+  height: 629px;
+`;

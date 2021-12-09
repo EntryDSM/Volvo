@@ -1,6 +1,7 @@
 import React, { FC, useMemo, useState } from 'react';
 import * as S from '../style';
 import { dropdown, dropdown_active } from '../../../assets/selectType';
+import { currentYear } from '../../../constance/default';
 
 interface Props {
   birthYear: number;
@@ -10,7 +11,7 @@ interface Props {
 const YearSelect: FC<Props> = props => {
   const { birthYear, setBirthYear } = props;
   const [active, setActive] = useState(false);
-  const yearArray = [...Array(20)].map((_, i) => 2022 - i);
+  const yearArray = [...Array(20)].map((_, i) => currentYear - i);
 
   const selectClickHandler = () => {
     setActive(!active);

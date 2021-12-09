@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import * as S from '../style';
 import { YearSelect, MonthSelect } from '../Select';
+import { currentYear } from '../../../constance/default';
 
 interface Props {
   graduatedAt: string | null;
@@ -25,7 +26,7 @@ const ChooseGraduationDate: FC<Props> = props => {
 
   useEffect(() => {
     if (graduatedAt) {
-      const graduatedYear = graduatedAt ? graduatedAt.slice(0, 4) : 2022;
+      const graduatedYear = graduatedAt ? graduatedAt.slice(0, 4) : currentYear;
       const graduatedMonth = graduatedAt ? graduatedAt.slice(4) : 3;
       setGraduationYear(Number(graduatedYear));
       setGraduationMonth(Number(graduatedMonth));
