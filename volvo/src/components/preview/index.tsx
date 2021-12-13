@@ -8,7 +8,7 @@ import { currentYear, school } from '../../constance/default';
 import Pdf from './Pdf';
 
 interface Props {
-  preview: string;
+  preview: Blob | null;
 }
 
 const Preview: FC<Props> = props => {

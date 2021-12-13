@@ -1,7 +1,7 @@
 import { error } from '../../../../../types';
 
 interface PreviewState {
-  preview: string;
+  preview: Blob | null;
   error: error;
   isSuccessSaveFinal: boolean | undefined;
   finalPdf: Blob | null;

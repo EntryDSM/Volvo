@@ -11,7 +11,7 @@ import {
 import PreviewState from './interface';
 
 const initState: PreviewState = {
-  preview: '',
+  preview: null,
   error: {
     status: 0,
     type: '',
