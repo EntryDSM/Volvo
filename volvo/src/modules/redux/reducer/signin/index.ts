@@ -53,7 +53,6 @@ const SignInState = (state: ISignInState = initState, action: signinActionType) 
       };
     }
     case REFRESH_TOKEN_SUCCESS: {
-      console.log(action.payload);
       localStorage.setItem('access_token', action.payload.access_token);
       localStorage.setItem('refresh_token', action.payload.refresh_token);
       return {
