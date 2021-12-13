@@ -26,8 +26,7 @@ export const refreshToken = async () => {
         },
       },
     );
-    localStorage.setItem('access_token', response.access_token);
-    return response;
+    return response.data;
   } catch (error) {
     throw error;
   }
