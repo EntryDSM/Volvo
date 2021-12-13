@@ -4,16 +4,17 @@ import { refreshToken, signin } from '../../../../util/api/signin';
 import { MODAL_OFF } from '../../action/modal';
 import { IS_LOGIN } from '../../action/auth';
 import { REFRESH_TOKEN } from '../../action/signin/interface';
-import { responseGenerator } from '../../../../types';
+import { responseGenerator, signinResponse } from '../../../../types';
 
 export const refreshTokenSaga = function* (action: any) {
   const FAILURE = `${REFRESH_TOKEN}_FAILURE`;
   const SUCCESS = `${REFRESH_TOKEN}_SUCCESS`;
   const callback = action.payload.callback;
   try {
-    const response: { access_token: string } = yield call(refreshToken);
+    const response: signinResponse = yield call(refreshToken);
     yield put({
       type: SUCCESS,
+      payload: response ? response : '',
     });
     localStorage.setItem('access_token', response.access_token);
     yield call(callback);
