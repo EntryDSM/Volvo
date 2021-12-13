@@ -11,7 +11,7 @@ import {
   RESET,
 } from './interface';
 import { createAction } from 'typesafe-actions';
-import { error, signinRequest } from '../../../../types';
+import { error, signinRequest, signinResponse } from '../../../../types';
 
 export const setId = createAction(ID)<string>();
 export const setPassword = createAction(PASSWORD)<string>();
@@ -21,7 +21,7 @@ export const signinSuccess = createAction(SIGNIN_SUCCESS)<string>();
 export const signin = createAction(SIGNIN)<signinRequest>();
 export const refreshToken = createAction(REFRESH_TOKEN)<{ callback: () => void }>();
 export const refreshTokenFailure = createAction(REFRESH_TOKEN_FAILURE)<error>();
-export const refreshTokenSuccess = createAction(REFRESH_TOKEN_SUCCESS)();
+export const refreshTokenSuccess = createAction(REFRESH_TOKEN_SUCCESS)<signinResponse>();
 export const reset = createAction(RESET)();
 
 export type signinActionType =
