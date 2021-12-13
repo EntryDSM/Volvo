@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { color } from '../../style';
+import { Page } from 'react-pdf';
 
 export const Preview = styled.div`
   width: 1220px;
@@ -60,4 +61,9 @@ export const DownloadBtn = styled.div`
   font-size: 18px;
   margin: 0 auto;
   cursor: pointer;
+`;
+
+export const Pages = styled(Page)`
+  width: 680px;
+  margin-bottom: 30px;
 `;
