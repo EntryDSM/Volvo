@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from '../../../style';
+import { color } from '../../style';
 
 export const Preview = styled.div`
   width: 1220px;
