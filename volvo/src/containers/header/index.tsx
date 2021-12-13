@@ -22,12 +22,12 @@ const HeaderContainer = () => {
       authState.setState.setAccessToken('');
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
+      navigate('/');
     }
   }, [signinState.state.error]);
 
   useEffect(() => {
-    const errorStatus = userState.state.error.status;
-    if (errorStatus === 401 || errorStatus === 403) {
+    if (userState.state.error.status === 401 || userState.state.error.status === 403) {
       refreshToken();
     }
   }, [userState.state.error]);
@@ -35,6 +35,7 @@ const HeaderContainer = () => {
   useEffect(() => {
     if (authState.state.isLogin) userState.setState.getUser();
   }, [authState.state.isLogin, location.pathname]);
+
   return (
     <Header
       {...authState.state}
