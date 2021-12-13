@@ -4,7 +4,8 @@ import { getRequestWithAccessToken } from '../default';
 export const getPreview = async (access_token: string) => {
   try {
     const request = getRequestWithAccessToken(access_token, 'blob');
-    return await request.get(uri.preview);
+    const response = await request.get(uri.preview);
+    return response;
   } catch (error) {
     throw error;
   }
