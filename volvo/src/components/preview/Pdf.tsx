@@ -1,24 +1,25 @@
 import React, { FC, useState } from 'react';
-import { Document, Page } from 'react-pdf';
+import { Document, Page, pdfjs } from 'react-pdf';
+import * as S from './style';
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 interface Props {
-  preview: string;
+  preview: Blob | null;
 }
 
 const Pdf: FC<Props> = props => {
   const { preview } = props;
-  const [page, setPage] = useState<number>(0);
-  const array = new Array(page);
+  const [numPages, setNumPages] = useState<number>(0);
 
-  const onDocumentLoadSuccess = (page: number) => {
-    setPage(page);
+  const onDocumentLoadSuccess = (pdf: any) => {
+    setNumPages(pdf.numPages);
   };
 
   return (
     <Document file={preview} onLoadSuccess={onDocumentLoadSuccess}>
-      {array.map((data, index: number) => {
-        return <Page key={index} pageNumber={index + 1} width={680} />;
-      })}
+      {Array.from(new Array(numPages), (el, index) => (
+        <S.Pages key={`page_${index + 1}`} pageNumber={index + 1} width={680} />
+      ))}
     </Document>
   );
 };
