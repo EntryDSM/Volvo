@@ -73,7 +73,8 @@ const PageBtn: FC<Props> = props => {
   useEffect(() => {
     if (isOnClick && !disabled) {
       if (nextPagePath === '/') {
-        setModal && setModal(true);
+        if (isLeft) navigate(prevPagePath);
+        else setModal && setModal(true);
       } else {
         if (isLeft) navigate(prevPagePath);
         else {
