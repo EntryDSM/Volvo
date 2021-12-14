@@ -13,7 +13,7 @@ import { createAction } from 'typesafe-actions';
 import { error } from '../../../../types';
 
 export const getPreview = createAction(GET_PREVIEW)();
-export const getPreviewSuccess = createAction(GET_PREVIEW_SUCCESS)<string>();
+export const getPreviewSuccess = createAction(GET_PREVIEW_SUCCESS)<Blob>();
 export const getPreviewFailure = createAction(GET_PREVIEW_FAILURE)<error>();
 export const final = createAction(FINAL)();
 export const finalSuccess = createAction(FINAL_SUCCESS)();

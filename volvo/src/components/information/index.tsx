@@ -72,6 +72,7 @@ const Information: FC<Props> = props => {
     stdNumber,
     photoFileName,
     totalPages,
+    pictureUrl,
     totalScore,
     content,
     isSuccessSaveInformation,
@@ -133,7 +134,7 @@ const Information: FC<Props> = props => {
         else setDisabled(true);
       }
     } else setDisabled(true);
-  }, [...contentArray, ...schoolArray, totalScore]);
+  }, [...contentArray, ...schoolArray, totalScore, isSuccessSaveUserPicture]);
 
   const pagination = useMemo(() => {
     return (

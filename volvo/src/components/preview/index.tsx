@@ -5,13 +5,13 @@ import PrecautionModal from '../modal/preview/PrecautionModal';
 import ConfirmSubmissionModal from '../modal/preview/ConfirmSubmissionModal';
 import useSelectState from '../../util/hooks/default/useSelectState';
 import { currentYear, school } from '../../constance/default';
+import Pdf from './Pdf';
 
 interface Props {
-  preview: string;
+  preview: Blob | null;
 }
 
 const Preview: FC<Props> = props => {
-  const { preview } = props;
   const [isOpenPrecautionModal, setIsOpenPrecautionMoal] = useState<boolean>(true);
   const [isOpenSubmitModal, setIsOpenSubmitModal] = useState<boolean>(false);
   const educationalStatus = useSelectState().selectType.educationalStatus;
@@ -39,7 +39,9 @@ const Preview: FC<Props> = props => {
       </div>
       <S.PdfHeader>입학원서 미리보기</S.PdfHeader>
       <S.PdfBox>
-        <S.Pdf></S.Pdf>
+        <S.Pdf>
+          <Pdf {...props} />
+        </S.Pdf>
       </S.PdfBox>
       {pagination}
       {isOpenPrecautionModal && (
