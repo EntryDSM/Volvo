@@ -10,6 +10,7 @@ import {
 } from '../containers';
 import { useFooter, useModal } from '../util/hooks/default';
 import HeaderContainer from '../containers/header';
+import IntroductionContainer from '../containers/introduction';
 
 const MainRouter = () => {
   const Footer = useFooter();
@@ -25,6 +26,7 @@ const MainRouter = () => {
         <Route path='/information' element={<InformationContainer />} />
         <Route path='/preview' element={<PreviewContainer />} />
         <Route path='/grade' element={<GradeContainer />} />
+        <Route path='/introduction' element={<IntroductionContainer/>} />
       </Routes>
       {Footer}
     </>
