@@ -18,8 +18,6 @@ import {
 import { createAction } from 'typesafe-actions';
 import { error } from '../../../../types';
 
-// export const setIntroduction = createAction(SUBMIT_INTRODUCTION)<string>();
-
 export const setSelfIntroduce = (selfIntro: string) => ({
   type: CHANGE_SELFINTRODUCE,
   payload: selfIntro,

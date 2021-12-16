@@ -13,7 +13,6 @@ import {
 import { reducerType } from '../../reducer';
 import IntroductionState from '../../reducer/introduction/interface';
 
-// export const introSaveSaga = createRequestSaga(SAVE_INTRO, saveIntro);
 const getStateFunc = (state: reducerType): reducerType['introduction'] => state.introduction;
 
 const introSaveSaga = function* () {
