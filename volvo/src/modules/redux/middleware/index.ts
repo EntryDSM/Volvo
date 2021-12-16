@@ -8,6 +8,7 @@ import selectTypeSaga from './selectType';
 import previewSaga from './preview';
 import gradeSaga from './grade';
 import information from './information';
+import introduction from './introduction';
 
 export default function* rootSaga() {
   yield all([
@@ -20,5 +21,6 @@ export default function* rootSaga() {
     resetPasswordSaga(),
     previewSaga(),
     information(),
+    introduction(),
   ]);
 }
