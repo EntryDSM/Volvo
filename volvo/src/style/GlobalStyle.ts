@@ -95,7 +95,7 @@ input[type=number] {
     }
     ::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    background-color: ${color.light};
+    background-color: ${color.main};
     }
     * {
       font-family: 'Noto Sans KR', sans-serif;

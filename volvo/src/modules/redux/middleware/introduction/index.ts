@@ -78,7 +78,6 @@ const getSelfIntroSaga = function* () {
   const action = 'introduction/GET_SELFINTRO';
   const SUCCESS = `${action}_SUCCESS`;
   const FAILURE = `${action}_FAILURE`;
-  const state: IntroductionState = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
     const response: responseGenerator = yield call(getIntro, accessToken);
@@ -103,11 +102,11 @@ const getSelfIntroSaga = function* () {
     }
   }
 };
+
 const getStudySaga = function* () {
   const action = 'introduction/GET_STUDYPLAN';
   const SUCCESS = `${action}_SUCCESS`;
   const FAILURE = `${action}_FAILURE`;
-  const state: IntroductionState = yield select(getStateFunc);
   const accessToken = localStorage.getItem('access_token') || '';
   try {
     const response: responseGenerator = yield call(getStudy, accessToken);
