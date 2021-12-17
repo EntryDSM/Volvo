@@ -84,7 +84,7 @@ const getSelfIntroSaga = function* () {
     const response: responseGenerator = yield call(getIntro, accessToken);
     yield put({
       type: SUCCESS,
-      payload: response ? response.data.content : null,
+      payload: response.data.content !== null ? response.data.content : '',
     });
   } catch (error: any) {
     if (error.response?.data) {
@@ -113,7 +113,7 @@ const getStudySaga = function* () {
     const response: responseGenerator = yield call(getStudy, accessToken);
     yield put({
       type: SUCCESS,
-      payload: response ? response.data.content : null,
+      payload: response.data.content !== null ? response.data.content : '',
     });
   } catch (error: any) {
     if (error.response?.data) {
