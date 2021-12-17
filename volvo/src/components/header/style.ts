@@ -44,7 +44,7 @@ export const HeaderDropDown = styled.label`
     cursor: default;
   }
   > input:checked ~ div {
-    height: ${pxToRem(403)}rem;
+    height: ${pxToRem(340)}rem;
   }
   > input:checked ~ i {
     transform: rotate(0deg);
