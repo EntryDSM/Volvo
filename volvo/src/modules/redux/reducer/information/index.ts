@@ -165,8 +165,8 @@ const informationReducer = (
         ...state,
         sex: action.payload.sex,
         birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2021,
-        birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(4, 6)) : 1,
-        birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(6)) : 1,
+        birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(5, 7)) : 1,
+        birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(8)) : 1,
         parentName: action.payload.parent_name,
         parentTel: action.payload.parent_tel,
         telephoneNumber: action.payload.telephone_number,
@@ -249,7 +249,7 @@ const informationReducer = (
       return {
         ...state,
         isSuccessSaveGedScore: undefined,
-        totalScore: action.payload,
+        totalScore: action.payload ? action.payload : state.totalScore,
       };
     case GED_SCORE_SUCCESS:
       return {
