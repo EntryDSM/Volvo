@@ -40,7 +40,7 @@ const DescriptionAndInput = ({ type, onChangeText, text }: PropsType) => {
         />
         <S.TextCount isFocus={focus}>
           <div>
-            {isCoverletter ? text.length : text.length}/{textLimit}
+            {text.length}/{textLimit}
           </div>
         </S.TextCount>
       </S.InputWrapper>
