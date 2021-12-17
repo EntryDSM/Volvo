@@ -80,6 +80,10 @@ export const Input = styled.textarea`
   font-size: 16px;
   line-height: 24px;
   resize: none;
+  ::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #f57278;
+  }
 `;
 
 export const TextCount = styled.section`
