@@ -6,10 +6,10 @@ export const userResponseToUser = (response: userResponse) => {
   return {
     phoneNumber: response.phone_number,
     name: response.name,
-    isfinalSubmitDone: response.is_submit,
-    isReceiveMail: response.is_printed_arrived,
-    selfIntroduceLength: response.self_introduce,
-    studyPlanLength: response.study_plan,
+    isfinalSubmitDone: response.submitted,
+    isReceiveMail: response.printed_arrived,
+    selfIntroduceLength: response.self_introduce.length,
+    studyPlanLength: response.study_plan.length,
     applicationType: response.application_type,
   };
 };
