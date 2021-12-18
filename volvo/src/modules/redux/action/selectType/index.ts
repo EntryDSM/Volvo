@@ -1,4 +1,4 @@
-import { error, selectTypeInterface, selectTypeStateInterface } from '../../../../types';
+import { error, selectTypeInterface } from '../../../../types';
 import {
   TYPE,
   SOCIALTYPE,
