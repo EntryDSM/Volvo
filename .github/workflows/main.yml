@@ -26,8 +26,8 @@
             run: npm install
     
           - name: Build
-            run: npm run build
-    
+            run: DISABLE_ESLINT_PLUGIN=true npm run build
+
           - name: Transfer to S3 for serving static
             uses: jakejarvis/s3-sync-action@master
             with:
