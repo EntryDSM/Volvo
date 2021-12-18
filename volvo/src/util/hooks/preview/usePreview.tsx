@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { final, finalPdf } from '../../../modules/redux/action/preview';
+import { finalPdf } from '../../../modules/redux/action/preview';
 import { useSelectState } from '../default';
 
 const usePreview = () => {

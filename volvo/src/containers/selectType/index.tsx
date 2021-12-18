@@ -5,25 +5,26 @@ import SelectType from '../../components/selectType';
 import useSelectType from '../../util/hooks/selectType';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../util/hooks/user';
+import { isFinalSubmit, isLogin } from '../../util/api/default';
 
 const SelectTypeContainer = () => {
   const { state, setState } = useSelectType();
   const isFinalSubmitDone = useUser().state.isfinalSubmitDone;
+  const accessToken = localStorage.getItem('access_token');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const final = isFinalSubmit(isFinalSubmitDone);
+    const login = isLogin(accessToken);
+    if (final || login) navigate('/');
+  }, [isFinalSubmitDone, accessToken]);
 
   useEffect(() => {
     dispatch({ type: GET_SELECTTYPE });
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, []);
-  useEffect(() => {
-    if (isFinalSubmitDone) {
-      alert(
-        '최종제출되었습니다. 접근하시려면 최종제출을 취소하고 접근해주세요. 최종제출은 학교에 연락하여 취소하셔야 합니다.',
-      );
-      navigate('/');
-    }
-  }, [isFinalSubmitDone]);
+
   return <SelectType {...state} {...setState} />;
 };
 
