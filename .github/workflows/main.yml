@@ -47,7 +47,7 @@
               aws s3 cp \
                 --recursive \
                 --region ap-northeast-2 \
-                dist s3://apply.entrydsm.hs.kr
+                build s3://apply.entrydsm.hs.kr
 
           - name: Invalidate Cloudfront
             uses: chetan/invalidate-cloudfront-action@master
