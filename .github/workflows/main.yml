@@ -30,7 +30,14 @@
     
           - name: Build
             run: DISABLE_ESLINT_PLUGIN=true npm run build
-
+            
+          - name: Cache node modules
+            uses: actions/cache@v2
+            with:
+              path: node_modules
+              key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+              restore-keys: |
+                ${{ runner.os }}-node-modules-
           
           - name: Deploy                  
             env:
