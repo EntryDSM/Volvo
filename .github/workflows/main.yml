@@ -9,6 +9,8 @@
       deploy:
         name: Build, Deploy to S3 bucket
         runs-on: [ubuntu-latest]
+        env: 
+            working-directory: ./volvo
     
         strategy:
           matrix:
@@ -21,8 +23,6 @@
             uses: actions/setup-node@v1
             with:
               node-version: ${{ matrix.node-version }}
-          - name: Change Directory
-            run: cd ./volvo
             
           - name: Npm install
             run: npm install
