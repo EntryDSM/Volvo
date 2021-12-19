@@ -5,12 +5,13 @@
         branches:
           - main
     
+    defaults: 
+        run: 
+            working-directory: ./volvo
     jobs:
       deploy:
         name: Build, Deploy to S3 bucket
         runs-on: [ubuntu-latest]
-        env: 
-            working-directory: ./volvo
     
         strategy:
           matrix:
