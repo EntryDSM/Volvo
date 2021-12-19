@@ -17,6 +17,7 @@ import {
   END,
   statusType,
 } from '../../constance/main';
+import { useUser } from '../../util/hooks/user';
 
 const Main = React.lazy(() => import('../../components/main'));
 
@@ -24,6 +25,7 @@ const MainContainer: FC = () => {
   const processState = useProcess();
   const authState = useAuth();
   const modalState = useModal();
+  const isFinalSubmitDone = useUser().state.isfinalSubmitDone;
   const getNowProcess = (status: statusType) => {
     if (!processState.state.processes[status]) return MainDummyData;
     return processState.state.processes[status];
@@ -77,6 +79,7 @@ const MainContainer: FC = () => {
         date={getNowProcessDate(status)}
         process={getNowProcess(processState.state.status)}
         defaultMainButtonClickHandler={defaultMainButtonClickHandler}
+        isFinalSubmitDone={isFinalSubmitDone}
         {...authState.state}
       />
     </Suspense>
