@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { currentYear } from '../../../constance/default';
+import { usePreview } from '../../../util/hooks/preview';
 import * as S from '../style';
 import MainButton from './MainButton';
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   isButtonAble: boolean;
   isHaveTerm: boolean;
   isLogin: boolean;
+  isFinalSubmitDone: boolean;
   date: string;
   buttonClickHandler: () => void;
 }
@@ -18,10 +20,12 @@ const MainContent: FC<Props> = ({
   buttonText,
   getDescription,
   isButtonAble,
+  isFinalSubmitDone,
   isLogin,
   date,
   buttonClickHandler,
 }) => {
+  const preview = usePreview();
   const getStringDate = (date: string) => {
     const dateObj = new Date(date);
     const year = dateObj.getFullYear();
@@ -33,6 +37,10 @@ const MainContent: FC<Props> = ({
     return `${year}년 ${month}월 ${day}일 ${hour}시 ${minute}분`;
   };
 
+  const finalBtnClickHandler = () => {
+    preview.setState.getFinalPdf();
+  };
+
   return (
     <S.MainContentWrapper>
       <S.MainSubTitle>대덕소프트웨어마이스터고등학교</S.MainSubTitle>
@@ -42,9 +50,15 @@ const MainContent: FC<Props> = ({
         {getDescription(getStringDate(date))}
       </S.MainDescription>
       {isLogin ? (
-        <MainButton onClick={buttonClickHandler} isAble={isButtonAble}>
-          {buttonText}
-        </MainButton>
+        isFinalSubmitDone ? (
+          <MainButton onClick={finalBtnClickHandler} isAble={isButtonAble}>
+            {'제출 서류 다운로드'}
+          </MainButton>
+        ) : (
+          <MainButton onClick={buttonClickHandler} isAble={isButtonAble}>
+            {buttonText}
+          </MainButton>
+        )
       ) : (
         <MainButton onClick={buttonClickHandler} isAble={true}>
           로그인
