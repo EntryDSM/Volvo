@@ -11,12 +11,20 @@ interface Props {
   status: statusType;
   process: processType;
   isLogin: boolean;
+  isFinalSubmitDone: boolean;
   date: string;
   error: error;
   defaultMainButtonClickHandler: () => void;
 }
 
-const Main: FC<Props> = ({ status, process, isLogin, date, defaultMainButtonClickHandler }) => {
+const Main: FC<Props> = ({
+  status,
+  process,
+  isLogin,
+  date,
+  isFinalSubmitDone,
+  defaultMainButtonClickHandler,
+}) => {
   const navigate = useNavigate();
   const mainButtonClickHandler = () => {
     if (isLogin) {
@@ -38,6 +46,7 @@ const Main: FC<Props> = ({ status, process, isLogin, date, defaultMainButtonClic
           isLogin={isLogin}
           buttonClickHandler={mainButtonClickHandler}
           date={date}
+          isFinalSubmitDone={isFinalSubmitDone}
         />
         <Progress status={status} date={date} />
       </S.MainWrapper>
