@@ -18,7 +18,7 @@ const ProgressContent: FC<Props> = ({ isNow, progressName, isPassed, leftDate })
         </S.ProgressText>
         {isNow ? (
           <S.ProgressSubText>
-            {leftDate === 0 ? '마감일입니다.' : `${leftDate}일 남았습니다.`}
+            {leftDate === 0 ? '마감일입니다.' : `${leftDate + 1}일 남았습니다.`}
           </S.ProgressSubText>
         ) : (
           ''
