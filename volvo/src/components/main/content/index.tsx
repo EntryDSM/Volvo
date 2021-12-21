@@ -50,7 +50,7 @@ const MainContent: FC<Props> = ({
         {getDescription(getStringDate(date))}
       </S.MainDescription>
       {isLogin ? (
-        isFinalSubmitDone ? (
+        isFinalSubmitDone && buttonText === '원서 작성' ? (
           <MainButton onClick={finalBtnClickHandler} isAble={isButtonAble}>
             {'제출 서류 다운로드'}
           </MainButton>
