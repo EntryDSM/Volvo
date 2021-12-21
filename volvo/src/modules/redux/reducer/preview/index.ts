@@ -1,3 +1,4 @@
+import { createReducer } from 'typesafe-actions';
 import { previewActionType } from '../../action/preview';
 import {
   FINAL,
@@ -21,51 +22,36 @@ const initState: PreviewState = {
   finalPdf: null,
 };
 
-const previewReducer = (
-  state: PreviewState = initState,
-  action: previewActionType,
-): PreviewState => {
-  switch (action.type) {
-    case GET_PREVIEW_SUCCESS:
-      return {
-        ...state,
-        preview: action.payload,
-      };
-    case GET_PREVIEW_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-      };
-    case FINAL:
-      return {
-        ...state,
-        isSuccessSaveFinal: undefined,
-      };
-    case FINAL_SUCCESS:
-      return {
-        ...state,
-        isSuccessSaveFinal: true,
-      };
-    case FINAL_FAILURE:
-      return {
-        ...state,
-        isSuccessSaveFinal: false,
-      };
-    case FINAL_PDF_FAILURE: {
-      return {
-        ...state,
-        error: action.payload,
-      };
-    }
-    case FINAL_PDF_SUCCESS: {
-      return {
-        ...state,
-        finalPdf: action.payload,
-      };
-    }
-    default:
-      return state;
-  }
-};
+const previewReducer = createReducer<PreviewState, previewActionType>(initState, {
+  [GET_PREVIEW_SUCCESS]: (state, action) => ({
+    ...state,
+    preview: action.payload,
+  }),
+  [GET_PREVIEW_FAILURE]: (state, action) => ({
+    ...state,
+    error: action.payload,
+  }),
+  [FINAL]: state => ({
+    ...state,
+    isSuccessSaveFinal: undefined,
+  }),
+  [FINAL_SUCCESS]: state => ({
+    ...state,
+    isSuccessSaveFinal: true,
+  }),
+  [FINAL_FAILURE]: (state, action) => ({
+    ...state,
+    isSuccessSaveFinal: false,
+    error: action.payload,
+  }),
+  [FINAL_PDF_SUCCESS]: (state, action) => ({
+    ...state,
+    finalPdf: action.payload,
+  }),
+  [FINAL_PDF_FAILURE]: (state, action) => ({
+    ...state,
+    error: action.payload,
+  }),
+});
 
 export default previewReducer;
