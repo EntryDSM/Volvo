@@ -50,7 +50,7 @@ const YearSelect: FC<Props> = props => {
         <S.SubSelect>
           <S.GrayLine width={80} />
           {YearArray.map((_, i) => {
-            return <p onClick={onGraduationYearClick}>{i + year}</p>;
+            return <p onClick={onGraduationYearClick}>{i + year - 1}</p>;
           })}
         </S.SubSelect>
       )}
