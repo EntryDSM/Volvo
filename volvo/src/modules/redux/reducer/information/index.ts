@@ -52,7 +52,7 @@ const initState: InformationState = {
   stdNumber: '',
   schoolName: '',
   searchSchoolName: '',
-  totalScore: '0',
+  totalScore: 0,
   photoFileName: '',
   pictureUrl: '',
   userPicture: null,
@@ -221,7 +221,7 @@ const informationReducer = createReducer<InformationState, informationActionType
   [GED_SCORE]: (state, action) => ({
     ...state,
     isSuccessSaveGedScore: undefined,
-    totalScore: action.payload ? action.payload : state.totalScore,
+    totalScore: action.payload > -1 ? action.payload : state.totalScore,
   }),
   [GED_SCORE_SUCCESS]: state => ({
     ...state,
@@ -234,7 +234,7 @@ const informationReducer = createReducer<InformationState, informationActionType
   }),
   [GET_GED_SCORE_SUCCESS]: (state, action) => ({
     ...state,
-    totalScore: String(action.payload.average_score),
+    totalScore: action.payload.average_score,
   }),
   [GET_GED_SCORE_FAILURE]: (state, action) => ({
     ...state,

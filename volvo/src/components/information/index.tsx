@@ -27,7 +27,7 @@ interface Props {
   stdClass: string;
   stdNumber: string;
   schoolName: string;
-  totalScore: string;
+  totalScore: number;
   photoFileName: string;
   pictureUrl: string;
   userPicture: File | null;
@@ -50,7 +50,7 @@ interface Props {
   setAddress: (payload: addressType) => void;
   setUserPicture: (payload: File) => void;
   searchSchool: (payload: searchSchoolQueryType) => void;
-  setGedScore: (payload: string) => void;
+  setGedScore: (payload: number) => void;
 }
 
 const Information: FC<Props> = props => {
@@ -126,7 +126,7 @@ const Information: FC<Props> = props => {
       (photoFileName || isSuccessSaveUserPicture)
     ) {
       if (educationalStatus === 'QUALIFICATION_EXAM') {
-        if (totalScore !== '0') setDisabled(false);
+        if (totalScore !== 0) setDisabled(false);
         else setDisabled(true);
       } else {
         if (schoolCode !== '' && schoolTel !== '' && stdClass !== '' && stdNumber !== '')

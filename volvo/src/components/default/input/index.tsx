@@ -12,7 +12,7 @@ interface Props {
   type?: string;
   name?: string;
   maxLength?: number;
-  value?: string;
+  value?: string | number;
 }
 
 const Input: FC<Props> = ({
