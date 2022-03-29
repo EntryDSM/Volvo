@@ -53,7 +53,7 @@ const useInformation = () => {
     setSchoolName: (payload: string) => {
       dispatch(setSchoolName(payload));
     },
-    setGedScore: (payload: string) => {
+    setGedScore: (payload: number) => {
       dispatch(gedScore(payload));
     },
   };

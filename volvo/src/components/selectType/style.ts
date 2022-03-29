@@ -164,6 +164,7 @@ export const SubSelect = styled.div`
   border-bottom-left-radius: 5px;
   position: absolute;
   left: -1px;
+  box-sizing: content-box;
   background-color: white;
   z-index: 10;
   > p {

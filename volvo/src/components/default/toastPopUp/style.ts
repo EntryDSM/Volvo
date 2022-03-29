@@ -18,11 +18,15 @@ export const FailureStick = styled.div<{
   ${({ isShow }) => css`
     opacity: ${isShow ? '1' : '0'};
   `}
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   > div > p:first-child {
     width: 280px;
     font-size: 15px;
     text-align: right;
-    margin-top: 15px;
     margin-bottom: 2px;
   }
   > div > p:last-child {
@@ -63,11 +67,15 @@ export const SuccessStick = styled.div<{
   ${({ isShow }) => css`
     opacity: ${isShow ? '1' : '0'};
   `}
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   > div > p:first-child {
     width: 280px;
     font-size: 15px;
     text-align: right;
-    margin-top: 15px;
     margin-bottom: 2px;
   }
   > div > p:last-child {

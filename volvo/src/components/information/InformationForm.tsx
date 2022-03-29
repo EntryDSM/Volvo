@@ -32,7 +32,7 @@ interface Props {
   stdClass: string;
   stdNumber: string;
   pictureUrl: string;
-  totalScore: string;
+  totalScore: number;
   photoFileName: string;
   isSuccessSaveUserPicture: boolean | undefined;
   setInput: (payload: { name: string; value: string }) => void;
@@ -42,7 +42,7 @@ interface Props {
   setBirthDate: (payload: number) => void;
   setImageUrl: (payload: string) => void;
   setUserPicture: (payload: File) => void;
-  setGedScore: (payload: string) => void;
+  setGedScore: (payload: number) => void;
   setIsClickSearchBtn: React.Dispatch<React.SetStateAction<boolean>>;
   setIsClickAddressBtn: React.Dispatch<React.SetStateAction<boolean>>;
 }
