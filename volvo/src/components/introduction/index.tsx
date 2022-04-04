@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useMemo, useState } from 'react';
 import Pagination from '../default/pagination';
 import ToastPopUp from '../default/toastPopUp';
@@ -58,9 +57,9 @@ const Introduction = ({
       <DescriptionAndInput
         onChangeText={onChangeSelfIntroduce}
         text={selfIntroduceText}
-        type='coverLetter'
+        type="introduction"
       />
-      <DescriptionAndInput onChangeText={onChangeStudyPlan} text={studyPlanText} />
+      <DescriptionAndInput type="studyPlan" onChangeText={onChangeStudyPlan} text={studyPlanText} />
       {pagination}
       <ToastPopUp isSuccessSave={isSuccessSetIntro} />
       <ToastPopUp isSuccessSave={isSuccessSetStudy} />
