@@ -1,5 +1,5 @@
 enum uri {
-  schedule = '/schedules',
+  schedule = '/schedule',
   signup = '/user',
   signin = '/user/auth',
   status = '/user/status',

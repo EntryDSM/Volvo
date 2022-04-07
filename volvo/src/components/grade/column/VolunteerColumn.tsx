@@ -23,7 +23,7 @@ const VolunteerColumn: React.FC<VolunteerColumnProps> = ({
     <s.VolunteerColumnWrapper>
       {text && <s.VolunteerColumnTitle>{`전체 미인정 ${text} 일수`}</s.VolunteerColumnTitle>}
       <s.VolunteerColumnInputWrapper>
-        <input type='number' name={name} value={String(value)} onChange={changeValue} />
+        <input type='number' name={name} value={String(value)} onChange={changeValue} min={0} />
         <p>{unit}</p>
       </s.VolunteerColumnInputWrapper>
     </s.VolunteerColumnWrapper>
