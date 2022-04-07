@@ -42,9 +42,11 @@ const MonthSelect: FC<Props> = props => {
       {active && (
         <S.SubSelect>
           <S.GrayLine width={74} />
-          {JanuaryToDecember.map(month => {
-            return <p onClick={onGraduationMonthClick}>{month}</p>;
-          })}
+          <div>
+            {JanuaryToDecember.map(month => {
+              return <p onClick={onGraduationMonthClick}>{month}</p>;
+            })}
+          </div>
         </S.SubSelect>
       )}
     </S.Select>

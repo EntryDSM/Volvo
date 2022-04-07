@@ -69,9 +69,11 @@ const TypeSelect: FC<Props> = props => {
       {disabled === 'enabled' && (
         <S.SubSelect>
           <S.GrayLine width={135} />
-          {SOCIAL.map(data => {
-            return <p onClick={onSocialTypeClick}>{data.content}</p>;
-          })}
+          <div>
+            {SOCIAL.map(data => {
+              return <p onClick={onSocialTypeClick}>{data.content}</p>;
+            })}
+          </div>
         </S.SubSelect>
       )}
     </S.Select>
