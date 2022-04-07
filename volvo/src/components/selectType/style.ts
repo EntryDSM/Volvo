@@ -157,7 +157,6 @@ export const SelectContent = styled.div<{
 export const SubSelect = styled.div`
   width: 100%;
   height: 200px;
-  overflow-y: auto;
   border: 1px solid black;
   border-top: none;
   border-bottom-right-radius: 5px;
@@ -167,7 +166,7 @@ export const SubSelect = styled.div`
   box-sizing: content-box;
   background-color: white;
   z-index: 10;
-  > p {
+  > div > p {
     height: 24px;
     font-size: 16px;
     font-weight: 300;
@@ -176,9 +175,13 @@ export const SubSelect = styled.div`
     color: black;
     cursor: pointer;
   }
-  > p:hover {
+  > div > p:hover {
     color: ${color.sub};
     font-weight: 500;
+  }
+  > div:last-child {
+    height: calc(100% - 20px);
+    overflow-y: auto;
   }
 `;
 

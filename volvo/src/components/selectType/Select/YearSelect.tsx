@@ -49,9 +49,11 @@ const YearSelect: FC<Props> = props => {
       {disabled === 'normal' && active && (
         <S.SubSelect>
           <S.GrayLine width={80} />
-          {YearArray.map((_, i) => {
-            return <p onClick={onGraduationYearClick}>{i + year - 1}</p>;
-          })}
+          <div>
+            {YearArray.map((_, i) => {
+              return <p onClick={onGraduationYearClick}>{i + year - 1}</p>;
+            })}
+          </div>
         </S.SubSelect>
       )}
     </S.Select>
