@@ -4,8 +4,8 @@ import Input from '../../default/input';
 import useInformation from '../../../util/hooks/information';
 
 interface Props {
-  totalScore: string;
-  setGedScore: (payload: string) => void;
+  totalScore: number;
+  setGedScore: (payload: number) => void;
 }
 
 const TotalScoreColumn: FC<Props> = props => {
@@ -13,7 +13,7 @@ const TotalScoreColumn: FC<Props> = props => {
   const { state } = useInformation();
 
   const totalScoreChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setGedScore(event.target.value);
+    setGedScore(Number(event.target.value));
   };
 
   useEffect(() => {
