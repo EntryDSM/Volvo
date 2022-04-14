@@ -8,16 +8,16 @@ import {
   BUSINESS_NUMBER,
   SCHOOL_ADDRESS,
   SCHOOL_PHONE_NUMBER,
-  ENTRY_TITLE,
   TERMS,
 } from '../../constance/footer';
+import { currentYear } from '../../constance/default';
 
 const Footer: FC = () => (
   <FooterDiv>
     <div>
       <div>
         <FooterTitle>Entry</FooterTitle>
-        <FooterText margin='20'>{ENTRY_TITLE}</FooterText>
+        <FooterText margin='20'>ⓒ {currentYear - 1} Entry</FooterText>
         <FooterText>{TERMS}</FooterText>
         <FooterText>{SCHOOL_ADDRESS}</FooterText>
         <FooterText>{SCHOOL_PHONE_NUMBER}</FooterText>
