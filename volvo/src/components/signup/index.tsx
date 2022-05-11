@@ -29,10 +29,16 @@ interface Props {
 }
 
 const SignUp: FC<Props> = props => {
-  const { name, phoneNumber, phoneCode, password, signup, passwordCheck } = props;
+  const { name, phoneNumber, phoneCode, password, signup, passwordCheck, ruleCheck } = props;
 
   const signupButtonClickHandler = () => {
-    signup({ phoneNumber, password, name });
+    if (
+      !isOneOfTextEmpty(name, phoneNumber, phoneCode, password) &&
+      isSamePasswordAndPasswordCheck &&
+      isEmail(phoneNumber) &&
+      ruleCheck
+    )
+      signup({ phoneNumber, password, name });
   };
 
   const isSamePasswordAndPasswordCheck = useMemo(() => passwordCheck === password, [
@@ -54,7 +60,8 @@ const SignUp: FC<Props> = props => {
             disable={
               isOneOfTextEmpty(name, phoneNumber, phoneCode, password) ||
               !isSamePasswordAndPasswordCheck ||
-              !isEmail(phoneNumber)
+              !isEmail(phoneNumber) ||
+              !ruleCheck
             }
             onClick={signupButtonClickHandler}
           >
