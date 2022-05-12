@@ -77,7 +77,7 @@ const VertifyCodeModal: FC<Props> = ({ goNext, goPrev }) => {
           인증
         </S.ModalDefaultButton>
       </S.ModalDefaultButtonWrapper>
-      <S.ModalSubTitle>문자가 오지 않았다면, 전화번호를 확인해 주세요.</S.ModalSubTitle>
+      <S.ModalSubTitle>메일이 오지 않았다면, 이메일을 확인해 주세요.</S.ModalSubTitle>
       <S.ModalMoveButtonWrapper>
         <MoveButton text='이전' type='prev' buttonClickHandler={goPrev} disable={false} />
         <MoveButton
