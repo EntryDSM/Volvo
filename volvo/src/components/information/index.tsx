@@ -113,7 +113,7 @@ const Information: FC<Props> = props => {
 
   useEffect(() => {
     if (
-      sex !== '' &&
+      sex !== null &&
       birthYear !== 0 &&
       birthMonth !== 0 &&
       birthDate !== 0 &&
