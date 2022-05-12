@@ -33,8 +33,8 @@ const GradeColumn: FC<Props> = props => {
               grades.name === 'stdGrade'
                 ? '3'
                 : grades.name === 'stdClass'
-                ? numberMaxLength(stdClass)
-                : numberMaxLength(stdNumber)
+                ? numberMaxLength(stdClass.replace(/[^0-9]/g, ''))
+                : numberMaxLength(stdNumber.replace(/[^0-9]/g, ''))
             }
             name={grades.name}
             disable={grades.name === 'stdGrade' ? true : false}

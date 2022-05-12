@@ -76,7 +76,6 @@ export const ModalSearchSchoolContentBox = styled.div`
 
 export const ModalSearchSchoolContentLine = styled.div`
   width: 365px;
-  height: 55px;
   border-top: 1px solid ${color.middleBar};
   box-sizing: border-box;
   padding: 11px 0px 11px 15px;
