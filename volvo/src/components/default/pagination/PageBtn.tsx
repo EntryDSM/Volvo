@@ -70,6 +70,8 @@ const PageBtn: FC<Props> = props => {
       else if (page === 'introduction') {
         dispatch({ type: SAVE_INTRO });
         dispatch({ type: SAVE_STUDYPLAN });
+      } else if (page === 'preview') {
+        setModal && setModal(true);
       }
       setIsOnClick(true);
     }

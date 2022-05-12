@@ -6,6 +6,7 @@ import * as S from '../style';
 interface Props {
   setIsProspective: Dispatch<React.SetStateAction<boolean>>;
   setGraduation: (payload: string) => void;
+  setGraduationYear: (payload: number) => void;
   educationalStatus: string | null;
 }
 
@@ -16,7 +17,7 @@ const isCheckInit = {
 };
 
 const ChooseGraduation: FC<Props> = props => {
-  const { setIsProspective, setGraduation, educationalStatus } = props;
+  const { setIsProspective, setGraduation, educationalStatus, setGraduationYear } = props;
   const [isCheck, setIsCheck] = useState<{
     prospective: boolean;
     graduate: boolean;
@@ -32,10 +33,12 @@ const ChooseGraduation: FC<Props> = props => {
       case 'GRADUATE':
         setIsCheck({ ...isCheckInit, graduate: true });
         setIsProspective(false);
+        setGraduationYear(2022);
         break;
       case 'QUALIFICATION_EXAM':
         setIsCheck({ ...isCheckInit, qualification: true });
         setIsProspective(false);
+        setGraduationYear(2022);
         break;
       default:
         setIsCheck(isCheckInit);
