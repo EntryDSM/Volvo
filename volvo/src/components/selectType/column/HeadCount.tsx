@@ -12,15 +12,17 @@ const HeadCount: FC<Props> = props => {
   const [isCheck, setIsCheck] = useState({ inOfHeadCount: false, outOfHeadCount: false });
 
   const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    let dataId = event.currentTarget.dataset.id;
+    let dataId = event.currentTarget.dataset.id as 'inOfHeadCount' | 'outOfHeadCount';
     switch (dataId) {
       case 'inOfHeadCount':
-        setIsCheck({ inOfHeadCount: true, outOfHeadCount: false });
-        setHeadCount('IN_OF_HEADCOUNT');
+        setIsCheck({ inOfHeadCount: !isCheck[dataId], outOfHeadCount: false });
+        if (!isCheck[dataId]) setHeadCount('IN_OF_HEADCOUNT');
+        else setHeadCount('');
         break;
       case 'outOfHeadCount':
-        setIsCheck({ inOfHeadCount: false, outOfHeadCount: true });
-        setHeadCount('OUT_OF_HEADCOUNT');
+        setIsCheck({ inOfHeadCount: false, outOfHeadCount: !isCheck[dataId] });
+        if (!isCheck[dataId]) setHeadCount('OUT_OF_HEADCOUNT');
+        else setHeadCount('');
         break;
     }
   };
@@ -40,7 +42,9 @@ const HeadCount: FC<Props> = props => {
             <S.CheckCircle onClick={onCheckBtnClick} data-id={data.id}>
               {isCheck[data.id] && <S.CheckedCircle />}
             </S.CheckCircle>
-            <p data-id={data.id}>{data.content}</p>
+            <p data-id={data.id} onClick={onCheckBtnClick}>
+              {data.content}
+            </p>
           </S.SelectBox>
         );
       })}

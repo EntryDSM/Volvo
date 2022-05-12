@@ -225,7 +225,7 @@ const informationReducer = createReducer<InformationState, informationActionType
   }),
   [GED_SCORE_SUCCESS]: state => ({
     ...state,
-    isSuccessSaveGedScore: undefined,
+    isSuccessSaveGedScore: true,
   }),
   [GED_SCORE_FAILURE]: (state, action) => ({
     ...state,

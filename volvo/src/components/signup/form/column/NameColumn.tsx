@@ -12,7 +12,7 @@ const NameColumn: FC<Props> = ({ disable, setName }) => {
     setName(e.target.value);
   };
   return (
-    <SignUpColumn text='이름'>
+    <SignUpColumn text='이름' description={'이름을 다섯 자 이하로 작성해 주세요.'}>
       <Input width={400} disable={disable} inputChangeHandler={nameChangeHandler} />
     </SignUpColumn>
   );
