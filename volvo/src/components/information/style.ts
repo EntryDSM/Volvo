@@ -1,5 +1,5 @@
 import { color } from '../../style';
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const Information = styled.div`
   width: 1220px;
