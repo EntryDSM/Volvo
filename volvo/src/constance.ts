@@ -24,7 +24,7 @@ export const AREA: Array<areaType> = [
 export const GRADUATION: Array<graduationType> = [
   { id: 'prospective', content: '졸업 예정자' },
   { id: 'graduate', content: '졸업자' },
-  { id: 'qualification', content: '검정고시' },
+  { id: 'qualification', content: '검정고시 (중학교 졸업학력)' },
 ];
 
 export const REMARKS: Array<remarkType> = [

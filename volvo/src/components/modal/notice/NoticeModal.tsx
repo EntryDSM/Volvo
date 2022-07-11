@@ -35,6 +35,9 @@ const NoticeModal: FC<Props> = ({ deleteModal }) => {
         <S.ModalNoticeText>
           3. 사회 통합 전형일 경우에 구분을 확실하게 선택해 주세요.
         </S.ModalNoticeText>
+        <S.ModalNoticeText>
+          4. 검정고시 전형은 중학교 졸업학력 검정고시 합격자만 해당합니다.
+        </S.ModalNoticeText>
         <S.ModalNoticeSubTitle>정보 입력</S.ModalNoticeSubTitle>
         <S.ModalNoticeText>
           1. 검정고시 합격자와 졸업예정자 및 졸업자의 화면이 다릅니다. 검정고시 합격자이신 경우,
