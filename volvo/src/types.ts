@@ -62,7 +62,7 @@ export interface selectTypeRequestInterface {
   is_daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
-  headcount: string | null;
+  // headcount: string | null;
 }
 
 export interface typeInfoType {
