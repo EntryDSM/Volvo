@@ -30,28 +30,30 @@ interface Props {
 }
 
 const SelectLine: FC<Props> = props => {
-  const { applicationRemark, setHeadCount } = props;
+  // 정원 내/외 선택이 필요할 때 주석 제거
+  // const { applicationRemark, setHeadCount } = props;
   const [isProspective, setIsProspective] = useState(false);
-  const [isHeadCount, setIsHeadCount] = useState<boolean>(false);
+  // const [isHeadCount, setIsHeadCount] = useState<boolean>(false);
 
-  const showHeadCount = useMemo(() => {
-    if (applicationRemark === 'PRIVILEGED_ADMISSION') {
-      setIsHeadCount(true);
-      return <HeadCount {...props} />;
-    } else {
-      setIsHeadCount(false);
-      setHeadCount('');
-    }
-  }, [applicationRemark]);
+  // const showHeadCount = useMemo(() => {
+  //   if (applicationRemark === 'PRIVILEGED_ADMISSION') {
+  //     setIsHeadCount(true);
+  //     return <HeadCount {...props} />;
+  //   } else {
+  //     setIsHeadCount(false);
+  //     setHeadCount('');
+  //   }
+  // }, [applicationRemark]);
 
   return (
-    <S.SelectLine isHeadCount={isHeadCount}>
+    // 정원 내/외 선택시 isHeadCount={isHeadCount}로 수정
+    <S.SelectLine isHeadCount={false}>
       <ChooseType {...props} />
       <ChooseRegion {...props} />
       <ChooseGraduation {...props} setIsProspective={setIsProspective} />
       <ChooseGraduationDate {...props} isProspective={isProspective} />
       <ChooseRemark {...props} />
-      {showHeadCount}
+      {/* {showHeadCount} */}
     </S.SelectLine>
   );
 };
