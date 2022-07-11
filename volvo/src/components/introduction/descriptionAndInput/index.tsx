@@ -31,11 +31,13 @@ const DescriptionAndInput: React.FC<PropsType> = ({ type, onChangeText, text }) 
       }
     }, [type]
   )
-  const onChageContent = (e: any) => {
+
+  const onChageContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (e.target.value.length <= textLimit) {
       onChangeText(e.target.value);
     }
   };
+
   const isCoverletter = type === "introduction";
   const [focus, setFocus] = useState(false);
   return (
@@ -52,7 +54,7 @@ const DescriptionAndInput: React.FC<PropsType> = ({ type, onChangeText, text }) 
         />
         <S.TextCount isFocus={focus}>
           <div>
-            {text.length}/{textLimit}
+            {text.length}/{textLimit} (빈칸 포함)
           </div>
         </S.TextCount>
       </S.InputWrapper>
