@@ -14,6 +14,7 @@ export const SOCIAL = [
   { id: 4, content: '소년소녀가장' },
   { id: 5, content: '북한이탈주민' },
   { id: 6, content: '다문화가정' },
+  { id: 7, content: '보호대상아동'}
 ];
 
 export const AREA: Array<areaType> = [
