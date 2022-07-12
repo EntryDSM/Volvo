@@ -24,7 +24,7 @@ export const selectTypeStateToRequest = (
     is_daejeon: state.isDaejeon,
     application_remark: state.applicationRemark ? state.applicationRemark : null,
     graduated_at: graduatedAt(state.graduationYear, state.graduationMonth),
-    headcount: state.headcount ? state.headcount : null,
+    // headcount: state.headcount ? state.headcount : null,
   };
 };
 

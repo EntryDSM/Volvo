@@ -45,10 +45,12 @@ const MainContent: FC<Props> = ({
     <S.MainContentWrapper>
       <S.MainSubTitle>대덕소프트웨어마이스터고등학교</S.MainSubTitle>
       <S.MainTitle>{currentYear}년 신입생 모집</S.MainTitle>
-      <S.MainDescription className='mainDescription'>{title}</S.MainDescription>
-      <S.MainDescription className={'subDescription'}>
-        {getDescription(getStringDate(date))}
-      </S.MainDescription>
+      <div>
+        <S.MainDescription className='mainDescription'>{title}</S.MainDescription>
+        <S.MainDescription className={'subDescription'}>
+          {getDescription(getStringDate(date))}
+        </S.MainDescription>
+      </div>
       {isLogin ? (
         isFinalSubmitDone && buttonText === '원서 작성' ? (
           <MainButton onClick={finalBtnClickHandler} isAble={isButtonAble}>

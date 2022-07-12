@@ -14,6 +14,7 @@ export const SOCIAL = [
   { id: 4, content: '소년소녀가장' },
   { id: 5, content: '북한이탈주민' },
   { id: 6, content: '다문화가정' },
+  { id: 7, content: '보호대상아동'}
 ];
 
 export const AREA: Array<areaType> = [
@@ -24,7 +25,7 @@ export const AREA: Array<areaType> = [
 export const GRADUATION: Array<graduationType> = [
   { id: 'prospective', content: '졸업 예정자' },
   { id: 'graduate', content: '졸업자' },
-  { id: 'qualification', content: '검정고시' },
+  { id: 'qualification', content: '검정고시 (중학교 졸업학력)' },
 ];
 
 export const REMARKS: Array<remarkType> = [

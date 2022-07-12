@@ -103,10 +103,10 @@ const mainConstance: Record<statusType, processType> = {
     isOutsideUrl: true,
   },
   [END]: {
-    title: <p>{currentYear}년 지원이 끝났습니다.</p>,
+    title: <p>{currentYear}년 입학 전형이 모두 끝났습니다.</p>,
     getDescription: () => <p>내년을 기약해 주세요.</p>,
     isHaveTerm: true,
-    buttonText: '학교 보기',
+    buttonText: '학교로 이동',
     isButtonAble: true,
     uri: 'https://dsmhs.djsch.kr/main.do',
     isOutsideUrl: true,

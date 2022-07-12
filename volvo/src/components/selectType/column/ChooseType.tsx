@@ -63,6 +63,9 @@ const ChooseType: FC<Props> = props => {
           case 'MULTICULTURA':
             setSocialType('다문화가정');
             break;
+          case 'PROTECTED_CHILDREN':
+            setSocialType('보호대상아동');
+            break;
         }
       }
     }

@@ -37,11 +37,14 @@ export const MainWrapper = styled.div`
 `;
 
 export const MainContentWrapper = styled.div`
-  > .mainDescription {
+  > div{
+      height: 250px;
+      margin-bottom: ${pxToRem(160)}rem;
+  }
+  > div > .mainDescription {
     margin-bottom: ${pxToRem(63)}rem;
   }
-  > .subDescription {
-    margin-bottom: ${pxToRem(160)}rem;
+  > div > .subDescription {
     margin-top: 20px;
   }
 `;

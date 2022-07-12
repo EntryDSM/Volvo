@@ -47,6 +47,10 @@ const TypeSelect: FC<Props> = props => {
         setSocialType('다문화가정');
         setRemark('MULTICULTURAL');
         break;
+      case '보호대상아동':
+        setSocialType('보호대상아동');
+        setRemark('PROTECTED_CHILDREN');
+        break;
     }
   };
 
