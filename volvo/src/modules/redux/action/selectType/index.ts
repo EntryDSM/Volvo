@@ -24,7 +24,7 @@ export const setGraduation = createAction(GRADUATION)<string>();
 export const setGraduationYear = createAction(GRADUATION_YEAR)<number>();
 export const setGraduationMonth = createAction(GRADUATION_MONTH)<number>();
 export const setRemark = createAction(REMARK)<string>();
-export const setHeadCount = createAction(HEADCOUNT)<string>();
+export const setIsOutOfHeadCount = createAction(HEADCOUNT)<boolean>();
 export const selectType = createAction(SELECTTYPE)();
 export const selectTypeSuccess = createAction(SELECTTYPE_SUCCESS)<boolean>();
 export const selectTypeFailure = createAction(SELECTTYPE_FAILURE)<error>();
@@ -40,7 +40,7 @@ export type selectTypeActionType =
   | ReturnType<typeof setGraduationYear>
   | ReturnType<typeof setGraduationMonth>
   | ReturnType<typeof setRemark>
-  | ReturnType<typeof setHeadCount>
+  | ReturnType<typeof setIsOutOfHeadCount>
   | ReturnType<typeof selectType>
   | ReturnType<typeof selectTypeSuccess>
   | ReturnType<typeof selectTypeFailure>

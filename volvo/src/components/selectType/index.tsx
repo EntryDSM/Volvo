@@ -15,7 +15,7 @@ interface Props {
   graduationYear: number;
   applicationRemark: string | null;
   isSuccessSaveSelectType: boolean | undefined;
-  headcount: string | null;
+  is_out_of_headcount: boolean | null;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
   setArea: (payload: boolean) => void;
@@ -23,7 +23,7 @@ interface Props {
   setGraduationYear: (payload: number) => void;
   setGraduationMonth: (payload: number) => void;
   setRemark: (payload: string) => void;
-  setHeadCount: (payload: string) => void;
+  setIsOutOfHeadCount: (payload: boolean) => void;
 }
 
 const SelectType: FC<Props> = props => {

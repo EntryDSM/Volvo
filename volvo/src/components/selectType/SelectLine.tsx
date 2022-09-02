@@ -17,7 +17,7 @@ interface Props {
   graduatedAt: string | null;
   graduationMonth: number;
   graduationYear: number;
-  headcount: string | null;
+  is_out_of_headcount: boolean | null;
   applicationRemark: string | null;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
@@ -26,24 +26,14 @@ interface Props {
   setGraduationYear: (payload: number) => void;
   setGraduationMonth: (payload: number) => void;
   setRemark: (payload: string) => void;
-  setHeadCount: (payload: string) => void;
+  setIsOutOfHeadCount: (payload: boolean) => void;
 }
 
 const SelectLine: FC<Props> = props => {
   // 정원 내/외 선택이 필요할 때 주석 제거
-  // const { applicationRemark, setHeadCount } = props;
+  const { applicationRemark, setIsOutOfHeadCount } = props;
   const [isProspective, setIsProspective] = useState(false);
-  // const [isHeadCount, setIsHeadCount] = useState<boolean>(false);
-
-  // const showHeadCount = useMemo(() => {
-  //   if (applicationRemark === 'PRIVILEGED_ADMISSION') {
-  //     setIsHeadCount(true);
-  //     return <HeadCount {...props} />;
-  //   } else {
-  //     setIsHeadCount(false);
-  //     setHeadCount('');
-  //   }
-  // }, [applicationRemark]);
+  const [isHeadCount, setIsHeadCount] = useState<boolean>(false);
 
   return (
     // 정원 내/외 선택시 isHeadCount={isHeadCount}로 수정
