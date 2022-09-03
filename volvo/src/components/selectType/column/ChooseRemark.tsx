@@ -38,8 +38,10 @@ const ChooseRemark: FC<Props> = props => {
         setIsOutOfHeadCount(true);
         break;
       default:
-        if (applicationType !== 'SOCIAL')
+        if (applicationType !== 'SOCIAL') {
+          setIsOutOfHeadCount(false);
           setIsCheck({ nationalMerit: false, specialAdmission: false });
+        }
         break;
     }
   }, [applicationRemark, applicationType]);

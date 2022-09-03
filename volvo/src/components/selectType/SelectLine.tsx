@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import { FC, useState } from 'react';
 import * as S from './style';
 import {
   ChooseType,
@@ -6,7 +6,6 @@ import {
   ChooseGraduation,
   ChooseGraduationDate,
   ChooseRemark,
-  HeadCount,
 } from './column';
 
 interface Props {
@@ -17,7 +16,7 @@ interface Props {
   graduatedAt: string | null;
   graduationMonth: number;
   graduationYear: number;
-  is_out_of_headcount: boolean | null;
+  isOutOfHeadcount: boolean;
   applicationRemark: string | null;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
@@ -31,9 +30,7 @@ interface Props {
 
 const SelectLine: FC<Props> = props => {
   // 정원 내/외 선택이 필요할 때 주석 제거
-  const { applicationRemark, setIsOutOfHeadCount } = props;
   const [isProspective, setIsProspective] = useState(false);
-  const [isHeadCount, setIsHeadCount] = useState<boolean>(false);
 
   return (
     // 정원 내/외 선택시 isHeadCount={isHeadCount}로 수정
@@ -43,7 +40,6 @@ const SelectLine: FC<Props> = props => {
       <ChooseGraduation {...props} setIsProspective={setIsProspective} />
       <ChooseGraduationDate {...props} isProspective={isProspective} />
       <ChooseRemark {...props} />
-      {/* {showHeadCount} */}
     </S.SelectLine>
   );
 };

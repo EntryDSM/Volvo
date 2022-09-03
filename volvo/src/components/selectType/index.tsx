@@ -15,7 +15,7 @@ interface Props {
   graduationYear: number;
   applicationRemark: string | null;
   isSuccessSaveSelectType: boolean | undefined;
-  is_out_of_headcount: boolean | null;
+  isOutOfHeadcount: boolean;
   setType: (payload: string) => void;
   setSocialType: (payload: string) => void;
   setArea: (payload: boolean) => void;

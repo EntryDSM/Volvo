@@ -44,7 +44,7 @@ export interface selectTypeStateInterface {
   applicationRemark: string | null;
   graduationMonth: number | null;
   graduationYear: number | null;
-  is_out_of_headcount: string | null;
+  isOutOfHeadcount: boolean;
 }
 
 export interface selectTypeInterface {
@@ -53,7 +53,7 @@ export interface selectTypeInterface {
   daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
-  is_out_of_headcount: boolean | null;
+  is_out_of_headcount: boolean;
 }
 
 export interface selectTypeRequestInterface {
@@ -62,7 +62,7 @@ export interface selectTypeRequestInterface {
   is_daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
-  is_out_of_headcount: boolean | null;
+  is_out_of_headcount: boolean;
 }
 
 export interface typeInfoType {
