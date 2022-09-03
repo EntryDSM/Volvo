@@ -169,6 +169,17 @@ export const VolunteerColumnInputWrapper = styled.div`
 export const VolunteerColumnTitle = styled.p`
   font-size: 18px;
 `;
+export const VolunteerColumnDetailsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  > span {
+    color: #f57278;
+    font-size: 12px;
+  }
+  > p {
+    font-size: 12px;
+  }
+`;
 //gradeColumn
 export const GradeColumnFontWrapper = styled.div`
   display: flex;
