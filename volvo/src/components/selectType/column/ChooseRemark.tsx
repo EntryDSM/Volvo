@@ -6,15 +6,17 @@ interface Props {
   setRemark: (payload: string) => void;
   applicationRemark: string | null;
   applicationType: string | null;
+  setIsOutOfHeadCount: (payload: boolean) => void;
 }
 
 const ChooseRemark: FC<Props> = props => {
-  const { setRemark, applicationRemark, applicationType } = props;
+  const { setRemark, applicationRemark, applicationType, setIsOutOfHeadCount } = props;
   const [isCheck, setIsCheck] = useState({ nationalMerit: false, specialAdmission: false });
   const [isBlock, setIsBlock] = useState<boolean>(false);
 
   useEffect(() => {
     if (applicationType === 'SOCIAL') {
+      setIsOutOfHeadCount(false);
       setIsCheck({ nationalMerit: true, specialAdmission: true });
       setIsBlock(true);
       if (applicationRemark === 'PRIVILEGED_ADMISSION' || applicationRemark === 'NATIONAL_MERIT')
@@ -29,13 +31,17 @@ const ChooseRemark: FC<Props> = props => {
     switch (applicationRemark) {
       case 'PRIVILEGED_ADMISSION':
         setIsCheck({ nationalMerit: false, specialAdmission: true });
+        setIsOutOfHeadCount(true);
         break;
       case 'NATIONAL_MERIT':
         setIsCheck({ nationalMerit: true, specialAdmission: false });
+        setIsOutOfHeadCount(true);
         break;
       default:
-        if (applicationType !== 'SOCIAL')
+        if (applicationType !== 'SOCIAL') {
+          setIsOutOfHeadCount(false);
           setIsCheck({ nationalMerit: false, specialAdmission: false });
+        }
         break;
     }
   }, [applicationRemark, applicationType]);

@@ -7,7 +7,7 @@ import {
   setRemark,
   setSocialType,
   setType,
-  setHeadCount,
+  setIsOutOfHeadCount,
 } from '../../../modules/redux/action/selectType';
 import { useSelectState } from '../default';
 
@@ -36,8 +36,8 @@ const useSelectType = () => {
     setRemark: (payload: string) => {
       dispatch(setRemark(payload));
     },
-    setHeadCount: (payload: string) => {
-      dispatch(setHeadCount(payload));
+    setIsOutOfHeadCount: (payload: boolean) => {
+      dispatch(setIsOutOfHeadCount(payload));
     },
   };
   return {

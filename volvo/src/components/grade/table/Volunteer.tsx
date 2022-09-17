@@ -31,6 +31,7 @@ const Volunteer: React.FC<Props> = ({
                 unit={'시간'}
                 name={'volunteerTime'}
                 value={volunteerTime}
+                details={'봉사시간은 최대 12시간까지만 가능합니다.'}
               />
             </td>
             <td></td>

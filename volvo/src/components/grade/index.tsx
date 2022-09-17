@@ -34,6 +34,8 @@ const Grade: React.FC<Props> = ({
 }) => {
   const [disabled, setDisabled] = useState<boolean>(false);
   useEffect(() => {
+    if (volunteerTime > 12) setInput({ name: 'volunteerTime', value: 12 });
+
     if (volunteerTime !== 0) setDisabled(false);
     else setDisabled(true);
   }, [volunteerTime]);

@@ -29,7 +29,7 @@ const initState: SelectTypeState = {
   graduationYear: currentYear,
   graduatedAt: '',
   applicationRemark: null,
-  headcount: null,
+  isOutOfHeadcount: false,
   error: { status: 0, message: '', type: '' },
   isSuccessSaveSelectType: undefined,
   isSuccessGetSelectType: undefined,
@@ -73,7 +73,7 @@ const SelectTypeReducer = createReducer<SelectTypeState, selectTypeActionType>(i
   }),
   [HEADCOUNT]: (state, action) => ({
     ...state,
-    headcount: action.payload,
+    isOutOfHeadcount: action.payload,
     isSuccessSaveSelectType: undefined,
   }),
   [SELECTTYPE]: state => ({
@@ -101,7 +101,7 @@ const SelectTypeReducer = createReducer<SelectTypeState, selectTypeActionType>(i
     applicationType: applicationTypeResponseToStatus(action.payload.application_type),
     educationalStatus: action.payload.educational_status,
     graduatedAt: action.payload.graduated_at,
-    headcount: action.payload.headcount,
+    isOutOfHeadcount: action.payload.is_out_of_headcount,
   }),
   [GET_SELECTTYPE_FAILURE]: (state, action) => ({
     ...state,
