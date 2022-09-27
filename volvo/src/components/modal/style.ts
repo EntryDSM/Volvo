@@ -247,3 +247,11 @@ export const ModalNoticeButtonWrapper = styled.div`
     width: ${pxToRem(240)}rem;
   }
 `;
+
+export const TimerNotBox = styled.div`
+  width: 268px;
+  margin-bottom: 47px;
+  color: ${color.main};
+  font-size: ${pxToRem(16)}rem;
+  text-align: center;
+`;
