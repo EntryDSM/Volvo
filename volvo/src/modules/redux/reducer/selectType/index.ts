@@ -101,7 +101,7 @@ const SelectTypeReducer = createReducer<SelectTypeState, selectTypeActionType>(i
     applicationType: applicationTypeResponseToStatus(action.payload.application_type),
     educationalStatus: action.payload.educational_status,
     graduatedAt: action.payload.graduated_at,
-    isOutOfHeadcount: action.payload.is_out_of_headcount,
+    isOutOfHeadcount: action.payload.out_of_headcount,
   }),
   [GET_SELECTTYPE_FAILURE]: (state, action) => ({
     ...state,

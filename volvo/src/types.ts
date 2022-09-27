@@ -53,7 +53,7 @@ export interface selectTypeInterface {
   daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
-  is_out_of_headcount: boolean;
+  out_of_headcount: boolean;
 }
 
 export interface selectTypeRequestInterface {

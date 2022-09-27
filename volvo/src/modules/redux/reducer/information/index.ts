@@ -230,6 +230,7 @@ const informationReducer = createReducer<InformationState, informationActionType
   [GED_SCORE_FAILURE]: (state, action) => ({
     ...state,
     error: action.payload,
+    totalScore: 0,
     isSuccessSaveGedScore: false,
   }),
   [GET_GED_SCORE_SUCCESS]: (state, action) => ({
