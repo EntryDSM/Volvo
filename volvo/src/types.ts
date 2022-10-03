@@ -53,7 +53,7 @@ export interface selectTypeInterface {
   daejeon: boolean | null;
   application_remark: string | null;
   graduated_at: string | null;
-  is_out_of_headcount: boolean;
+  out_of_headcount: boolean;
 }
 
 export interface selectTypeRequestInterface {
@@ -107,6 +107,8 @@ export interface userResponse {
   application_type: string;
   self_introduce: string;
   study_plan: string;
+  educational_status: string;
+  //졸업 예정자 졸업자 검정고시
 }
 
 // status

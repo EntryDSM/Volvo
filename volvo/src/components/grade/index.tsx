@@ -15,6 +15,7 @@ interface Props {
   truancy: number; //무단 결석
   grade: GradeType;
   isSuccessSaveGrade?: boolean;
+  isProspectiveGraduate: boolean;
   setInput: (paylode: { name: string; value: number }) => void;
   setGrade: (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => void;
   setAllGrade: (paylode: { value: SubjectScore }) => void;
@@ -28,14 +29,13 @@ const Grade: React.FC<Props> = ({
   truancy,
   grade,
   isSuccessSaveGrade,
+  isProspectiveGraduate,
   setInput,
   setGrade,
   setAllGrade,
 }) => {
   const [disabled, setDisabled] = useState<boolean>(false);
   useEffect(() => {
-    if (volunteerTime > 12) setInput({ name: 'volunteerTime', value: 12 });
-
     if (volunteerTime !== 0) setDisabled(false);
     else setDisabled(true);
   }, [volunteerTime]);
@@ -58,7 +58,7 @@ const Grade: React.FC<Props> = ({
     <s.GradeWrapper>
       <s.GradeTitles>
         <s.GradeSchoolTitle>대덕소프트웨어마이스터고등학교</s.GradeSchoolTitle>
-        <s.GradeBigTitle>{currentYear}년 지원자 성적 입력</s.GradeBigTitle>
+        <s.GradeBigTitle>{currentYear}학년도 지원자 성적 입력</s.GradeBigTitle>
       </s.GradeTitles>
       <Volunteer
         volunteerTime={volunteerTime}
@@ -68,7 +68,12 @@ const Grade: React.FC<Props> = ({
         truancy={truancy}
         setInput={setInput}
       />
-      <GradeTable grade={grade} setGrade={setGrade} setAllGrade={setAllGrade} />
+      <GradeTable
+        grade={grade}
+        setGrade={setGrade}
+        setAllGrade={setAllGrade}
+        isProspectiveGraduate={isProspectiveGraduate}
+      />
       {pagination}
       <ToastPopUp isSuccessSave={isSuccessSaveGrade} />
     </s.GradeWrapper>

@@ -17,6 +17,7 @@ const InitState: IUserState = {
   studyPlanLength: 0,
   selfIntroduceLength: 0,
   applicationType: '',
+  educationalStatus: '',
   error: {
     status: 0,
     message: '',
@@ -69,6 +70,7 @@ const userReducer = (state: IUserState = InitState, action: userActionType): IUs
         studyPlanLength: action.payload.studyPlanLength,
         selfIntroduceLength: action.payload.selfIntroduceLength,
         applicationType: action.payload.applicationType,
+        educationalStatus: action.payload.educationalStatus,
       };
     }
     default: {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Grade from '../../components/grade';
@@ -8,7 +8,8 @@ import { useGrade } from '../../util/hooks/grade';
 import { useUser } from '../../util/hooks/user';
 
 const GradeContainers = () => {
-  const { state, setState } = useGrade();
+  const { state: gradeState, setState: setGradeState } = useGrade();
+  const { state: userState } = useUser();
   const isFinalSubmitDone = useUser().state.isfinalSubmitDone;
   const accessToken = localStorage.getItem('access_token');
   const dispatch = useDispatch();
@@ -25,7 +26,12 @@ const GradeContainers = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [dispatch]);
 
-  return <Grade {...state} {...setState} />;
+  const isProspectiveGraduate = useMemo(
+    () => userState.educationalStatus === 'PROSPECTIVE_GRADUATE',
+    [userState],
+  );
+
+  return <Grade {...gradeState} {...setGradeState} isProspectiveGraduate={isProspectiveGraduate} />;
 };
 
 export default GradeContainers;

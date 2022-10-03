@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { currentYear } from '../../../constance/default';
 import { usePreview } from '../../../util/hooks/preview';
 import * as S from '../style';
@@ -26,6 +26,7 @@ const MainContent: FC<Props> = ({
   buttonClickHandler,
 }) => {
   const preview = usePreview();
+
   const getStringDate = (date: string) => {
     const dateObj = new Date(date);
     const year = dateObj.getFullYear();
@@ -37,14 +38,24 @@ const MainContent: FC<Props> = ({
     return `${year}년 ${month}월 ${day}일 ${hour}시 ${minute}분`;
   };
 
+  const isOnceSave = localStorage.getItem('is_once_save');
+
   const finalBtnClickHandler = () => {
     preview.setState.getFinalPdf();
   };
 
+  useEffect(() => {
+    if (isFinalSubmitDone && !isOnceSave) {
+      finalBtnClickHandler();
+      alert('pdf 다운로드가 되지 않았다면 아래 다운버튼을 눌러주세요!');
+      localStorage.setItem('is_once_save', 'true');
+    }
+  }, [isFinalSubmitDone, isOnceSave]);
+
   return (
     <S.MainContentWrapper>
       <S.MainSubTitle>대덕소프트웨어마이스터고등학교</S.MainSubTitle>
-      <S.MainTitle>{currentYear}년 신입생 모집</S.MainTitle>
+      <S.MainTitle>{currentYear}학년도 신입생 모집</S.MainTitle>
       <div>
         <S.MainDescription className='mainDescription'>{title}</S.MainDescription>
         <S.MainDescription className={'subDescription'}>

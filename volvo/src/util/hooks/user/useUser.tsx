@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { getUser, setName, setPhoneNumber } from '../../../modules/redux/action/user';
 import { useSelectState } from '../default';
 
-const useSignup = () => {
+const useUser = () => {
   const dispatch = useDispatch();
   const state = useSelectState().user;
   const setState = {
@@ -19,4 +19,4 @@ const useSignup = () => {
   return { state, setState };
 };
 
-export default useSignup;
+export default useUser;

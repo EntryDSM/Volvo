@@ -29,8 +29,9 @@ export const useGrade = () => {
       setStateG(state);
     }
   }, [state]);
-  
+
   const dispatch = useDispatch();
+
   const setState = {
     setInput: useCallback(
       (paylode: { name: string; value: number }) => dispatch(setInput(paylode)),
@@ -56,7 +57,6 @@ export const useGrade = () => {
     setAllGrade: useCallback(
       (paylode: { value: SubjectScore }) => {
         const score = paylode.value.repeat(4);
-
         const gradePaylode = {
           grade: (Object as any).assign(
             ...Object.keys(state.grade).map(item => ({ [item]: score })),

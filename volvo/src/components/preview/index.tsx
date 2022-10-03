@@ -35,7 +35,7 @@ const Preview: FC<Props> = props => {
     <S.Preview>
       <div>
         <S.School>{school}</S.School>
-        <S.Title>{currentYear}년 지원자 원서 미리보기</S.Title>
+        <S.Title>{currentYear}학년도 지원자 원서 미리보기</S.Title>
       </div>
       <S.PdfHeader>입학원서 미리보기</S.PdfHeader>
       <S.PdfBox>

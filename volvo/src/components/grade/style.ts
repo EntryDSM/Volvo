@@ -181,18 +181,24 @@ export const VolunteerColumnDetailsWrapper = styled.div`
   }
 `;
 //gradeColumn
-export const GradeColumnFontWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const GradeColumnFontWrapper = styled.td<{ isBlock: boolean }>`
+  background-color: ${({ isBlock }) => (isBlock ? '#bbbbbb' : 'white')};
 
-  > p {
-    font-size: 18px;
-    margin: 0 3px;
-    :hover {
-      color: rgb(245, 114, 120);
-      font-weight: 900;
-      cursor: pointer;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > p {
+      font-size: 18px;
+      margin: 0 3px;
+      ${({ isBlock }) =>
+        isBlock
+          ? `color:#bbbbbb;`
+          : `cursor: pointer;
+      :hover {
+        color: rgb(245, 114, 120);
+        font-weight: 900;
+      }`}
     }
   }
 `;

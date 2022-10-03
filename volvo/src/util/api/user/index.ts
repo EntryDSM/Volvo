@@ -11,6 +11,7 @@ export const userResponseToUser = (response: userResponse) => {
     selfIntroduceLength: response.self_introduce ? response.self_introduce.length : 0,
     studyPlanLength: response.study_plan ? response.study_plan.length : 0,
     applicationType: response.application_type,
+    educationalStatus: response.educational_status,
   };
 };
 

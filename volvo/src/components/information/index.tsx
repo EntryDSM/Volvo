@@ -164,7 +164,7 @@ const Information: FC<Props> = props => {
     <S.Information>
       <div>
         <S.School>{school}</S.School>
-        <S.Title>{currentYear}년 지원자 인적사항</S.Title>
+        <S.Title>{currentYear}학년도 지원자 인적사항</S.Title>
       </div>
       <S.InfoExplain>
         저장된 정보가 뜨지 않을 때 새로고침하시면 저장된 정보를 확인하실 수 있습니다.

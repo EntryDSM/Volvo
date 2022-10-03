@@ -5,7 +5,9 @@ const global = createGlobalStyle`
 * {
     outline: none;
     box-sizing: border-box;
+    user-select: none;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

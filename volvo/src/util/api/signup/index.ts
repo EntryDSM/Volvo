@@ -59,7 +59,10 @@ export const chekckVertifyCode = async (_: any, checkVertifyRequest: checkVertif
 export const resetPassword = async (_: any, resetPasswordRequest: resetPasswordRequest) => {
   try {
     const request = getRequest();
-    await request.put(uri.resetPassword, resetPasswordRequest);
+    await request.put(uri.resetPassword, {
+      email: resetPasswordRequest.email,
+      new_password: resetPasswordRequest.password,
+    });
   } catch (error) {
     throw error;
   }

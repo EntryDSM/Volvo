@@ -226,6 +226,7 @@ export const ModalNoticeSubTitle = styled.div`
 `;
 
 export const ModalNoticeText = styled.div`
+  white-space: pre-wrap;
   font-size: ${pxToRem(18)}rem;
   margin: ${pxToRem(8)}rem;
 `;
@@ -246,4 +247,12 @@ export const ModalNoticeButtonWrapper = styled.div`
   > div {
     width: ${pxToRem(240)}rem;
   }
+`;
+
+export const TimerNotBox = styled.div`
+  width: 268px;
+  margin-bottom: 47px;
+  color: ${color.main};
+  font-size: ${pxToRem(16)}rem;
+  text-align: center;
 `;

@@ -87,7 +87,7 @@ const ChooseRemark: FC<Props> = props => {
       })}
       <S.Explain>
         <span>*</span>
-        해당하는 특기사항에 체크해주세요
+        해당하는 특기사항에 체크해주세요. 버튼을 한번 더 누를 시 선택이 취소됩니다.
       </S.Explain>
     </S.Line>
   );

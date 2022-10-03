@@ -56,10 +56,17 @@ const VertifyCodeModal: FC<Props> = ({ goNext, goPrev }) => {
     if (state.vertifyCodeChecked) setTime(0);
     stopTimer(timer as TimeOut);
   }, [state.vertifyCodeChecked]);
+
   return (
     <S.ModalMain>
       <S.ModalTitle bottom={25}>비밀번호 재설정</S.ModalTitle>
-      <Timer time={time} />
+      {!!time ? (
+        <Timer time={time} />
+      ) : state.vertifyCodeChecked ? (
+        <S.TimerNotBox>이메일 인증이 완료되었습니다.</S.TimerNotBox>
+      ) : (
+        <S.TimerNotBox>인증시간이 만료되었습니다.</S.TimerNotBox>
+      )}
       <S.ModalSubTitle>전송된 인증코드를 입력해주세요</S.ModalSubTitle>
       <Input
         inputChangeHandler={vertifyCodeInputChangeHandler}

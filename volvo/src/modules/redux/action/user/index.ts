@@ -34,6 +34,7 @@ export const getUserSuccess = createAction(GET_USER_SUCCESS)<{
   studyPlanLength: number;
   selfIntroduceLength: number;
   applicationType: string;
+  educationalStatus: string;
 }>();
 
 export type userActionType =
