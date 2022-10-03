@@ -41,17 +41,17 @@ const SignUp: FC<Props> = props => {
       signup({ phoneNumber, password, name });
   };
 
-  const isSamePasswordAndPasswordCheck = useMemo(() => passwordCheck === password, [
-    password,
-    passwordCheck,
-  ]);
+  const isSamePasswordAndPasswordCheck = useMemo(
+    () => passwordCheck === password,
+    [password, passwordCheck],
+  );
 
   return (
     <S.SignUp>
       <div>
         <S.SignUpHeaderWrapper>
           <S.SignUpSubTitle>대덕소프트웨어마이스터고등학교</S.SignUpSubTitle>
-          <S.SignUpTitle>{currentYear}년 지원자 회원가입</S.SignUpTitle>
+          <S.SignUpTitle>{currentYear}학년도 지원자 회원가입</S.SignUpTitle>
         </S.SignUpHeaderWrapper>
         <SignUpRule setRuleCheck={props.setRuleCheck} ruleCheck={props.ruleCheck} />
         <SignUpForm {...props} />

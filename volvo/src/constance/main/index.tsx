@@ -103,7 +103,7 @@ const mainConstance: Record<statusType, processType> = {
     isOutsideUrl: true,
   },
   [END]: {
-    title: <p>{currentYear}년 입학 전형이 모두 끝났습니다.</p>,
+    title: <p>{currentYear}학년도 입학 전형이 모두 끝났습니다.</p>,
     getDescription: () => <p>내년을 기약해 주세요.</p>,
     isHaveTerm: true,
     buttonText: '학교로 이동',

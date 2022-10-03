@@ -78,7 +78,7 @@ const SelectType: FC<Props> = props => {
     <S.SelectType>
       <div>
         <S.School>{school}</S.School>
-        <S.Title>{currentYear}년 지원자 전형 구분</S.Title>
+        <S.Title>{currentYear}학년도 지원자 전형 구분</S.Title>
       </div>
       <SelectLine {...props} />
       {pagination}

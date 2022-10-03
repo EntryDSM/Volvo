@@ -11,7 +11,7 @@ interface Props {
 const YearSelect: FC<Props> = props => {
   const { birthYear, setBirthYear } = props;
   const [active, setActive] = useState(false);
-  const yearArray = [...Array(20)].map((_, i) => currentYear - i);
+  const yearArray = [...Array(24)].map((_, i) => currentYear - i).reverse();
 
   const selectClickHandler = () => {
     setActive(!active);

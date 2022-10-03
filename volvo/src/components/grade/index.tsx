@@ -34,8 +34,6 @@ const Grade: React.FC<Props> = ({
 }) => {
   const [disabled, setDisabled] = useState<boolean>(false);
   useEffect(() => {
-    if (volunteerTime > 12) setInput({ name: 'volunteerTime', value: 12 });
-
     if (volunteerTime !== 0) setDisabled(false);
     else setDisabled(true);
   }, [volunteerTime]);
@@ -58,7 +56,7 @@ const Grade: React.FC<Props> = ({
     <s.GradeWrapper>
       <s.GradeTitles>
         <s.GradeSchoolTitle>대덕소프트웨어마이스터고등학교</s.GradeSchoolTitle>
-        <s.GradeBigTitle>{currentYear}년 지원자 성적 입력</s.GradeBigTitle>
+        <s.GradeBigTitle>{currentYear}학년도 지원자 성적 입력</s.GradeBigTitle>
       </s.GradeTitles>
       <Volunteer
         volunteerTime={volunteerTime}

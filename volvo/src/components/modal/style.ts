@@ -226,6 +226,7 @@ export const ModalNoticeSubTitle = styled.div`
 `;
 
 export const ModalNoticeText = styled.div`
+  white-space: pre-wrap;
   font-size: ${pxToRem(18)}rem;
   margin: ${pxToRem(8)}rem;
 `;

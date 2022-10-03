@@ -36,7 +36,7 @@ import InformationState from './interface';
 
 const initState: InformationState = {
   sex: '',
-  birthYear: 2021,
+  birthYear: 2007,
   birthMonth: 1,
   birthDate: 1,
   parentName: '',
@@ -147,7 +147,7 @@ const informationReducer = createReducer<InformationState, informationActionType
   [GET_INFORMATION_SUCCESS]: (state, action) => ({
     ...state,
     sex: action.payload.sex,
-    birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2021,
+    birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2007,
     birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(5, 7)) : 1,
     birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(8)) : 1,
     parentName: action.payload.parent_name,
@@ -165,7 +165,7 @@ const informationReducer = createReducer<InformationState, informationActionType
   [GET_GRADUATE_INFORMATION_SUCCESS]: (state, action) => ({
     ...state,
     sex: action.payload.sex,
-    birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2021,
+    birthYear: action.payload.birthday ? Number(action.payload.birthday.slice(0, 4)) : 2007,
     birthMonth: action.payload.birthday ? Number(action.payload.birthday.slice(4, 6)) : 1,
     birthDate: action.payload.birthday ? Number(action.payload.birthday.slice(6)) : 1,
     parentName: action.payload.parent_name,

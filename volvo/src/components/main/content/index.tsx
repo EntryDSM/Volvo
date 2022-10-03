@@ -55,7 +55,7 @@ const MainContent: FC<Props> = ({
   return (
     <S.MainContentWrapper>
       <S.MainSubTitle>대덕소프트웨어마이스터고등학교</S.MainSubTitle>
-      <S.MainTitle>{currentYear}년 신입생 모집</S.MainTitle>
+      <S.MainTitle>{currentYear}학년도 신입생 모집</S.MainTitle>
       <div>
         <S.MainDescription className='mainDescription'>{title}</S.MainDescription>
         <S.MainDescription className={'subDescription'}>
