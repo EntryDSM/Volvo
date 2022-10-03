@@ -8,6 +8,7 @@ interface IUserState {
   selfIntroduceLength: number;
   studyPlanLength: number;
   applicationType: string;
+  educationalStatus: string;
   error: error;
 }
 

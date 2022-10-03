@@ -7,13 +7,15 @@ import { Subject, SubjectScore } from '../../../types';
 
 interface Props {
   grade: GradeType;
+  isProspectiveGraduate: boolean;
   setGrade: (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => void;
   setAllGrade: (paylode: { value: SubjectScore }) => void;
 }
 
 const GradeTable: React.FC<Props> = props => {
-  const { setGrade, setAllGrade, grade } = props;
+  const { setGrade, setAllGrade, grade, isProspectiveGraduate } = props;
 
+  console.log(isProspectiveGraduate);
   const GradeTableWrap: React.FC<subjects> = ({ subject, subjectEn }, i) => {
     const [gradeArray, setGradeArray] = useState(['']);
     useEffect(() => {
@@ -27,14 +29,13 @@ const GradeTable: React.FC<Props> = props => {
       <tr key={i} style={{ height: 75 }}>
         <th>{subject}</th>
         {listArray.map((_, index: number) => (
-          <td key={index}>
-            <GradeColumn
-              setGrade={setGrade}
-              gradeState={gradeArray[index]}
-              stateSequence={index}
-              subjectEn={subjectEn}
-            ></GradeColumn>
-          </td>
+          <GradeColumn
+            isBlock={isProspectiveGraduate && index === 0}
+            setGrade={setGrade}
+            gradeState={gradeArray[index]}
+            stateSequence={index}
+            subjectEn={subjectEn}
+          />
         ))}
       </tr>
     );

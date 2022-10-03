@@ -15,6 +15,7 @@ interface Props {
   truancy: number; //무단 결석
   grade: GradeType;
   isSuccessSaveGrade?: boolean;
+  isProspectiveGraduate: boolean;
   setInput: (paylode: { name: string; value: number }) => void;
   setGrade: (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => void;
   setAllGrade: (paylode: { value: SubjectScore }) => void;
@@ -28,6 +29,7 @@ const Grade: React.FC<Props> = ({
   truancy,
   grade,
   isSuccessSaveGrade,
+  isProspectiveGraduate,
   setInput,
   setGrade,
   setAllGrade,
@@ -66,7 +68,12 @@ const Grade: React.FC<Props> = ({
         truancy={truancy}
         setInput={setInput}
       />
-      <GradeTable grade={grade} setGrade={setGrade} setAllGrade={setAllGrade} />
+      <GradeTable
+        grade={grade}
+        setGrade={setGrade}
+        setAllGrade={setAllGrade}
+        isProspectiveGraduate={isProspectiveGraduate}
+      />
       {pagination}
       <ToastPopUp isSuccessSave={isSuccessSaveGrade} />
     </s.GradeWrapper>
