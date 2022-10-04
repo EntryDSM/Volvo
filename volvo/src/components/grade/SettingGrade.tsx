@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { GColumnFactor } from '../../constance/grade';
 import { SubjectScore } from '../../types';
 import * as s from './style';
 interface Props {
-  setAllGrade: (paylode: { value: SubjectScore }) => void;
+  isProspectiveGraduate: boolean;
+  setAllGrade: (paylode: { value: SubjectScore; isProspectiveGraduate: boolean }) => void;
 }
-const SettingGrade: React.FC<Props> = Props => {
+const SettingGrade: React.FC<Props> = ({ setAllGrade, isProspectiveGraduate }) => {
   const [isClick, setIsClick] = useState<number | null>(null);
-  const GradeOnClick = (value: SubjectScore, e: React.MouseEvent<HTMLDivElement>) => {
-    setIsClick(Number(e.currentTarget.id));
-    Props.setAllGrade({ value: value });
-  };
+  const GradeOnClick = useCallback(
+    (value: SubjectScore, e: React.MouseEvent<HTMLDivElement>) => {
+      setIsClick(Number(e.currentTarget.id));
+      setAllGrade({ value, isProspectiveGraduate });
+    },
+    [setAllGrade],
+  );
   return (
     <s.SettingGradeWrapper>
       <p>전체 성적 초기화</p>

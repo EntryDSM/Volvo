@@ -31,7 +31,7 @@ const GradeContainers = () => {
     [userState],
   );
 
-  return <Grade {...gradeState} {...setGradeState} isProspectiveGraduate={isProspectiveGraduate} />;
+  return <Grade isProspectiveGraduate={isProspectiveGraduate} {...gradeState} {...setGradeState} />;
 };
 
 export default GradeContainers;

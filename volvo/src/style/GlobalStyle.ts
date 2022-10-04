@@ -13,6 +13,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+input:disabled{
+  background-color: #cfcfcf;
+}
 
 /* Firefox */
 input[type=number] {

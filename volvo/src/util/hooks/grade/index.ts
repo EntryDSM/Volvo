@@ -55,11 +55,15 @@ export const useGrade = () => {
       [dispatch, stateG],
     ),
     setAllGrade: useCallback(
-      (paylode: { value: SubjectScore }) => {
-        const score = paylode.value.repeat(4);
+      (paylode: { value: SubjectScore; isProspectiveGraduate: boolean }) => {
+        const score = paylode.isProspectiveGraduate
+          ? paylode.value.repeat(3)
+          : paylode.value.repeat(4);
         const gradePaylode = {
           grade: (Object as any).assign(
-            ...Object.keys(state.grade).map(item => ({ [item]: score })),
+            ...Object.keys(state.grade).map(item => ({
+              [item]: paylode.isProspectiveGraduate ? `X${score}` : score,
+            })),
           ) as GradeSubjectState,
         };
         dispatch(setGrade(gradePaylode));

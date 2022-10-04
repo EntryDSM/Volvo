@@ -18,7 +18,7 @@ interface Props {
   isProspectiveGraduate: boolean;
   setInput: (paylode: { name: string; value: number }) => void;
   setGrade: (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => void;
-  setAllGrade: (paylode: { value: SubjectScore }) => void;
+  setAllGrade: (paylode: { value: SubjectScore; isProspectiveGraduate: boolean }) => void;
 }
 
 const Grade: React.FC<Props> = ({

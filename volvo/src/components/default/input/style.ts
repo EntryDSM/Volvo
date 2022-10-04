@@ -14,6 +14,7 @@ export const Input = styled.input<{
   border: 1px solid ${color.fail};
   padding: 0px 10px;
   font-size: ${pxToRem(14)}rem;
+
   ${({ width, height, margin }) => css`
     width: ${pxToRem(width)}rem;
     height: ${height ? pxToRem(height) : pxToRem(40)}rem;
@@ -29,6 +30,7 @@ export const PasswordInput = styled.div<{
   border-radius: 5px;
   outline: none;
   box-sizing: border-box;
+  background-color: #cfcfcf;
   ${({ width, height, margin }) => css`
     width: ${pxToRem(width)}rem;
     height: ${height ? pxToRem(height) : pxToRem(40)}rem;

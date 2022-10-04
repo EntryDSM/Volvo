@@ -12,7 +12,7 @@ export const Button = styled.button<{
     width: ${width ? pxToRem(width) : pxToRem(78)}rem;
     height: ${height ? pxToRem(height) : pxToRem(40)}rem;
     border: 1px solid ${color.fail};
-    background-color: ${disable ? '#f1f1f1' : color.backgorund};
+    background-color: ${disable ? '#cfcfcf' : color.backgorund};
     margin: ${margin ? margin : ''};
     border-radius: 8px;
     color: ${disable ? '#606060' : 'black'};

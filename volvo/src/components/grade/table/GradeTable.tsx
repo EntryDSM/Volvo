@@ -9,7 +9,7 @@ interface Props {
   grade: GradeType;
   isProspectiveGraduate: boolean;
   setGrade: (paylode: { subject: Subject; value: SubjectScore; stateSequence: number }) => void;
-  setAllGrade: (paylode: { value: SubjectScore }) => void;
+  setAllGrade: (paylode: { value: SubjectScore; isProspectiveGraduate: boolean }) => void;
 }
 
 const GradeTable: React.FC<Props> = props => {
@@ -45,7 +45,7 @@ const GradeTable: React.FC<Props> = props => {
     <s.GradeTableWrapper>
       <s.GradeSettingWrapper>
         <s.GradeTableTitle>성적입력</s.GradeTableTitle>
-        <SettingGrade setAllGrade={setAllGrade}></SettingGrade>
+        <SettingGrade setAllGrade={setAllGrade} isProspectiveGraduate={isProspectiveGraduate} />
       </s.GradeSettingWrapper>
 
       <s.GradeTableFrame style={{ width: '100%', tableLayout: 'fixed' }}>
