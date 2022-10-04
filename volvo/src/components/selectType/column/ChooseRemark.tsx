@@ -15,17 +15,9 @@ const ChooseRemark: FC<Props> = props => {
   const [isBlock, setIsBlock] = useState<boolean>(false);
 
   useEffect(() => {
-    if (applicationType === 'SOCIAL') {
-      setIsOutOfHeadCount(false);
-      setIsCheck({ nationalMerit: true, specialAdmission: true });
-      setIsBlock(true);
-      if (applicationRemark === 'PRIVILEGED_ADMISSION' || applicationRemark === 'NATIONAL_MERIT')
-        setRemark('');
-    } else {
-      setIsCheck({ nationalMerit: false, specialAdmission: false });
-      setIsBlock(false);
-    }
-  }, [applicationType, applicationRemark]);
+    setIsCheck({ nationalMerit: false, specialAdmission: false });
+    setIsBlock(false);
+  }, []);
 
   useEffect(() => {
     switch (applicationRemark) {
@@ -38,31 +30,28 @@ const ChooseRemark: FC<Props> = props => {
         setIsOutOfHeadCount(true);
         break;
       default:
-        if (applicationType !== 'SOCIAL') {
-          setIsOutOfHeadCount(false);
-          setIsCheck({ nationalMerit: false, specialAdmission: false });
-        }
+        setIsOutOfHeadCount(false);
+        setIsCheck({ nationalMerit: false, specialAdmission: false });
         break;
     }
   }, [applicationRemark, applicationType]);
 
   const onCheckBtnClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     let dataId = event.currentTarget.dataset.id;
-    if (applicationType !== 'SOCIAL') {
-      switch (dataId) {
-        case 'nationalMerit':
-          setIsCheck({ nationalMerit: !isCheck.nationalMerit, specialAdmission: false });
-          if (!isCheck.nationalMerit) {
-            setRemark('NATIONAL_MERIT');
-          } else setRemark('');
-          break;
-        case 'specialAdmission':
-          setIsCheck({ nationalMerit: false, specialAdmission: !isCheck.specialAdmission });
-          if (!isCheck.specialAdmission) {
-            setRemark('PRIVILEGED_ADMISSION');
-          } else setRemark('');
-          break;
-      }
+
+    switch (dataId) {
+      case 'nationalMerit':
+        setIsCheck({ nationalMerit: !isCheck.nationalMerit, specialAdmission: false });
+        if (!isCheck.nationalMerit) {
+          setRemark('NATIONAL_MERIT');
+        } else setRemark('');
+        break;
+      case 'specialAdmission':
+        setIsCheck({ nationalMerit: false, specialAdmission: !isCheck.specialAdmission });
+        if (!isCheck.specialAdmission) {
+          setRemark('PRIVILEGED_ADMISSION');
+        } else setRemark('');
+        break;
     }
   };
   return (

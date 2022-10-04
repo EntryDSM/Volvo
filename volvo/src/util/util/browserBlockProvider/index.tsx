@@ -15,7 +15,6 @@ const BrowserBlockProvider = ({ acceptBrowser, children }: Props) => {
     })
     .includes(true);
 
-  console.log(agent.indexOf('safari'));
   if (isAcceptBrowser) {
     return <>{children}</>;
   } else {
