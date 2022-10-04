@@ -26,11 +26,12 @@ export const PasswordInput = styled.div<{
   width: number;
   height?: number;
   margin?: string;
+  disabled?: boolean;
 }>`
   border-radius: 5px;
   outline: none;
   box-sizing: border-box;
-  background-color: #cfcfcf;
+  background-color: ${({ disabled }) => (disabled ? '#cfcfcf' : 'white')};
   ${({ width, height, margin }) => css`
     width: ${pxToRem(width)}rem;
     height: ${height ? pxToRem(height) : pxToRem(40)}rem;

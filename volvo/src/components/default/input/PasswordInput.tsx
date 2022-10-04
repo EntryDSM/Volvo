@@ -28,7 +28,7 @@ const PasswordInput: FC<Props> = ({
     return isPasswordWatchAble ? 'text' : 'password';
   };
   return (
-    <S.PasswordInput width={width} height={height} margin={margin}>
+    <S.PasswordInput width={width} height={height} margin={margin} disabled={disable}>
       <input
         disabled={disable}
         placeholder={placeholder}
