@@ -161,6 +161,10 @@ export const VolunteerColumnInputWrapper = styled.div`
     height: 2.25rem;
     text-align: center;
     font-size: 18px;
+    ::-webkit-inner-spin-button,
+    ::-webkit-outer-spin-button {
+      display: none;
+    }
   }
   > p {
     margin-left: 15px;
