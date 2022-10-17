@@ -54,7 +54,7 @@ const ChooseGraduationDate: FC<Props> = props => {
       return (
         <S.Explain>
           <span>*</span>
-          졸업 예정자의 경우 졸업 예정월만 선택해주세요
+          졸업 예정자의 경우 졸업 예정 년,월을 선택해주세요.
         </S.Explain>
       );
   }, [educationalStatus]);
@@ -65,7 +65,7 @@ const ChooseGraduationDate: FC<Props> = props => {
       <YearSelect
         graduationYear={graduationYear}
         setGraduationYear={setGraduationYear}
-        disabled={isProspective ? 'block' : 'normal'}
+        disabled={'normal'}
       />
       <S.Date>년</S.Date>
       <MonthSelect graduationMonth={graduationMonth} setGraduationMonth={setGraduationMonth} />

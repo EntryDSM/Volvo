@@ -14,7 +14,7 @@ const YearSelect: FC<Props> = props => {
   const [active, setActive] = useState(false);
   const date = new Date();
   const year = date.getFullYear() - 8;
-  const YearArray = [...Array(10)].map((_, i) => i + year);
+  const YearArray = [...Array(11)].map((_, i) => i + year);
 
   useEffect(() => {
     if (disabled === 'block') setGraduationYear(currentYear);
