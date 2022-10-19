@@ -20,8 +20,12 @@ const Progress: FC<Props> = ({ status, date }) => {
   const getLeftDate = (date: string): number => {
     const dateObj = new Date(date);
     const nowDateObj = new Date();
-    const leftSecond = dateObj.getTime() - nowDateObj.getTime();
-    return Math.floor(leftSecond / SECOND_DATE);
+    // console.log(dateObj.getDate());
+    // console.log(nowDateObj.getDate());
+
+    const leftSecond = dateObj.getDate() - nowDateObj.getDate();
+    // console.log(leftSecond);
+    return leftSecond;
   };
   return (
     <S.Progress>
