@@ -21,9 +21,19 @@ const SetPhoneNumberModal: FC<Props> = ({ goNext }) => {
   };
 
   const sub = useMemo(() => {
-    if (isHaveError(state.error.message))
-      return <S.ModalErrorText>유저가 없습니다.</S.ModalErrorText>;
-    else if (!isEmail(state.vertifyPhoneNumber) && state.vertifyPhoneNumber.length > 0)
+    if (isHaveError(state.error.message)) {
+      if (state.error.status === 429) {
+        return (
+          <S.ModalErrorText>
+            너무 많은 요청을 시도했습니다. 잠시후에 다시 요청해주세요.
+          </S.ModalErrorText>
+        );
+      } else if (state.error.status === 409) {
+        return <S.ModalErrorText>이미 검증된 계정입니다.</S.ModalErrorText>;
+      } else if (state.error.status === 401) {
+        return <S.ModalErrorText>코드가 올바르지 않습니다.</S.ModalErrorText>;
+      } else return <S.ModalErrorText>유저가 존재하지 않습니다.</S.ModalErrorText>;
+    } else if (!isEmail(state.vertifyPhoneNumber) && state.vertifyPhoneNumber.length > 0)
       return <S.ModalErrorText>이메일 형식을 확인해 주세요.</S.ModalErrorText>;
     else return <S.ModalSubTitle>본인인증시 사용했던 이메일을 입력해주세요.</S.ModalSubTitle>;
   }, [state.error, state.vertifyPhoneNumber]);
