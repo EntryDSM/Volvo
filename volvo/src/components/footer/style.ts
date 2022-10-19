@@ -46,8 +46,9 @@ export const FooterButton = styled.p`
 
 export const FooterImgButtonDiv = styled.div`
   display: flex;
+  gap: 16px;
+  margin-left: ${pxToRem(16)}rem;
   justify-content: flex-end;
-  padding: 8px;
   box-sizing: border-box;
 `;
 
